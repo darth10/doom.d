@@ -1,19 +1,6 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-;;; KEYS
-
-(unbind-key "C-h C-l")
-(bind-key "C-h C-l" #'describe-personal-keybindings)
-
-(unbind-key "C-z")
-(bind-key "C-s" #'save-buffer)
-
-(bind-key "M-s s" #'isearch-forward)
-(bind-key "M-s M-s" #'isearch-forward)
-(bind-key "M-s r" #'isearch-backward)
-(bind-key "M-s M-r" #'isearch-backward)
-(bind-key "<f3>"  #'isearch-repeat-forward isearch-mode-map)
-(bind-key "S-<f3>" #'isearch-repeat-backward isearch-mode-map)
+;;; AUTOLOADS
 
 (defun core/match-paren (arg)
   "Go to the matching paren if the cursor is on a paren."
@@ -21,8 +8,6 @@
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (message "%s" "No parenthesis under cursor!"))))
-
-(bind-key "C-%" #'core/match-paren)
 
 ;;;  MODULES
 
@@ -42,7 +27,6 @@
   (setq which-key-max-description-length 24
         which-key-max-display-columns 4
         which-key-separator " : ")
-  (unbind-key "C-h C-h")
   (which-key-mode t))
 
 (defcustom holy-emacs-modeline-god-mode-indicator ":"
@@ -81,48 +65,23 @@
 
 (after! org
   (remove-hook! 'org-mode-hook #'org-bullets-mode)
-  (setq org-startup-indented nil)
-  (bind-key "C-c n" #'org-agenda org-mode-map))
+  (setq org-startup-indented nil))
 
 (after! ox-reveal
   (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"))
 
-(after! company
-  (unbind-key "C-;")
-  (bind-key "M-SPC" #'company-manual-begin))
-
-(after! magit
-  (bind-key "C-: :" #'magit-status)
-  (bind-key "C-: C-:" #'magit-status))
-
-(after! lispy
-  (unbind-key "C-:" lispy-mode-map)
-  (unbind-key "M-s" lispy-mode-map))
-
-(after! multiple-cursors-core
-  (bind-key "C-<" #'mc/mark-previous-like-this)
-  (bind-key "C->" #'mc/mark-next-like-this))
-
 (use-package! helm-swoop
   :after helm
-  :bind (("M-]" . helm-swoop)
-         ("M-s ]" . helm-swoop)))
+  :commands (helm-swoop))
 
 (use-package! helm-ls-git
   :after helm
-  :bind (("C-: f" . helm-ls-git-ls)
-         ("C-: C-f" . helm-ls-git-ls)))
+  :commands (helm-ls-git-ls))
 
 (use-package! god-mode
+  :commands (god-local-mode god-mode-all)
   :hook ((after-init . god-mode-all)
          (overwrite-mode . +god--toggle-on-overwrite))
-  :bind (("<escape>" . god-local-mode)
-         ("S-<escape>" . god-mode-all)
-         ("M-i" . god-local-mode)
-         :map god-local-mode-map
-         ("." . repeat)
-         ("z" . repeat)
-         ("i" . god-local-mode))
   :init
   (defun core--configure-mode ()
     "Configure cursor type and color depending on mode."
@@ -206,7 +165,6 @@
 
 (defconst core--scratch-message-help-text
   "To open a file, type C-x C-f.
-To display all available key bindings, type C-h C-l.
 To quit a partially entered command, type C-g.
 To quit Emacs, type C-x C-c.
 
@@ -248,3 +206,40 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (add-hook 'window-setup-hook
             #'(lambda ()
                 (w32-send-sys-command 61488))))
+
+;;; KEYS
+
+(map! "<escape>"   #'god-local-mode
+      "S-<escape>" #'god-mode-all
+      "C-s"        #'save-buffer
+      "C-%"        #'core/match-paren
+      "C-<"        #'mc/mark-previous-like-this
+      "C->"        #'mc/mark-next-like-this
+      "M-i"        #'god-local-mode
+      "M-SPC"      #'company-manual-begin
+      "M-]"        #'helm-swoop
+      "C-z"        nil                  ; suspend-frame
+      "C-;"        nil                  ; company-manual-begin
+      (:prefix "M-s"
+        "s"        #'isearch-forward
+        "M-s"      #'isearch-forward
+        "r"        #'isearch-backward
+        "M-r"      #'isearch-backward
+        "]"        #'helm-swoop)
+      (:prefix "C-:"
+        ":"        #'magit-status
+        "C-:"      #'magit-status
+        "f"        #'helm-ls-git-ls
+        "C-f"      #'helm-ls-git-ls)
+      (:map god-local-mode-map
+        "."        #'repeat
+        "z"        #'repeat
+        "i"        #'god-local-mode)
+      (:map isearch-mode-map
+        "<f3>"     #'isearch-repeat-forward
+        "S-<f3>"   #'isearch-repeat-backward)
+      (:map lispy-mode-map
+        "C-:"      nil                  ; lispy-colon
+        "M-s"      nil)                 ; lispy-splice
+      (:map org-mode-map
+        "C-c n"    #'org-agenda))
