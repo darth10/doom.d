@@ -11,9 +11,6 @@
 
 ;;;  MODULES
 
-(remove-hook! 'text-mode-hook #'vi-tilde-fringe-mode)
-(remove-hook! 'prog-mode-hook #'vi-tilde-fringe-mode)
-
 (after! dired
   (remove-hook! 'dired-mode-hook #'dired-omit-mode))
 
@@ -123,26 +120,25 @@
         (god-local-mode-pause)
       (god-local-mode-resume)))
 
-  (let ((exempt-modes (list
-                       'Custom-mode
-                       'Info-mode
-                       'ag-mode
-                       'calendar-mode
-                       'calculator-mode
-                       'cider-test-report-mode
-                       'compilation-mode
-                       'debugger-mode
-                       'dired-mode
-                       'edebug-mode
-                       'ediff-mode
-                       'eww-mode
-                       'geben-breakpoint-list-mode
-                       'ibuffer-mode
-                       'org-agenda-mode
-                       'recentf-dialog-mode
-                       'sldb-mode
-                       'wdired-mode
-                       )))
+  (let ((exempt-modes '(Custom-mode
+                        Info-mode
+                        ag-mode
+                        calendar-mode
+                        calculator-mode
+                        cider-test-report-mode
+                        compilation-mode
+                        debugger-mode
+                        dired-mode
+                        edebug-mode
+                        ediff-mode
+                        eww-mode
+                        geben-breakpoint-list-mode
+                        ibuffer-mode
+                        org-agenda-mode
+                        recentf-dialog-mode
+                        sldb-mode
+                        wdired-mode
+                        )))
     (cl-loop for mode in exempt-modes
              do (add-to-list 'god-exempt-major-modes mode))))
 
@@ -203,6 +199,9 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 
 (setq-default left-fringe-width 8
               right-fringe-width 8)
+
+(remove-hook! 'text-mode-hook #'vi-tilde-fringe-mode)
+(remove-hook! 'prog-mode-hook #'vi-tilde-fringe-mode)
 
 (blink-cursor-mode t)
 
