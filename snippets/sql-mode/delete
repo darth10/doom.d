@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: delete
+# key: del
+# --
+delete from ${1:tab} where ${2:pkey} = ${3:0}
+$0

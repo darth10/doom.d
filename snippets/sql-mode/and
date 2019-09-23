@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: and
+# key: &
+# --
+and ${1:pkey} = ${2:0} $0

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: selectwhere
+# key: *
+# --
+select ${1:*}
+from ${2:tab} h
+where ${3:pkey} = ${4:0}
+$0

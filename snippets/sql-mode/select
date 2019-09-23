@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: select
+# key: **
+# --
+select ${1:*}
+from ${2:tab} h
+$0
