@@ -213,6 +213,26 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 
 ;;; LANG
 
+;;; elisp
+
+(use-package! eval-sexp-fu
+  :hook ((lisp-mode emacs-lisp-mode eshell-mode) . +eval-sexp-fu--init)
+  :custom-face
+  (eval-sexp-fu-flash ((t (:foreground "DodgerBlue" :background "DarkSlateGray"))))
+  :config
+  (defun +eval-sexp-fu--init ()
+    (require 'eval-sexp-fu)))
+
+;;; clj
+
+(after! cider
+  (require 'flycheck-clj-kondo))
+
+(use-package! cider-eval-sexp-fu
+  :after (clojure-mode cider))
+
+;;; rkt
+
 (after! racket-mode
   (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode)))
 
