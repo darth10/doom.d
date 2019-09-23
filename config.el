@@ -213,14 +213,21 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
       "S-<escape>" #'god-mode-all
       "C-s"        #'save-buffer
       "C-%"        #'core/match-paren
+      "C--"        #'pop-tag-mark
+      "C-+"        #'er/contract-region
       "C-<"        #'mc/mark-previous-like-this
       "C->"        #'mc/mark-next-like-this
+      "C-<f2>"     #'helm-imenu
       "M-i"        #'god-local-mode
       "M-SPC"      #'company-manual-begin
       "M-]"        #'helm-swoop
+      "M-."        #'xref-find-definitions
+      "<f12>"      #'xref-find-definitions
       "C-z"        nil                  ; suspend-frame
       "C-;"        nil                  ; company-manual-begin
       (:prefix "M-s"
+        "i"        #'helm-occur
+        "M-i"      #'helm-occur
         "s"        #'isearch-forward
         "M-s"      #'isearch-forward
         "r"        #'isearch-backward
@@ -235,10 +242,14 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
         "."        #'repeat
         "z"        #'repeat
         "i"        #'god-local-mode)
+      (:map helm-map
+        "<tab>"    #'helm-execute-persistent-action
+        "C-i"      #'helm-select-action)
       (:map isearch-mode-map
         "<f3>"     #'isearch-repeat-forward
         "S-<f3>"   #'isearch-repeat-backward)
       (:map lispy-mode-map
+        "<f12>"    #'lispy-goto-symbol
         "C-:"      nil                  ; lispy-colon
         "M-s"      nil)                 ; lispy-splice
       (:map org-mode-map

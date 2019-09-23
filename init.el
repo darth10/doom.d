@@ -197,7 +197,7 @@
  '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
  '(doom-modeline-inactive-bar ((t (:inherit mode-line-emphasis))))
  '(doom-modeline-panel ((t (:inherit mode-line-emphasis))))
- '(helm-selection ((t (:inherit bold :background "gray"))))
+ '(helm-selection ((t (:inherit bold :foreground "DodgerBlue" :background "DarkSlateGray"))))
  '(helm-swoop-target-word-face ((t (:background "Springgreen2" :foreground "DimGray"))))
  '(iedit-occurrence ((t (:foreground "Springgreen2" :background "DimGray"))))
  '(isearch ((t (:background "Springgreen2" :foreground "DimGray"))))
