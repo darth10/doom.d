@@ -207,6 +207,11 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
             #'(lambda ()
                 (w32-send-sys-command 61488))))
 
+;;; LANG
+
+(after! racket-mode
+  (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode)))
+
 ;;; KEYS
 
 (map! "<escape>"   #'god-local-mode
