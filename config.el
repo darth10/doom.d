@@ -196,7 +196,11 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
       help-text)
      "\n\n")))
 
-(setq initial-scratch-message (core--get-scratch-message))
+(setq initial-scratch-message (core--get-scratch-message)
+      uniquify-buffer-name-style 'forward
+      uniquify-separator "/"
+      uniquify-after-kill-buffer-p t)
+
 (setq-default left-fringe-width 8
               right-fringe-width 8)
 
