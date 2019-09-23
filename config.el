@@ -217,7 +217,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 (use-package! eval-sexp-fu
   :hook ((lisp-mode emacs-lisp-mode eshell-mode) . +eval-sexp-fu--init)
   :custom-face
-  (eval-sexp-fu-flash ((t (:foreground "DodgerBlue" :background "DarkSlateGray"))))
+  (eval-sexp-fu-flash ((t (:foreground "DodgerBlue" :background "DimGray"))))
   :config
   (defun +eval-sexp-fu--init ()
     (require 'eval-sexp-fu)))
