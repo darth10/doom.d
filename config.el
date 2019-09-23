@@ -1,11 +1,11 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-(setq-default left-fringe-width 8
-              right-fringe-width 8)
+;;; KEYS
 
 (unbind-key "C-h C-l")
 (bind-key "C-h C-l" #'describe-personal-keybindings)
 
+(unbind-key "C-z")
 (bind-key "C-s" #'save-buffer)
 
 (bind-key "M-s s" #'isearch-forward)
@@ -14,6 +14,20 @@
 (bind-key "M-s M-r" #'isearch-backward)
 (bind-key "<f3>"  #'isearch-repeat-forward isearch-mode-map)
 (bind-key "S-<f3>" #'isearch-repeat-backward isearch-mode-map)
+
+(defun core/match-paren (arg)
+  "Go to the matching paren if the cursor is on a paren."
+  (interactive "p")
+  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
+        ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+        (t (message "%s" "No parenthesis under cursor!"))))
+
+(bind-key "C-%" #'core/match-paren)
+
+;;;  MODULES
+
+(remove-hook! 'text-mode-hook #'vi-tilde-fringe-mode)
+(remove-hook! 'prog-mode-hook #'vi-tilde-fringe-mode)
 
 (after! dired
   (remove-hook! 'dired-mode-hook #'dired-omit-mode))
@@ -70,23 +84,34 @@
   (setq org-startup-indented nil)
   (bind-key "C-c n" #'org-agenda org-mode-map))
 
+(after! ox-reveal
+  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"))
+
 (after! company
   (unbind-key "C-;")
   (bind-key "M-SPC" #'company-manual-begin))
 
-(after! lispy
-  (unbind-key "C-:"))
+(after! magit
+  (bind-key "C-: :" #'magit-status)
+  (bind-key "C-: C-:" #'magit-status))
 
-(after! multiple-cursors
+(after! lispy
+  (unbind-key "C-:" lispy-mode-map)
+  (unbind-key "M-s" lispy-mode-map))
+
+(after! multiple-cursors-core
   (bind-key "C-<" #'mc/mark-previous-like-this)
   (bind-key "C->" #'mc/mark-next-like-this))
 
 (use-package! helm-swoop
+  :after helm
   :bind (("M-]" . helm-swoop)
          ("M-s ]" . helm-swoop)))
 
 (use-package! helm-ls-git
-  :bind ("C-: C-f" . helm-ls-git-ls))
+  :after helm
+  :bind (("C-: f" . helm-ls-git-ls)
+         ("C-: C-f" . helm-ls-git-ls)))
 
 (use-package! god-mode
   :hook ((after-init . god-mode-all)
@@ -162,13 +187,20 @@
     (cl-loop for mode in exempt-modes
              do (add-to-list 'god-exempt-major-modes mode))))
 
+(use-package! unicode-fonts
+  :defer 2
+  :config
+  (unicode-fonts-setup))
+
+;;;; UI
+
 (defconst core--scratch-message-logo-text
   "
-           __
-      ____/ /___  ____  ____ ___     ___  ____ ___  ____ ___________
-     / __  / __ \\/ __ \\/ __ `__ \\   / _ \\/ __ `__ \\/ __ `/ ___/ ___/
-    / /_/ / /_/ / /_/ / / / / / /  /  __/ / / / / / /_/ / /__(__  )
-    \\__,_/\\____/\\____/_/ /_/ /_/   \\___/_/ /_/ /_/\\__,_/\\___/____/
+    ____  ____  ____  __  ___   ________  ______   ___________
+   / __ \\/ __ \\/ __ \\/  |/  /  / ____/  |/  /   | / ____/ ___/
+  / / / / / / / / / / /|_/ /  / __/ / /|_/ / /| |/ /    \\__ \\
+ / /_/ / /_/ / /_/ / /  / /  / /___/ /  / / ___ / /___ ___/ /
+/_____/\\____/\\____/_/  /_/  /_____/_/  /_/_/  |_\\____//____/
 
 ")
 
@@ -186,7 +218,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
          (face-for-keys 'font-lock-string-face)
          (face-for-comments 'font-lock-comment-delimiter-face)
          (version-text (concat
-                        (propertize (format "doom-emacs %s"
+                        (propertize (format "doom %s"
                                             doom-version)
                                     'face face-for-logo)
                         " / "
@@ -207,3 +239,12 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
      "\n\n")))
 
 (setq initial-scratch-message (core--get-scratch-message))
+(setq-default left-fringe-width 8
+              right-fringe-width 8)
+
+(blink-cursor-mode t)
+
+(when IS-WINDOWS
+  (add-hook 'window-setup-hook
+            #'(lambda ()
+                (w32-send-sys-command 61488))))

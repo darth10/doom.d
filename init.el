@@ -168,26 +168,32 @@
        ;; config. Use it as a reference for your own modules.
        (default +bindings +smartparens))
 
-(toggle-debug-on-error)
+(when IS-LINUX
+  (toggle-debug-on-error))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-solarized-dark))
+ '(custom-enabled-themes (quote (doom-solarized-dark)))
  '(custom-safe-themes
-   '("428754d8f3ed6449c1078ed5b4335f4949dc2ad54ed9de43c56ea9b803375c23" default))
- '(org-agenda-files '("~/Dropbox/org/TODO.org" "~/Dropbox/org/birthdays.org"))
+   (quote
+    ("428754d8f3ed6449c1078ed5b4335f4949dc2ad54ed9de43c56ea9b803375c23" default)))
+ '(lispy-key-theme (quote (paredit c-digits)))
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/org/TODO.org" "~/Dropbox/org/birthdays.org")))
  '(safe-local-variable-values
-   '((intero-targets "postgrest:lib" "postgrest:exe:postgrest" "postgrest:test:spec")
-     (intero-stack-yaml . "/home/darth10/projects/postgrest/stack.yaml"))))
+   (quote
+    ((intero-targets "postgrest:lib" "postgrest:exe:postgrest" "postgrest:test:spec")
+     (intero-stack-yaml . "/home/darth10/projects/postgrest/stack.yaml")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 148 :family "Consolas" :weight normal :width normal))))
+ `(default ((t (:height ,(if IS-WINDOWS 134 148) :family "Consolas" :weight normal :width normal))))
  '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
  '(doom-modeline-inactive-bar ((t (:inherit mode-line-emphasis))))
  '(doom-modeline-panel ((t (:inherit mode-line-emphasis))))
