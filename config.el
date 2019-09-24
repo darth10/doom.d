@@ -238,48 +238,77 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
 
 ;;; KEYS
 
-(map! "<escape>"   #'god-local-mode
-      "S-<escape>" #'god-mode-all
-      "C-s"        #'save-buffer
-      "C-%"        #'core/match-paren
-      "C--"        #'pop-tag-mark
-      "C-+"        #'er/contract-region
-      "C-<"        #'mc/mark-previous-like-this
-      "C->"        #'mc/mark-next-like-this
-      "C-<f2>"     #'helm-imenu
-      "M-i"        #'god-local-mode
-      "M-SPC"      #'company-manual-begin
-      "M-]"        #'helm-swoop
-      "M-."        #'xref-find-definitions
-      "<f12>"      #'xref-find-definitions
-      "C-z"        nil                  ; suspend-frame
-      "C-;"        nil                  ; company-manual-begin
+(map! "C-z"           nil               ; suspend-frame
+      "C-;"           nil               ; company-manual-begin
+      "<escape>"      #'god-local-mode
+      "S-<escape>"    #'god-mode-all
+      "C-s"           #'save-buffer
+      "C-%"           #'core/match-paren
+      "C--"           #'pop-tag-mark
+      "C-+"           #'er/contract-region
+      "C-<"           #'mc/mark-previous-like-this
+      "C->"           #'mc/mark-next-like-this
+      "C-<f2>"        #'helm-imenu
+      "C-c s s"       #'hs-show-block
+      "C-c C-s C-s"   #'hs-show-block
+      "C-c s S"       #'hs-show-all
+      "C-c C-s C-S"   #'hs-show-all
+      "C-c s d"       #'hs-hide-block
+      "C-c C-s C-d"   #'hs-hide-block
+      "C-c s D"       #'hs-hide-all
+      "C-c C-s C-D"   #'hs-hide-all
+      "C-x C-j"       #'dired-jump
+      "M-i"           #'god-local-mode
+      "M-SPC"         #'company-manual-begin
+      "M-]"           #'helm-swoop
+      "M-."           #'xref-find-definitions
+      "<f12>"         #'xref-find-definitions
       (:prefix "M-s"
-        "i"        #'helm-occur
-        "M-i"      #'helm-occur
-        "s"        #'isearch-forward
-        "M-s"      #'isearch-forward
-        "r"        #'isearch-backward
-        "M-r"      #'isearch-backward
-        "]"        #'helm-swoop)
+        "i"           #'helm-occur
+        "M-i"         #'helm-occur
+        "s"           #'isearch-forward
+        "M-s"         #'isearch-forward
+        "r"           #'isearch-backward
+        "M-r"         #'isearch-backward
+        "]"           #'helm-swoop)
       (:prefix "C-:"
-        ":"        #'magit-status
-        "C-:"      #'magit-status
-        "f"        #'helm-ls-git-ls
-        "C-f"      #'helm-ls-git-ls)
+        ":"           #'magit-status
+        "C-:"         #'magit-status
+        "f"           #'helm-ls-git-ls
+        "C-f"         #'helm-ls-git-ls)
       (:map god-local-mode-map
-        "."        #'repeat
-        "z"        #'repeat
-        "i"        #'god-local-mode)
+        "."           #'repeat
+        "z"           #'repeat
+        "i"           #'god-local-mode)
       (:map helm-map
-        "<tab>"    #'helm-execute-persistent-action
-        "C-i"      #'helm-select-action)
+        "<tab>"       #'helm-execute-persistent-action
+        "C-i"         #'helm-select-action)
       (:map isearch-mode-map
-        "<f3>"     #'isearch-repeat-forward
-        "S-<f3>"   #'isearch-repeat-backward)
+        "<f3>"        #'isearch-repeat-forward
+        "S-<f3>"      #'isearch-repeat-backward)
       (:map lispy-mode-map
-        "<f12>"    #'lispy-goto-symbol
-        "C-:"      nil                  ; lispy-colon
-        "M-s"      nil)                 ; lispy-splice
+        "C-:"         nil               ; lispy-colon
+        "C-<left>"    nil               ; lispy-forward-barf-sexp
+        "C-<right>"   nil               ; lispy-forward-slurp-sexp
+        "M-s"         nil               ; lispy-splice
+        "M-<up>"      nil               ; lispy-splice-sexp-killing-backward
+        "M-<down>"    nil               ; lispy-splice-sexp-killing-forward
+        "<f12>"       #'lispy-goto-symbol
+        "C-, k"       #'lispy-splice-sexp-killing-forward
+        "C-, C-k"     #'lispy-splice-sexp-killing-forward
+        "M-S-<down>"  #'lispy-splice-sexp-killing-forward
+        "C-, , k"     #'lispy-splice-sexp-killing-backward
+        "C-, C-, C-k" #'lispy-splice-sexp-killing-backward
+        "M-S-<up>"    #'lispy-splice-sexp-killing-backward
+        "C-, f"       #'lispy-forward-slurp-sexp
+        "C-, C-f"     #'lispy-forward-slurp-sexp
+        "C-, , f"     #'lispy-backward-barf-sexp
+        "C-, C-, C-f" #'lispy-backward-barf-sexp
+        "C-, b"       #'lispy-forward-barf-sexp
+        "C-, C-b"     #'lispy-forward-barf-sexp
+        "C-, , b"     #'lispy-backward-slurp-sexp
+        "C-, C-, C-b" #'lispy-backward-slurp-sexp
+        "C-, s"       #'lispy-splice
+        "C-, C-s"     #'lispy-splice)
       (:map org-mode-map
-        "C-c n"    #'org-agenda))
+        "C-c n"       #'org-agenda))
