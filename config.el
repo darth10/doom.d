@@ -68,6 +68,12 @@
 (after! ox-reveal
   (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"))
 
+(use-package! edit-server
+  :if window-system
+  :defer 2
+  :config
+  (edit-server-start))
+
 (use-package! helm-swoop
   :after helm
   :commands (helm-swoop))
