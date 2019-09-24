@@ -257,6 +257,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
       "C-c C-s C-d"   #'hs-hide-block
       "C-c s D"       #'hs-hide-all
       "C-c C-s C-D"   #'hs-hide-all
+      "C-c \\"        #'just-one-space
       "C-x C-j"       #'dired-jump
       "M-i"           #'god-local-mode
       "M-SPC"         #'company-manual-begin
