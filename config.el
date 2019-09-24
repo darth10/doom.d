@@ -62,7 +62,8 @@
 
 (after! org
   (remove-hook! 'org-mode-hook #'org-bullets-mode)
-  (setq org-startup-indented nil))
+  (setq org-startup-indented nil
+        org-eldoc-breadcrumb-separator " > "))
 
 (after! ox-reveal
   (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"))
