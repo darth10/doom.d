@@ -1,14 +1,5 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-;;; AUTOLOADS
-
-(defun core/match-paren (arg)
-  "Go to the matching paren if the cursor is on a paren."
-  (interactive "p")
-  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
-        ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-        (t (message "%s" "No parenthesis under cursor!"))))
-
 ;;;  MODULES
 
 (after! dired
@@ -161,50 +152,7 @@
 
 ;;;; UI
 
-(defconst core--scratch-message-logo-text
-  "
-    ____  ____  ____  __  ___   ________  ______   ___________
-   / __ \\/ __ \\/ __ \\/  |/  /  / ____/  |/  /   | / ____/ ___/
-  / / / / / / / / / / /|_/ /  / __/ / /|_/ / /| |/ /    \\__ \\
- / /_/ / /_/ / /_/ / /  / /  / /___/ /  / / ___ / /___ ___/ /
-/_____/\\____/\\____/_/  /_/  /_____/_/  /_/_/  |_\\____//____/
-
-")
-
-(defconst core--scratch-message-help-text
-  "To open a file, type C-x C-f.
-To quit a partially entered command, type C-g.
-To quit Emacs, type C-x C-c.
-
-For information about GNU Emacs and the GNU system, type C-h C-a.")
-
-(defun core--get-scratch-message ()
-  "Get message to show in *scratch* buffer."
-  (let* ((face-for-logo 'font-lock-function-name-face)
-         (face-for-keys 'font-lock-string-face)
-         (face-for-comments 'font-lock-comment-delimiter-face)
-         (version-text (concat
-                        (propertize (format "doom %s"
-                                            doom-version)
-                                    'face face-for-logo)
-                        " / "
-                        (propertize (format "GNU Emacs %s"
-                                            emacs-version)
-                                    'face face-for-logo)))
-         (help-text (replace-regexp-in-string
-                     "C-." (lambda (s) (propertize s 'face face-for-keys))
-                     (concat core--scratch-message-help-text "\n"
-                             version-text))))
-    (concat
-     (replace-regexp-in-string
-      "^" (propertize ";; " 'face face-for-comments)
-      (propertize core--scratch-message-logo-text 'face face-for-logo))
-     (replace-regexp-in-string
-      "^" (propertize ";; " 'face face-for-comments)
-      help-text)
-     "\n\n")))
-
-(setq initial-scratch-message (core--get-scratch-message)
+(setq initial-scratch-message (+ui--get-scratch-message)
       uniquify-buffer-name-style 'forward
       uniquify-separator "/"
       uniquify-after-kill-buffer-p t)
@@ -254,7 +202,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
       "<escape>"      #'god-local-mode
       "S-<escape>"    #'god-mode-all
       "C-s"           #'save-buffer
-      "C-%"           #'core/match-paren
+      "C-%"           #'+editor/match-paren
       "C--"           #'pop-tag-mark
       "C-+"           #'er/contract-region
       "C-<"           #'mc/mark-previous-like-this
