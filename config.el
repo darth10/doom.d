@@ -57,7 +57,7 @@
         org-eldoc-breadcrumb-separator " > "))
 
 (after! ox-reveal
-  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"))
+  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/"))
 
 (use-package! edit-server
   :if window-system
