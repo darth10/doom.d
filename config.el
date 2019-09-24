@@ -65,7 +65,7 @@
   :config
   (edit-server-start))
 
-(use-package clipmon
+(use-package! clipmon
   :defer 2
   :config
   (clipmon-mode-start))
