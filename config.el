@@ -74,6 +74,11 @@
   :config
   (edit-server-start))
 
+(use-package clipmon
+  :defer 2
+  :config
+  (clipmon-mode-start))
+
 (use-package! helm-swoop
   :after helm
   :commands (helm-swoop))

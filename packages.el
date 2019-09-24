@@ -2,6 +2,7 @@
 
 (package! god-mode)
 (package! edit-server)
+(package! clipmon)
 (package! helm-ls-git)
 (package! helm-swoop)
 (package! unicode-fonts)
