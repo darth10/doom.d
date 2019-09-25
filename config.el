@@ -166,8 +166,7 @@
 (blink-cursor-mode t)
 
 (when IS-WINDOWS
-  (add-hook 'window-setup-hook
-            #'(λ! (w32-send-sys-command 61488))))
+  (add-hook 'window-setup-hook (λ! (w32-send-sys-command 61488))))
 
 ;;; LANG
 
