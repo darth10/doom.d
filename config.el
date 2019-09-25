@@ -272,3 +272,21 @@
         "C-, C-s"     #'lispy-splice)
       (:map org-mode-map
         "C-c n"       #'org-agenda))
+
+(after! smartparens
+  (map! (:map smartparens-mode-map
+          "C-<right>"   nil             ; sp-forward-slurp-sexp
+          "M-<right>"   nil             ; sp-forward-barf-sexp
+          "C-<left>"    nil             ; sp-backward-slurp-sexp
+          "M-<left>"    nil             ; sp-backward-barf-sexp
+          "C-M-d"       nil             ; sp-splice-sexp
+          "C-, f"       #'sp-forward-slurp-sexp
+          "C-, C-f"     #'sp-forward-slurp-sexp
+          "C-, , f"     #'sp-backward-barf-sexp
+          "C-, C-, C-f" #'sp-backward-barf-sexp
+          "C-, b"       #'sp-forward-barf-sexp
+          "C-, C-b"     #'sp-forward-barf-sexp
+          "C-, , b"     #'sp-backward-slurp-sexp
+          "C-, C-, C-b" #'sp-backward-slurp-sexp
+          "C-, s"       #'sp-splice-sexp
+          "C-, C-s"     #'sp-splice-sexp)))
