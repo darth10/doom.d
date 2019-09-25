@@ -167,8 +167,7 @@
 
 (when IS-WINDOWS
   (add-hook 'window-setup-hook
-            #'(lambda ()
-                (w32-send-sys-command 61488))))
+            #'(λ! (w32-send-sys-command 61488))))
 
 ;;; LANG
 
