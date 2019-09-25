@@ -217,6 +217,7 @@
       "C-c C-s C-D"   #'hs-hide-all
       "C-c \\"        #'just-one-space
       "C-x C-j"       #'dired-jump
+      "C-x C-."       #'neotree
       "M-i"           #'god-local-mode
       "M-SPC"         #'company-manual-begin
       "M-]"           #'helm-swoop
