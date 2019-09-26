@@ -16,7 +16,7 @@
        ;; doom-dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        ;;fill-column       ; a `fill-column' indicator
-       hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+       hl-todo           ; highlight comment markers
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
        modeline          ; snazzy, Atom-inspired modeline, plus API
@@ -61,7 +61,7 @@
 
        :tools
        ;;ansible
-       debugger          ; FIXME stepping through code, to help you add bugs
+       debugger          ; stepping through code, to help you add bugs
        ;;direnv
        docker
        editorconfig      ; let someone else argue about tabs vs spaces
@@ -78,7 +78,7 @@
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
-       ;;prodigy           ; FIXME managing external services & code builders
+       ;;prodigy           ; managing external services & code builders
        ;;rgb               ; creating color strings
        terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
@@ -168,39 +168,5 @@
        ;; config. Use it as a reference for your own modules.
        (default +bindings +smartparens))
 
-(when IS-LINUX
-  (toggle-debug-on-error))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (doom-solarized-dark)))
- '(custom-safe-themes
-   (quote
-    ("428754d8f3ed6449c1078ed5b4335f4949dc2ad54ed9de43c56ea9b803375c23" default)))
- '(lispy-key-theme (quote (paredit c-digits)))
- '(org-agenda-files
-   (quote
-    ("~/Dropbox/org/TODO.org" "~/Dropbox/org/birthdays.org")))
- '(safe-local-variable-values
-   (quote
-    ((intero-targets "postgrest:lib" "postgrest:exe:postgrest" "postgrest:test:spec")
-     (intero-stack-yaml . "/home/darth10/projects/postgrest/stack.yaml")))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- `(default ((t (:height ,(if IS-WINDOWS 134 148) :family "Consolas" :weight normal :width normal))))
- '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
- '(doom-modeline-inactive-bar ((t (:inherit mode-line-emphasis))))
- '(doom-modeline-panel ((t (:inherit mode-line-emphasis))))
- '(helm-selection ((t (:inherit bold :foreground "DodgerBlue" :background "DarkSlateGray"))))
- '(helm-swoop-target-word-face ((t (:background "Springgreen2" :foreground "DimGray"))))
- '(iedit-occurrence ((t (:foreground "Springgreen2" :background "DimGray"))))
- '(isearch ((t (:background "Springgreen2" :foreground "DimGray"))))
- '(mode-line ((t (:box nil :overline nil :underline nil))))
- '(mode-line-inactive ((t (:box nil :overline nil :underline nil))))
- '(show-paren-match ((t (:background "Springgreen2" :foreground "DimGray")))))
+(setq custom-file (expand-file-name "custom.el" doom-local-dir))
+(load custom-file 'no-error 'no-message)
