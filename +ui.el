@@ -38,3 +38,22 @@
   :defer 2
   :config
   (unicode-fonts-setup))
+
+(let ((default-height (if IS-LINUX 148 138)))
+  (custom-set-variables
+   '(custom-enabled-themes '(doom-solarized-dark))
+   '(custom-safe-themes
+     '("428754d8f3ed6449c1078ed5b4335f4949dc2ad54ed9de43c56ea9b803375c23" default)))
+  (custom-set-faces
+   `(default ((t (:height ,default-height :family "Consolas" :weight normal :width normal))))
+   '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
+   '(doom-modeline-inactive-bar ((t (:inherit mode-line-emphasis))))
+   '(doom-modeline-panel ((t (:inherit mode-line-emphasis))))
+   '(eval-sexp-fu-flash ((t (:foreground "DodgerBlue" :background "DimGray"))))
+   '(helm-selection ((t (:inherit bold :foreground "DodgerBlue" :background "DarkSlateGray"))))
+   '(helm-swoop-target-word-face ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(iedit-occurrence ((t (:foreground "Springgreen2" :background "DimGray"))))
+   '(isearch ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(mode-line ((t (:box nil :overline nil :underline nil))))
+   '(mode-line-inactive ((t (:box nil :overline nil :underline nil))))
+   '(show-paren-match ((t (:background "Springgreen2" :foreground "DimGray"))))))
