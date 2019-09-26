@@ -22,6 +22,9 @@
         which-key-separator " : ")
   (which-key-mode t))
 
+(after! calculator
+  (advice-add 'calculator :after (λ! (enlarge-window 2))))
+
 (after! helm
   (setq helm-allow-mouse t))
 
