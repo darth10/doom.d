@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+keys.el -*- lexical-binding: t; -*-
+;;; ~/.doom.d/+bindings.el -*- lexical-binding: t; -*-
 
 (map! "C-z"           nil               ; suspend-frame
       "C-;"           nil               ; company-manual-begin

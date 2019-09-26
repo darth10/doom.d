@@ -86,4 +86,4 @@
 (load! "+lang")
 (load! "+ui")
 (load! "+os")
-(load! "+keys")
+(load! "+bindings")
