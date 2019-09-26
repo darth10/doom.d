@@ -270,7 +270,8 @@
         "C-, s"       #'lispy-splice
         "C-, C-s"     #'lispy-splice)
       (:map org-mode-map
-        "C-c n"       #'org-agenda))
+        "C-c n"       #'org-agenda
+        "C-x C-e"     #'+org/recalculate-all))
 
 (after! smartparens
   (map! (:map smartparens-mode-map
