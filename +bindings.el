@@ -35,7 +35,14 @@
         "M-s"         #'isearch-forward
         "r"           #'isearch-backward
         "M-r"         #'isearch-backward
-        "]"           #'helm-swoop)
+        "a"           #'+helm/ag
+        "M-a"         #'+helm/ag
+        "f"           #'+helm/rg
+        "M-f"         #'+helm/rg
+        "g"           #'+helm/grep
+        "M-g"         #'+helm/grep
+        "]"           #'helm-swoop
+        "M-]"         #'helm-swoop)
       (:prefix "C-:"
         ":"           #'magit-status
         "C-:"         #'magit-status
