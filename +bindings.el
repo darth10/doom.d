@@ -24,6 +24,8 @@
       "C-c \\"        #'just-one-space
       "C-x C-j"       #'dired-jump
       "C-x C-."       #'neotree
+      "M-<up>"        #'+editor/move-text-up
+      "M-<down>"      #'+editor/move-text-down
       "M-i"           #'god-local-mode
       "M-w"           #'+editor/kill-ring-save-region-or-line
       "M-SPC"         #'company-manual-begin
