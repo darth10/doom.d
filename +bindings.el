@@ -6,6 +6,7 @@
       "<escape>"      #'god-local-mode
       "S-<escape>"    #'god-mode-all
       "C-s"           #'save-buffer
+      "C-w"           #'+editor/kill-region-or-line
       "C-%"           #'+editor/match-paren
       "C--"           #'pop-tag-mark
       "C-+"           #'er/contract-region
@@ -24,6 +25,7 @@
       "C-x C-j"       #'dired-jump
       "C-x C-."       #'neotree
       "M-i"           #'god-local-mode
+      "M-w"           #'+editor/kill-ring-save-region-or-line
       "M-SPC"         #'company-manual-begin
       "M-]"           #'helm-swoop
       "M-."           #'xref-find-definitions
