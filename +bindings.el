@@ -2,6 +2,7 @@
 
 (map! "C-z"           nil               ; suspend-frame
       "C-;"           nil               ; company-manual-begin
+      "C-S-s"         nil               ; swiper-helm
       "<escape>"      #'god-local-mode
       "S-<escape>"    #'god-mode-all
       "C-s"           #'save-buffer

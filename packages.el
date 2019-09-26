@@ -9,7 +9,7 @@
 
 (package! eval-sexp-fu)
 (package! cider-eval-sexp-fu)
-
 (package! flycheck-clj-kondo)
 
+(package! swiper-helm :disable t)
 (package! flycheck-joker :disable t)
