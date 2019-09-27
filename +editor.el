@@ -22,6 +22,9 @@
         which-key-separator " : ")
   (which-key-mode t))
 
+(after! lispy
+  (setq lispy-key-theme '(paredit c-digits)))
+
 (after! calculator
   (advice-add 'calculator :after (λ! (enlarge-window 2))))
 
