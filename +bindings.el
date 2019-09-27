@@ -56,6 +56,12 @@
         "C-:"         #'magit-status
         "f"           #'helm-ls-git-ls
         "C-f"         #'helm-ls-git-ls)
+      (:map custom-mode-map
+        "C-s" #'Custom-save)
+      (:map custom-new-theme-mode-map
+        "C-s" #'custom-theme-save)
+      (:map custom-theme-choose-mode-map
+        "C-s" #'custom-theme-save)
       (:map god-local-mode-map
         "."           #'repeat
         "z"           #'repeat
