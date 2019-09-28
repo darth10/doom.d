@@ -26,6 +26,8 @@
       "C-x C-1"       #'delete-other-windows
       "C-x C-2"       #'split-window-below
       "C-x C-3"       #'split-window-right
+      "C-x 9"         #'+editor/delete-single-window
+      "C-x C-9"       #'+editor/delete-single-window
       "C-x C-j"       #'dired-jump
       "C-x C-."       #'neotree
       "M-<up>"        #'+editor/move-text-up

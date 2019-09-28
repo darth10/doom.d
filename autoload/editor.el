@@ -60,3 +60,16 @@
                  (list (line-beginning-position)
                        (line-beginning-position 2))))
   (kill-ring-save beg end))
+
+;;;###autoload
+(defun +editor/delete-single-window (&optional window)
+  "Close window WINDOW and kill it's buffer.
+WINDOW defaults to current window."
+  (interactive)
+  (save-current-buffer
+    (setq window (or window (selected-window)))
+    (select-window window)
+    (kill-buffer)
+    (if (one-window-p t)
+        (delete-frame)
+      (delete-window (selected-window)))))
