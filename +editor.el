@@ -31,6 +31,14 @@
 (after! calculator
   (advice-add 'calculator :after (λ! (enlarge-window 2))))
 
+(after! tramp
+  ;; File paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf`
+  ;; will open remote files over multiple hops.
+  (setq
+   ;; tramp-debug-buffer t
+   ;; tramp-verbose 9
+   tramp-default-method "scpx"))
+
 (after! helm
   (setq helm-allow-mouse t))
 
