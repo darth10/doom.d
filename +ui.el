@@ -39,6 +39,18 @@
   :config
   (unicode-fonts-setup))
 
+(use-package! highlight-sexp
+  :commands (highlight-sexp-mode)
+  :hook (highlight-sexp-mode . +highlight-sexp--set-hl-line)
+  :config
+  (defun +highlight-sexp--set-hl-line ()
+    (hl-line-mode (if highlight-sexp-mode -1 +1))))
+
+(after! hl-line
+  (let ((hl-line-background (face-background 'hl-line)))
+    (custom-set-variables
+     `(hl-sexp-background-color ,hl-line-background))))
+
 (let ((default-height (if IS-LINUX 148 138)))
   (custom-set-variables
    '(custom-enabled-themes '(doom-solarized-dark))

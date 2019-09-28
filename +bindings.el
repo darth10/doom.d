@@ -97,7 +97,15 @@
         "C-, C-s"     #'lispy-splice)
       (:map org-mode-map
         "C-c n"       #'org-agenda
-        "C-x C-e"     #'+org/recalculate-all))
+        "C-x C-e"     #'+org/recalculate-all)
+      (:map (common-lisp-mode-map
+             emacs-lisp-mode-map
+             scheme-mode-map
+             racket-mode-map
+             hy-mode-map
+             lfe-mode-map
+             clojure-mode-map)
+        "C-c ["       #'highlight-sexp-mode))
 
 (after! smartparens
   (map! (:map smartparens-mode-map

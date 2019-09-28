@@ -5,6 +5,7 @@
 (package! clipmon)
 (package! helm-ls-git)
 (package! helm-swoop)
+(package! highlight-sexp)
 (package! unicode-fonts)
 
 (package! eval-sexp-fu)
