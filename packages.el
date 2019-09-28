@@ -3,6 +3,7 @@
 (package! clipmon)
 (package! edit-server)
 (package! god-mode)
+(package! github-review)
 (package! helm-ls-git)
 (package! helm-swoop)
 (package! highlight-sexp)
