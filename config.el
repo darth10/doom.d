@@ -85,6 +85,7 @@
 
 (load! "+editor")
 (load! "+lang")
+(load! "+vc")
 (load! "+ui")
 (load! "+os")
 (load! "+bindings")
