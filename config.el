@@ -77,6 +77,7 @@
                         org-agenda-mode
                         recentf-dialog-mode
                         sldb-mode
+                        sly-db-mode
                         wdired-mode
                         )))
     (cl-loop for mode in exempt-modes
