@@ -13,14 +13,6 @@
       "C-<"           #'mc/mark-previous-like-this
       "C->"           #'mc/mark-next-like-this
       "C-<f2>"        #'helm-imenu
-      "C-c s s"       #'hs-show-block
-      "C-c C-s C-s"   #'hs-show-block
-      "C-c s S"       #'hs-show-all
-      "C-c C-s C-S"   #'hs-show-all
-      "C-c s d"       #'hs-hide-block
-      "C-c C-s C-d"   #'hs-hide-block
-      "C-c s D"       #'hs-hide-all
-      "C-c C-s C-D"   #'hs-hide-all
       "C-c \\"        #'just-one-space
       "C-x C-0"       #'delete-window
       "C-x C-1"       #'delete-other-windows
@@ -38,6 +30,11 @@
       "M-]"           #'helm-swoop
       "M-."           #'xref-find-definitions
       "<f12>"         #'xref-find-definitions
+      (:prefix ("C-c s" . "hide/show")
+        "s"           #'hs-show-block
+        "S"           #'hs-show-all
+        "D"           #'hs-hide-all
+        "d"           #'hs-hide-block)
       (:prefix "M-s"
         "i"           #'helm-occur
         "M-i"         #'helm-occur
