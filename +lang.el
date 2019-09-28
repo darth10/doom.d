@@ -1,6 +1,5 @@
 ;;; ~/.doom.d/+lang.el -*- lexical-binding: t; -*-
 
-
 ;;; Emacs Lisp
 
 (use-package! eval-sexp-fu
