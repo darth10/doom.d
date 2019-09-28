@@ -1,16 +1,16 @@
 ;;; ~/.doom.d/packages.el -*- no-byte-compile: t; -*-
 
-(package! god-mode)
-(package! edit-server)
 (package! clipmon)
+(package! edit-server)
+(package! god-mode)
 (package! helm-ls-git)
 (package! helm-swoop)
 (package! highlight-sexp)
 (package! unicode-fonts)
 
-(package! eval-sexp-fu)
 (package! cider-eval-sexp-fu)
+(package! eval-sexp-fu)
 (package! flycheck-clj-kondo)
 
-(package! swiper-helm :disable t)
 (package! flycheck-joker :disable t)
+(package! swiper-helm :disable t)
