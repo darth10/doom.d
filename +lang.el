@@ -23,6 +23,12 @@
 (after! racket-mode
   (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode)))
 
+;;; PowerShell
+
+(use-package! powershell
+  :mode (("\\.ps1\\'" . powershell-mode)
+         ("\\.psm1\\'" . powershell-mode)))
+
 ;;; Org
 
 (after! org
