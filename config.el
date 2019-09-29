@@ -84,6 +84,7 @@
              do (add-to-list 'god-exempt-major-modes mode))))
 
 (load! "+editor")
+(load! "+files")
 (load! "+lang")
 (load! "+vc")
 (load! "+ui")

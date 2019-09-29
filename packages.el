@@ -7,6 +7,7 @@
 (package! helm-ls-git)
 (package! helm-swoop)
 (package! highlight-sexp)
+(package! nov)
 (package! unicode-fonts)
 
 (package! cider-eval-sexp-fu)
