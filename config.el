@@ -85,6 +85,7 @@
 
 (load! "+editor")
 (load! "+files")
+(load! "+games")
 (load! "+lang")
 (load! "+vc")
 (load! "+ui")

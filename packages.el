@@ -1,6 +1,7 @@
 ;;; ~/.doom.d/packages.el -*- no-byte-compile: t; -*-
 
 (package! clipmon)
+(package! chess)
 (package! edit-server)
 (package! god-mode)
 (package! github-review)
