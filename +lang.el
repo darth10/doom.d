@@ -29,6 +29,13 @@
   :mode (("\\.ps1\\'" . powershell-mode)
          ("\\.psm1\\'" . powershell-mode)))
 
+;;; SQL
+
+(after! sql
+  (add-to-list 'process-coding-system-alist '("sqlcmd" . cp850-dos))
+  (setq sql-ms-program "sqlcmd"
+        sql-ms-options nil))
+
 ;;; Org
 
 (after! org
