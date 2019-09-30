@@ -141,3 +141,7 @@
                "M-<down>"    #'ediff-next-difference
                "M-<left>"    #'ediff-copy-B-to-A
                "M-<right>"   #'ediff-copy-A-to-B)))))
+
+(after! emmet-mode
+  (map! (:map emmet-mode-keymap
+          "<tab>" #'emmet-expand-line)))
