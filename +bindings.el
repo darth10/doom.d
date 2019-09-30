@@ -53,8 +53,16 @@
       (:prefix "C-:"
         ":"           #'magit-status
         "C-:"         #'magit-status
+        "="           #'vc-ediff
+        "C-="         #'vc-ediff
         "f"           #'helm-ls-git-ls
-        "C-f"         #'helm-ls-git-ls)
+        "C-f"         #'helm-ls-git-ls
+        "d"           #'vc-diff
+        "C-d"         #'vc-diff
+        "c d"         #'magit-diff-working-tree
+        "C-c C-d"     #'magit-diff-working-tree
+        "l"           #'magit-log-current
+        "C-l"         #'magit-log-current)
       (:map custom-mode-map
         "C-s"         #'Custom-save)
       (:map custom-new-theme-mode-map
