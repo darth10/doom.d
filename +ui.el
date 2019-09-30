@@ -5,11 +5,10 @@
 (setq-default left-fringe-width 8
               right-fringe-width 8)
 
-(add-hook! 'doom-switch-buffer-hook
-  (defun +ui--switch-buffer-hook ()
-    (blink-cursor-mode                  ; Disable blinking cursor in PDFs.
-     (if (eq major-mode 'pdf-view-mode)
-         -1 +1))))
+(add-hook! '(doom-switch-buffer-hook
+             doom-switch-frame-hook
+             doom-switch-window-hook)
+           #'+ui--switch-buffer-or-frame-hook)
 
 (remove-hook! 'text-mode-hook #'vi-tilde-fringe-mode)
 (remove-hook! 'prog-mode-hook #'vi-tilde-fringe-mode)
