@@ -132,3 +132,12 @@
           "C-, C-, C-b" #'sp-backward-slurp-sexp
           "C-, s"       #'sp-splice-sexp
           "C-, C-s"     #'sp-splice-sexp)))
+
+(after! ediff
+  (advice-add
+   'ediff-setup-keymap :after
+   (λ! (map! (:map ediff-mode-map
+               "M-<up>"      #'ediff-previous-difference
+               "M-<down>"    #'ediff-next-difference
+               "M-<left>"    #'ediff-copy-B-to-A
+               "M-<right>"   #'ediff-copy-A-to-B)))))
