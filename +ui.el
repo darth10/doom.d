@@ -52,8 +52,8 @@
   (defun +highlight-sexp--set-hl-line ()
     (hl-line-mode (if highlight-sexp-mode -1 +1))))
 
-(after! hl-line
-  (let ((hl-line-background (face-background 'hl-line)))
+(after! (:and solaire-mode highlight-sexp)
+  (let ((hl-line-background (face-background 'solaire-hl-line-face)))
     (custom-set-variables
      `(hl-sexp-background-color ,hl-line-background))))
 
