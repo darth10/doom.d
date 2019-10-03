@@ -40,6 +40,12 @@
     '(bar helm-number helm-follow helm-prefix-argument)
     '(helm-help)))
 
+(after! doom-themes
+  ;; `doom-load-theme-hook' functions need to be run to properly enable
+  ;; `solaire-mode'.
+  (when (equal custom-enabled-themes '(doom-solarized-dark))
+    (run-hooks 'doom-load-theme-hook)))
+
 (use-package! unicode-fonts
   :defer 2
   :config
