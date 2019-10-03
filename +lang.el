@@ -43,5 +43,12 @@
   (setq org-startup-indented nil
         org-eldoc-breadcrumb-separator " > "))
 
+;;; Other
+
+(use-package! k8s-mode
+  :commands (k8s-mode)
+  :config
+  (setq k8s-search-documentation-browser-function 'browse-url))
+
 (after! ox-reveal
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/"))

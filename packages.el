@@ -9,6 +9,8 @@
 (package! helm-swoop)
 (package! highlight-sexp)
 (package! nov)
+(package! k8s-mode)
+(package! kubernetes)
 (package! unicode-fonts)
 
 (package! cider-eval-sexp-fu)
