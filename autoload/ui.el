@@ -48,7 +48,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
      "\n\n")))
 
 ;;;###autoload
-(defun +ui--switch-buffer-or-frame-hook ()
+(defun +ui--switch-buffer-or-frame-h ()
   (let ((is-pdf-mode (eq major-mode 'pdf-view-mode)))
     ;; Disable cursor in PDFs.
     (blink-cursor-mode (if is-pdf-mode -1 +1))

@@ -4,7 +4,7 @@
   (setq shell-command-switch "-ic"))
 
 (after! eshell
-  (add-hook! 'eshell-mode-hook #'+eshell--load-bash-aliases-in-eshell))
+  (add-hook! 'eshell-mode-hook #'+eshell--load-bash-aliases-h))
 
 (use-package! edit-server
   :if window-system

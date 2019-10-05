@@ -8,7 +8,7 @@
 (add-hook! '(doom-switch-buffer-hook
              doom-switch-frame-hook
              doom-switch-window-hook)
-           #'+ui--switch-buffer-or-frame-hook)
+           #'+ui--switch-buffer-or-frame-h)
 
 (remove-hook! 'text-mode-hook #'vi-tilde-fringe-mode)
 (remove-hook! 'prog-mode-hook #'vi-tilde-fringe-mode)

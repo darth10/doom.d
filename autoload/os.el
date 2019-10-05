@@ -1,7 +1,7 @@
 ;;; ~/.doom.d/autoload/os.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
-(defun +eshell--load-bash-aliases-in-eshell ()
+(defun +eshell--load-bash-aliases-h ()
   "Reads bash aliases from Bash and inserts
     them into the list of eshell aliases."
   (interactive)
