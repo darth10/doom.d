@@ -40,6 +40,19 @@
     '(bar helm-number helm-follow helm-prefix-argument)
     '(helm-help)))
 
+(after! (:and god-mode doom-modeline)
+  (defun +ui--configure-modeline-indicator-h ()
+    "Configure modeline indicator depending on mode."
+    (let* ((is-god-mode (bound-and-true-p god-local-mode))
+           (next-mode-string (cond ((or is-god-mode
+                                        (and overwrite-mode is-god-mode)) ":")
+                                   (overwrite-mode "!")
+                                   (t " "))))
+      (setq core--modeline-mode-string next-mode-string)))
+
+  (add-hook! 'post-command-hook #'+ui--configure-modeline-indicator-h))
+
+
 (after! doom-themes
   ;; `doom-load-theme-hook' functions need to be run to properly enable
   ;; `solaire-mode'.
