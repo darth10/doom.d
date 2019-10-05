@@ -28,8 +28,8 @@
       "M-w"           #'+editor/kill-ring-save-region-or-line
       "M-SPC"         #'company-manual-begin
       "M-]"           #'helm-swoop
-      "M-."           #'xref-find-definitions
-      "<f12>"         #'xref-find-definitions
+      "M-."           #'+lookup/definition
+      "<f12>"         #'+lookup/definition
       (:prefix ("C-c s" . "hide/show")
         "s"           #'hs-show-block
         "S"           #'hs-show-all
@@ -86,7 +86,6 @@
         "M-s"         nil               ; lispy-splice
         "M-<up>"      nil               ; lispy-splice-sexp-killing-backward
         "M-<down>"    nil               ; lispy-splice-sexp-killing-forward
-        "<f12>"       #'lispy-goto-symbol
         "C-, k"       #'lispy-splice-sexp-killing-forward
         "C-, C-k"     #'lispy-splice-sexp-killing-forward
         "M-S-<down>"  #'lispy-splice-sexp-killing-forward
