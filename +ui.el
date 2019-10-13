@@ -14,6 +14,7 @@
 (remove-hook! 'prog-mode-hook #'vi-tilde-fringe-mode)
 
 (blink-cursor-mode t)
+(display-battery-mode t)
 
 (when IS-WINDOWS
   ;; Using `add-hook!' doesn't work here.
@@ -34,7 +35,7 @@
 
   (doom-modeline-def-modeline 'main
     '(workspace-name window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
-    '(debug misc-info persp-name input-method indent-info buffer-encoding major-mode process vcs checker))
+    '(debug misc-info persp-name input-method indent-info buffer-encoding major-mode process vcs checker " "))
 
   (doom-modeline-def-modeline 'helm
     '(bar helm-number helm-follow helm-prefix-argument)
