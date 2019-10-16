@@ -144,3 +144,7 @@
 (after! emmet-mode
   (map! (:map emmet-mode-keymap
           "<tab>" #'emmet-expand-line)))
+
+(after! clojure-mode
+  (map! (:map clojure-mode-map
+          "C-:" nil)))
