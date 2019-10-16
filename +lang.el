@@ -23,6 +23,11 @@
 (after! racket-mode
   (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode)))
 
+;;; JavaScript
+
+(after! js2-mode
+  (setq js2-basic-offset 2))
+
 ;;; PowerShell
 
 (use-package! powershell
