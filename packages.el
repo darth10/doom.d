@@ -20,3 +20,6 @@
 
 (package! flycheck-joker :disable t)
 (package! swiper-helm :disable t)
+
+(when IS-WINDOWS
+  (package! forge :disable t))
