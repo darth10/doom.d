@@ -62,7 +62,7 @@
        javascript
        (markdown +grip)
        nix
-       (org +dragndrop +ipython +pandoc +present +pomodoro)
+       (org +dragndrop +gnuplot +ipython +pandoc +pomodoro +present)
        php
        plantuml
        python

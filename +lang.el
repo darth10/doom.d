@@ -71,6 +71,16 @@
               (list " [" (format s (org-pomodoro-format-seconds)) "]"))))
     (force-mode-line-update t)))
 
+;;; gnuplot
+
+(use-package! gnuplot
+  :mode ("\\.gnuplot\\'" . gnuplot-mode)
+  :hook (gnuplot-mode . gnuplot-inline-display-mode)
+  :config
+  (set-repl-handler! 'gnuplot-mode #'gnuplot-show-gnuplot-buffer)
+  (map! :map gnuplot-mode-map
+        "C-c C-k" #'gnuplot-send-buffer-to-gnuplot))
+
 ;;; Other
 
 (use-package! k8s-mode
