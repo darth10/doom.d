@@ -35,11 +35,7 @@
 
   (doom-modeline-def-modeline 'main
     '(workspace-name window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
-    '(debug misc-info persp-name input-method indent-info buffer-encoding major-mode process vcs checker " "))
-
-  (doom-modeline-def-modeline 'helm
-    '(bar helm-number helm-follow helm-prefix-argument)
-    '(helm-help)))
+    '(debug misc-info battery persp-name input-method indent-info buffer-encoding major-mode process vcs checker " ")))
 
 (after! (:and god-mode doom-modeline)
   (defun +ui--configure-modeline-indicator-h ()
