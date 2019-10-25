@@ -75,7 +75,9 @@
 
 (use-package! gnuplot
   :mode ("\\.gnuplot\\'" . gnuplot-mode)
-  :hook (gnuplot-mode . gnuplot-inline-display-mode)
+  :hook
+  (gnuplot-mode . gnuplot-inline-display-mode)
+  (gnuplot-mode . display-line-numbers-mode)
   :config
   (set-repl-handler! 'gnuplot-mode #'gnuplot-show-gnuplot-buffer)
   (map! :map gnuplot-mode-map
