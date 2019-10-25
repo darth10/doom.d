@@ -22,4 +22,5 @@
 (package! flycheck-joker :disable t)
 (package! swiper-helm :disable t)
 
-(package! forge :disable IS-WINDOWS)
+(when IS-WINDOWS
+  (package! forge :disable t))
