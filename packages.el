@@ -4,6 +4,7 @@
 (package! chess)
 (package! edit-server)
 (package! god-mode)
+(package! ghub)
 (package! github-review)
 (package! helm-ls-git)
 (package! helm-swoop)
@@ -21,5 +22,4 @@
 (package! flycheck-joker :disable t)
 (package! swiper-helm :disable t)
 
-(when IS-WINDOWS
-  (package! forge :disable t))
+(package! forge :disable IS-WINDOWS)
