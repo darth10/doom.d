@@ -49,6 +49,9 @@
         org-eldoc-breadcrumb-separator " > "
         org-clock-heading-function (lambda! "")))
 
+(after! org-fancy-priorities
+  (setq org-fancy-priorities-list '("!" "!" "?")))
+
 (after! org-pomodoro
   (setq org-pomodoro-format "~%s")
   (defadvice! +org-pomodoro-update-mode-line-a ()
