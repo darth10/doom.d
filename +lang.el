@@ -74,6 +74,9 @@
               (list " [" (format s (org-pomodoro-format-seconds)) "]"))))
     (force-mode-line-update t)))
 
+(after! ox-reveal
+  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/"))
+
 ;;; gnuplot
 
 (use-package! gnuplot
@@ -92,6 +95,3 @@
   :commands (k8s-mode)
   :config
   (setq k8s-search-documentation-browser-function 'browse-url))
-
-(after! ox-reveal
-  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/"))
