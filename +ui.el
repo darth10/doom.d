@@ -73,7 +73,9 @@
     (custom-set-variables
      `(hl-sexp-background-color ,hl-line-background))))
 
-(let ((default-height (if IS-LINUX 148 138)))
+(let ((default-height (cond (IS-LINUX 148)
+                            (IS-MAC 166)
+                            (t 138))))
   (custom-set-variables
    '(custom-enabled-themes '(doom-solarized-dark))
    '(custom-safe-themes
