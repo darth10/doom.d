@@ -26,7 +26,8 @@
   (which-key-mode t))
 
 (after! lispy
-  (setq lispy-key-theme '(paredit c-digits)))
+  (setq lispy-key-theme '(paredit c-digits))
+  (lispy-set-key-theme lispy-key-theme))
 
 (after! calculator
   (advice-add 'calculator :after (λ! (enlarge-window 2))))
