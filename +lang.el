@@ -49,6 +49,9 @@
         org-eldoc-breadcrumb-separator " > "
         org-clock-heading-function (lambda! "")))
 
+(after! flycheck
+  (setq flycheck-global-modes '(not org-mode)))
+
 (after! org-fancy-priorities
   (setq org-fancy-priorities-list '("!" "!" "?")))
 
