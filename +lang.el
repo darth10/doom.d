@@ -91,10 +91,3 @@
   (set-repl-handler! 'gnuplot-mode #'gnuplot-show-gnuplot-buffer)
   (map! :map gnuplot-mode-map
         "C-c C-k" #'gnuplot-send-buffer-to-gnuplot))
-
-;;; Other
-
-(use-package! k8s-mode
-  :commands (k8s-mode)
-  :config
-  (setq k8s-search-documentation-browser-function 'browse-url))
