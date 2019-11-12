@@ -60,6 +60,7 @@
        go
        (haskell +intero)
        javascript
+       lua
        (markdown +grip)
        nix
        (org +dragndrop +gnuplot +ipython +pandoc +pomodoro +present)
