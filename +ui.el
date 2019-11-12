@@ -92,4 +92,5 @@
    '(isearch ((t (:background "Springgreen2" :foreground "DimGray"))))
    '(mode-line ((t (:box nil :overline nil :underline nil))))
    '(mode-line-inactive ((t (:box nil :overline nil :underline nil))))
-   '(show-paren-match ((t (:background "Springgreen2" :foreground "DimGray"))))))
+   '(show-paren-match ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(yaml-tab-face ((t (:inherit whitespace-tab))))))
