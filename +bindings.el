@@ -42,12 +42,10 @@
         "M-s"         #'isearch-forward
         "r"           #'isearch-backward
         "M-r"         #'isearch-backward
-        "a"           #'+helm/ag
-        "M-a"         #'+helm/ag
-        "f"           #'+helm/rg
-        "M-f"         #'+helm/rg
-        "g"           #'+helm/grep
-        "M-g"         #'+helm/grep
+        "a"           #'+helm/project-search
+        "M-a"         #'+helm/project-search
+        "f"           #'+helm/project-search
+        "M-f"         #'+helm/project-search
         "]"           #'helm-swoop
         "M-]"         #'helm-swoop)
       (:prefix "C-:"
