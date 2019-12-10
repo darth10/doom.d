@@ -5,7 +5,6 @@
 (package! edit-server)
 (package! god-mode)
 (package! ghub)
-(package! github-review)
 (package! helm-ls-git)
 (package! helm-swoop)
 (package! highlight-sexp)
