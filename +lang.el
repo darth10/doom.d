@@ -91,3 +91,18 @@
   (set-repl-handler! 'gnuplot-mode #'gnuplot-show-gnuplot-buffer)
   (map! :map gnuplot-mode-map
         "C-c C-k" #'gnuplot-send-buffer-to-gnuplot))
+
+;;; markdown
+
+(after! grip-mode
+  (defadvice! +markdown-grip-load-password-a (&rest _)
+    :before #'grip-mode
+    (let* ((host "api.github.com")
+           (match (car (auth-source-search :host host))))
+      (if match
+          (let* ((secret-list (plist-get match :secret))
+                 (secret (if (functionp secret-list)
+                             (funcall secret-list)
+                           secret-list)))
+            (setq grip-github-password secret))
+        (doom-log "Password not found for %S" host)))))
