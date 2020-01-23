@@ -52,7 +52,9 @@
 (after! flycheck
   (setq flycheck-global-modes '(not org-mode)))
 
-(after! org-fancy-priorities
+(use-package! org-fancy-priorities
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config
   (setq org-fancy-priorities-list '("!" "!" "?")))
 
 (after! org-pomodoro

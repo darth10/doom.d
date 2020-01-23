@@ -8,6 +8,7 @@
 (package! helm-ls-git)
 (package! helm-swoop)
 (package! highlight-sexp)
+(package! org-fancy-priorities)
 (package! nov)
 (package! k8s-mode)
 (package! kubernetes)
