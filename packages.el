@@ -1,17 +1,17 @@
 ;;; ~/.doom.d/packages.el -*- no-byte-compile: t; -*-
 
-(package! clipmon)
 (package! chess)
+(package! clipmon)
 (package! edit-server)
-(package! god-mode)
 (package! ghub)
+(package! god-mode)
 (package! helm-ls-git)
 (package! helm-swoop)
 (package! highlight-sexp)
-(package! org-fancy-priorities)
-(package! nov)
 (package! k8s-mode)
 (package! kubernetes)
+(package! nov)
+(package! org-fancy-priorities)
 (package! unicode-fonts)
 
 (package! cider-eval-sexp-fu)
