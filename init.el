@@ -18,6 +18,9 @@
        window-select
        workspaces
 
+       :checkers
+       syntax
+
        :editor
        god
        file-templates
