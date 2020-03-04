@@ -12,9 +12,6 @@
 
 ;;; Clojure
 
-(after! cider
-  (require 'flycheck-clj-kondo))
-
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
 

@@ -16,7 +16,6 @@
 
 (package! cider-eval-sexp-fu)
 (package! eval-sexp-fu)
-(package! flycheck-clj-kondo)
 (package! powershell)
 
 (package! flycheck-joker :disable t)
