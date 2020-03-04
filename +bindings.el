@@ -110,7 +110,9 @@
              hy-mode-map
              lfe-mode-map
              clojure-mode-map)
-        "C-c ["       #'highlight-sexp-mode))
+        "C-c ["       #'highlight-sexp-mode)
+      (:map csharp-mode-map
+        "C-c C-r" #'omnisharp-run-code-action-refactoring))
 
 (after! smartparens
   (map! (:map smartparens-mode-map
