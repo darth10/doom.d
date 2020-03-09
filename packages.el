@@ -11,7 +11,6 @@
 (package! k8s-mode)
 (package! kubernetes)
 (package! nov)
-(package! org-fancy-priorities)
 (package! unicode-fonts)
 
 (package! cider-eval-sexp-fu)

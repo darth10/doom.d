@@ -49,11 +49,6 @@
 (after! flycheck
   (setq flycheck-global-modes '(not org-mode)))
 
-(use-package! org-fancy-priorities
-  :hook (org-mode . org-fancy-priorities-mode)
-  :config
-  (setq org-fancy-priorities-list '("!" "!" "?")))
-
 (after! org-pomodoro
   (setq org-pomodoro-format "~%s")
   (defadvice! +org-pomodoro-update-mode-line-a ()
