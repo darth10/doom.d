@@ -33,6 +33,7 @@
        :emacs
        dired
        electric
+       undo
        vc
 
        :term
