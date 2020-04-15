@@ -61,7 +61,7 @@
        data
        emacs-lisp
        go
-       (haskell +intero)
+       (haskell +dante)
        javascript
        lua
        (markdown +grip)
