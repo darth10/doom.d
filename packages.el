@@ -18,6 +18,7 @@
 (package! powershell)
 
 (package! flycheck-joker :disable t)
+(package! org-superstar :disable t)
 (package! swiper-helm :disable t)
 
 (when IS-WINDOWS
