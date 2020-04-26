@@ -101,7 +101,7 @@
         "C-, s"       #'lispy-splice
         "C-, C-s"     #'lispy-splice)
       (:map org-mode-map
-        "C-c n"       #'org-agenda
+        "C-c a"       #'org-agenda
         "C-x C-e"     #'+org/recalculate-all)
       (:map (common-lisp-mode-map
              emacs-lisp-mode-map
