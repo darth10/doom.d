@@ -45,7 +45,6 @@
        docker
        editorconfig
        eval
-       flycheck
        gist
        (lookup +docsets)
        lsp
