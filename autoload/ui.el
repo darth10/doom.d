@@ -35,6 +35,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
                                             emacs-version)
                                     'face face-for-logo)))
          (help-text (replace-regexp-in-string
+                     ;; Too early to use λ! here.
                      "C-." (lambda (s) (propertize s 'face face-for-keys))
                      (concat +ui--scratch-message-help-text "\n"
                              version-text))))
