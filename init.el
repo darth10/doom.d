@@ -66,7 +66,7 @@
        lua
        (markdown +grip)
        nix
-       (org +dragndrop +gnuplot +ipython +pandoc +pomodoro +present)
+       (org +brain +dragndrop +gnuplot +ipython +pandoc +pomodoro +present)
        php
        plantuml
        python

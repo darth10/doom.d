@@ -101,8 +101,15 @@
         "C-, s"       #'lispy-splice
         "C-, C-s"     #'lispy-splice)
       (:map org-mode-map
+        "C-x C-e"     #'+org/recalculate-all
+        (:prefix ("C-c b" . "brain")
+          "c"         #'org-brain-open
+          "b"         #'org-brain-visualize
+          "/"         #'org-brain-switch-brain))
+      (:map (org-mode-map org-brain-visualize-mode-map)
         "C-c a"       #'org-agenda
-        "C-x C-e"     #'+org/recalculate-all)
+        (:prefix ("C-c b" . "brain")
+          "a"         #'org-brain-agenda))
       (:map (common-lisp-mode-map
              emacs-lisp-mode-map
              scheme-mode-map

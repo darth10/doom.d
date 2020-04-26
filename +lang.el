@@ -44,7 +44,15 @@
   (remove-hook! 'org-mode-hook #'org-bullets-mode)
   (setq org-startup-indented nil
         org-eldoc-breadcrumb-separator " > "
-        org-clock-heading-function (lambda! "")))
+        org-clock-heading-function (lambda! ""))
+  (defadvice! +org-agenda-quit-a ()
+    "Close window after `org-agenda-quit' if there are multiple windows."
+    :after #'org-agenda-quit
+    (when (> (length (window-list)) 1)
+      (+workspace/close-window-or-workspace))))
+
+(after! org-brain
+  (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil))
 
 (after! flycheck
   (setq flycheck-global-modes '(not org-mode)))
