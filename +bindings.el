@@ -103,7 +103,7 @@
       (:map org-mode-map
         "C-x C-e"     #'+org/recalculate-all
         (:prefix ("C-c b" . "brain")
-          "c"         #'org-brain-open
+          "c"         #'org-brain-goto
           "b"         #'org-brain-visualize
           "/"         #'org-brain-switch-brain))
       (:map (org-mode-map org-brain-visualize-mode-map)
