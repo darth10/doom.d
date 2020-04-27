@@ -1,8 +1,10 @@
 ;;; ~/.doom.d/packages.el -*- no-byte-compile: t; -*-
 
 (package! chess)
+(package! cider-eval-sexp-fu)
 (package! clipmon)
 (package! edit-server)
+(package! eval-sexp-fu)
 (package! ghub)
 (package! god-mode)
 (package! helm-ls-git)
@@ -11,11 +13,8 @@
 (package! k8s-mode)
 (package! kubernetes)
 (package! nov)
-(package! unicode-fonts)
-
-(package! cider-eval-sexp-fu)
-(package! eval-sexp-fu)
 (package! powershell)
+(package! unicode-fonts)
 
 (package! flycheck-joker :disable t)
 (package! org-superstar :disable t)
