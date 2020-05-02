@@ -50,6 +50,7 @@
        lsp
        magit
        make
+       pass
        pdf
        terraform
 
