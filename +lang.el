@@ -82,6 +82,9 @@
 (after! ox-reveal
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/"))
 
+(after! org-gcal
+  (+org-gcal/load))
+
 ;;; gnuplot
 
 (use-package! gnuplot
