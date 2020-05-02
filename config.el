@@ -3,6 +3,7 @@
 (load! "+editor")
 (load! "+files")
 (load! "+games")
+(load! "+org")
 (load! "+lang")
 (load! "+vc")
 (load! "+ui")
