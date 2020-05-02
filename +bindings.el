@@ -119,7 +119,9 @@
              clojure-mode-map)
        "C-c ["         #'highlight-sexp-mode)
       (:map csharp-mode-map
-       "C-c C-r"       #'omnisharp-run-code-action-refactoring))
+       "C-c C-r"       #'omnisharp-run-code-action-refactoring)
+      (:map gnuplot-mode-map
+       "C-c C-k"       #'gnuplot-send-buffer-to-gnuplot))
 
 (after! smartparens
   (map! (:map smartparens-mode-map

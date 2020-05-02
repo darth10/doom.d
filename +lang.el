@@ -46,9 +46,7 @@
   (gnuplot-mode . gnuplot-inline-display-mode)
   (gnuplot-mode . display-line-numbers-mode)
   :config
-  (set-repl-handler! 'gnuplot-mode #'gnuplot-show-gnuplot-buffer)
-  (map! :map gnuplot-mode-map
-        "C-c C-k" #'gnuplot-send-buffer-to-gnuplot))
+  (set-repl-handler! 'gnuplot-mode #'gnuplot-show-gnuplot-buffer))
 
 ;;; markdown
 
