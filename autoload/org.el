@@ -22,24 +22,22 @@ until it no longer changes."
          (auth-plist
           (car (auth-source-search :host org-gcal-host
                                    :user (user-login-name)
-                                   :max 1 :create '(id gmail))))
-         (client-id     (plist-get auth-plist :id))
-         (client-gmail  (plist-get auth-plist :gmail))
-         (client-secret (plist-get auth-plist :secret))
-         (save-function (plist-get auth-plist :save-function)))
+                                   :max 1 :create '(id gmail)))))
     ;; Set `org-gcal-client-id', `org-gcal-file-alist',
     ;; and `org-gcal-client-secret'.
-    (if client-id
+    (if-let ((client-id (plist-get auth-plist :id)))
         (setq org-gcal-client-id client-id)
       (error "Malformed Google API client ID."))
-    (if client-gmail
+    (if-let ((client-gmail (plist-get auth-plist :gmail)))
         (setq org-gcal-file-alist
               ;; TODO change location
               (list (cons client-gmail "~/org/google.org")))
       (error "Malformed Google Mail address."))
-    (if (functionp client-secret)
+    (if-let ((client-secret (plist-get auth-plist :secret))
+             (client-secret-p (functionp client-secret)))
         (setq org-gcal-client-secret (funcall client-secret))
       (error "Malformed Google API client secret."))
     ;; Save to `auth-sources'. This is required on creating token.
-    (when (functionp save-function)
+    (when-let ((save-function (plist-get auth-plist :save-function))
+               (save-function-p (functionp save-function)))
       (funcall save-function))))
