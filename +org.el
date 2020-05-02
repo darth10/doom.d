@@ -45,4 +45,5 @@
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/"))
 
 (after! org-gcal
+  (setq org-gcal-token-file (expand-file-name "org-gcal-token.gpg" doom-cache-dir))
   (+org-gcal/load))
