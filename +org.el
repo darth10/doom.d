@@ -4,6 +4,7 @@
 
 (after! org
   (remove-hook! 'org-mode-hook #'org-bullets-mode)
+  (add-hook! 'org-mode-hook #'org-toggle-inline-images)
   (setq org-startup-indented nil
         org-eldoc-breadcrumb-separator " > "
         org-clock-heading-function (λ! ""))
@@ -47,3 +48,7 @@
 (after! org-gcal
   (setq org-gcal-token-file (expand-file-name "org-gcal-token.gpg" doom-cache-dir))
   (+org-gcal/load))
+
+(after! org-download
+  (setq! org-download-screenshot-method
+         "flameshot gui --raw > %s"))
