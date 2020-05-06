@@ -26,11 +26,12 @@
        god
        file-templates
        fold
+       format
        lispy
        multiple-cursors
        rotate-text
        snippets
-       
+
        :emacs
        (dired +icons)
        electric
