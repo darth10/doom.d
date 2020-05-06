@@ -14,6 +14,7 @@
        neotree
        ophints
        (popup +all +defaults)
+       unicode
        vc-gutter
        window-select
        workspaces
