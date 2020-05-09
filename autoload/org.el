@@ -9,7 +9,7 @@ until it no longer changes."
     (org-table-recalculate 'iterate)))
 
 ;;;###autoload
-(defun +org-gcal/load ()
+(defun +org-gcal--load ()
   "Load client ID, secret and email from `auth-sources'."
   (let* ((org-gcal-host "www.googleapis.com")
          (auth-sources '("~/.authinfo.gpg"))

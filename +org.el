@@ -48,7 +48,7 @@
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/"))
 
 (after! org-gcal
-  (+org-gcal/load))
+  (+org-gcal--load))
 
 (after! org-download
   (setq! org-download-screenshot-method
