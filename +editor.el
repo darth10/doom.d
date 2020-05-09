@@ -19,6 +19,9 @@
 (after! flycheck
   (setq flycheck-emacs-lisp-load-path 'inherit))
 
+(after! yasnippet
+  (setq yas-indent-line 'fixed))
+
 (after! which-key
   :init
   (which-key-setup-side-window-bottom)
