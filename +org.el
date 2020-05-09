@@ -7,7 +7,9 @@
   (add-hook! 'org-mode-hook #'org-toggle-inline-images)
   (setq org-startup-indented nil
         org-eldoc-breadcrumb-separator " > "
-        org-clock-heading-function (λ! ""))
+        org-clock-heading-function (λ! "")
+        org-directory "~/Dropbox/org"
+        org-attach-id-dir (expand-file-name "attachments/" org-directory))
   (defadvice! +org-agenda-quit-a ()
     "Close window after `org-agenda-quit' if there are multiple windows."
     :after #'org-agenda-quit
