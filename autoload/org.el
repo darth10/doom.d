@@ -41,3 +41,8 @@ until it no longer changes."
     (when-let ((save-function (plist-get auth-plist :save-function))
                (save-function-p (functionp save-function)))
       (funcall save-function))))
+
+;;;###autoload
+(defun +org-agenda--load-files (dir)
+  "Sets `org-agenda-files' to all org files in directory DIR."
+  (setq! org-agenda-files (directory-files dir t "\\.org$")))

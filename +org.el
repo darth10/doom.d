@@ -14,7 +14,8 @@
     "Close window after `org-agenda-quit' if there are multiple windows."
     :after #'org-agenda-quit
     (when (> (length (window-list)) 1)
-      (+workspace/close-window-or-workspace))))
+      (+workspace/close-window-or-workspace)))
+  (+org-agenda--load-files org-directory))
 
 (after! org-brain
   (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil))
