@@ -45,7 +45,7 @@ until it no longer changes."
 ;;;###autoload
 (defun +org-agenda--load-files (dir)
   "Sets `org-agenda-files' to all org files in directory DIR."
-  (setq! org-agenda-files (directory-files dir t "\\.org$")))
+  (setq! org-agenda-files (directory-files-recursively dir "\\.org$")))
 
 ;;;###autoload
 (defvar org-gcal-calendar-id nil)
