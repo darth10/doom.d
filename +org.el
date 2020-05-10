@@ -9,7 +9,9 @@
         org-eldoc-breadcrumb-separator " > "
         org-clock-heading-function (λ! "")
         org-directory "~/Dropbox/org"
-        org-attach-id-dir (expand-file-name "attachments/" org-directory))
+        org-attach-id-dir (expand-file-name "attachments/" org-directory)
+        org-id-locations-file (expand-file-name ".org-ids" doom-cache-dir)
+        org-brain-data-file (expand-file-name ".org-brain.el" doom-cache-dir))
   (defadvice! +org-agenda-quit-a ()
     "Close window after `org-agenda-quit' if there are multiple windows."
     :after #'org-agenda-quit
