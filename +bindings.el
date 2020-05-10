@@ -110,6 +110,8 @@
         "c"            #'org-brain-goto
         "b"            #'org-brain-visualize
         "/"            #'org-brain-switch-brain))
+      (:map org-brain-visualize-mode-map
+       "L"             #'+org-brain/cliplink-resource)
       (:map (org-mode-map org-brain-visualize-mode-map)
        "C-c a"         #'org-agenda
        (:prefix ("C-c b" . "brain")
