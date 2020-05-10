@@ -30,7 +30,7 @@ until it no longer changes."
       (error "Malformed Google API client ID."))
     (if-let ((client-gmail (plist-get auth-plist :gmail)))
         (setq org-gcal-file-alist
-              ;; TODO change location
+              ;; TODO change location, remove gmail from token
               (list (cons client-gmail "~/org/google.org")))
       (error "Malformed Google Mail address."))
     (if-let ((client-secret (plist-get auth-plist :secret))
