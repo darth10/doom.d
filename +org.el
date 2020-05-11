@@ -12,11 +12,7 @@
         org-attach-id-dir (expand-file-name "attachments/" org-directory)
         org-id-locations-file (expand-file-name ".org-ids" doom-cache-dir)
         org-brain-data-file (expand-file-name ".org-brain.el" doom-cache-dir))
-  (defadvice! +org-agenda-quit-a ()
-    "Close window after `org-agenda-quit' if there are multiple windows."
-    :after #'org-agenda-quit
-    (when (> (length (window-list)) 1)
-      (+workspace/close-window-or-workspace)))
+  (set-popup-rule! "^\\*Org Agenda" :side 'bottom :size 0.5 :select t :ttl nil)
   (+org-agenda--load-files org-directory))
 
 (after! org-brain
