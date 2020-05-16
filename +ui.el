@@ -78,4 +78,5 @@
    '(mode-line ((t (:box nil :overline nil :underline nil))))
    '(mode-line-inactive ((t (:box nil :overline nil :underline nil))))
    '(show-paren-match ((t (:background "Springgreen2" :foreground "DimGray"))))
+   `(window-divider ((t (:foreground ,+ui--hl-line-background))))
    '(yaml-tab-face ((t (:inherit whitespace-tab))))))

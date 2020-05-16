@@ -54,3 +54,6 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
     ;; Disable cursor in PDFs.
     (blink-cursor-mode (if is-pdf-mode -1 +1))
     (when is-pdf-mode (internal-show-cursor nil nil))))
+
+;;;###autoload
+(defvar +ui--hl-line-background "#00212b") ; solaire-hl-line-face background
