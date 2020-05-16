@@ -44,12 +44,6 @@
 
   (add-hook! 'post-command-hook #'+ui--configure-modeline-indicator-h))
 
-(after! doom-themes
-  ;; `doom-load-theme-hook' functions need to be run to properly enable
-  ;; `solaire-mode'.
-  (when (equal custom-enabled-themes '(doom-solarized-dark))
-    (run-hooks 'doom-load-theme-hook)))
-
 (after! neotree
   (setq doom-themes-neotree-enable-variable-pitch nil
         doom-themes-neotree-enable-folder-icons nil
