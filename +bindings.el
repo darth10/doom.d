@@ -77,7 +77,7 @@
       (:map isearch-mode-map
        "<f3>"          #'isearch-repeat-forward
        "S-<f3>"        #'isearch-repeat-backward)
-      (:map lispy-mode-map
+      (:map lispy-mode-map-paredit
        "C-:"           nil          ; lispy-colon
        "C-<left>"      nil          ; lispy-forward-barf-sexp
        "C-<right>"     nil          ; lispy-forward-slurp-sexp
