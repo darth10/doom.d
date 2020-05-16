@@ -54,12 +54,8 @@
   :hook (highlight-sexp-mode . +highlight-sexp--set-hl-line)
   :config
   (defun +highlight-sexp--set-hl-line ()
-    (hl-line-mode (if highlight-sexp-mode -1 +1))))
-
-(after! (:and solaire-mode highlight-sexp)
-  (let ((hl-line-background (face-background 'solaire-hl-line-face)))
-    (custom-set-variables
-     `(hl-sexp-background-color ,hl-line-background))))
+    (hl-line-mode (if highlight-sexp-mode -1 +1)))
+  (setq! hl-sexp-background-color +ui--hl-line-background))
 
 (let ((default-height (cond (IS-LINUX 148)
                             (IS-MAC 166)
