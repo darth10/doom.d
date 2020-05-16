@@ -21,11 +21,6 @@
   (add-hook 'window-setup-hook (λ! (w32-send-sys-command 61488))))
 
 (after! doom-modeline
-  (custom-set-faces
-   '(doom-modeline-panel ((t (:inherit mode-line-emphasis))))
-   '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
-   '(doom-modeline-inactive-bar ((t (:inherit mode-line-emphasis)))))
-
   (setq doom-modeline-height 40)
 
   (doom-modeline-def-segment cur-mode
