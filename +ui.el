@@ -70,10 +70,7 @@
 (let ((default-height (cond (IS-LINUX 148)
                             (IS-MAC 166)
                             (t 138))))
-  (custom-set-variables
-   '(custom-enabled-themes '(doom-solarized-dark))
-   '(custom-safe-themes
-     '("428754d8f3ed6449c1078ed5b4335f4949dc2ad54ed9de43c56ea9b803375c23" default)))
+  (setq! doom-theme 'doom-solarized-dark)
   (custom-set-faces
    `(default ((t (:height ,default-height :family "Consolas" :weight normal :width normal))))
    '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
