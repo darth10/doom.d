@@ -23,13 +23,8 @@
   (setq yas-indent-line 'fixed))
 
 (after! which-key
-  :init
-  (which-key-setup-side-window-bottom)
   (which-key-enable-god-mode-support)
-  (setq which-key-max-description-length 24
-        which-key-max-display-columns 4
-        which-key-separator " : ")
-  (which-key-mode t))
+  (setq which-key-separator " : "))
 
 (after! lispy
   (lispy-set-key-theme (setq lispy-key-theme '(paredit c-digits))))
