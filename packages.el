@@ -5,6 +5,7 @@
 (package! clipmon)
 (package! edit-server)
 (package! eval-sexp-fu)
+(package! feature-mode)
 (package! ghub)
 (package! god-mode)
 (package! helm-ls-git)
