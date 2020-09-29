@@ -108,6 +108,8 @@
         "c"            #'org-brain-goto
         "b"            #'org-brain-visualize
         "/"            #'org-brain-switch-brain))
+      (:map org-agenda-mode-map
+       "C-s"           #'org-save-all-org-buffers)
       (:map org-brain-visualize-mode-map
        "L"             #'+org-brain/cliplink-resource)
       (:map (org-mode-map org-brain-visualize-mode-map)
