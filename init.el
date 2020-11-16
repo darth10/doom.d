@@ -9,6 +9,7 @@
        doom-quit
        fill-column
        hl-todo
+       indent-guides
        modeline
        nav-flash
        neotree

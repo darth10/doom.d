@@ -49,6 +49,10 @@
         doom-themes-neotree-enable-folder-icons nil
         doom-themes-neotree-file-icons nil))
 
+(after! highlight-indent-guides
+  (setq highlight-indent-guides-responsive 'stack
+        highlight-indent-guides-method 'bitmap))
+
 (use-package! highlight-sexp
   :commands (highlight-sexp-mode)
   :hook (highlight-sexp-mode . +highlight-sexp--set-hl-line)
