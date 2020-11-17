@@ -28,8 +28,8 @@ until it no longer changes."
   (let* ((org-gcal-host "www.googleapis.com")
          (auth-sources '("~/.authinfo.gpg"))
          (auth-source-creation-defaults
-          '((user .  (user-login-name))
-            (id .    (read-string "Enter Google API client ID: "))
+          '((user  . (user-login-name))
+            (id    . (read-string "Enter Google API client ID: "))
             (gmail . (read-string "Enter Google Mail address: "))))
          (auth-source-creation-prompts
           '((secret . "Enter Google API client secret: ")))
