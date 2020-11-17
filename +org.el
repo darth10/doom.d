@@ -45,6 +45,9 @@
     (force-mode-line-update t)))
 
 (after! org-gcal
+  (setq org-gcal-remove-api-cancelled-events t)
+  (add-hook! (org-gcal-sync org-gcal-post-at-point org-gcal-delete-at-point)
+             #'org-id-update-id-locations)
   (+org-gcal--load))
 
 (after! org-download

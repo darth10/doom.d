@@ -16,8 +16,15 @@ until it no longer changes."
     (org-table-recalculate 'iterate)))
 
 ;;;###autoload
+(defvar +org-gcal-calendar-id nil)
+
+;;;###autoload
+(defvar +org-gcal-org-file-name "Google.org")
+
+;;;###autoload
 (defun +org-gcal--load ()
   "Load client ID, secret and email from `auth-sources'."
+  (require 'org-brain)
   (let* ((org-gcal-host "www.googleapis.com")
          (auth-sources '("~/.authinfo.gpg"))
          (auth-source-creation-defaults
@@ -37,8 +44,9 @@ until it no longer changes."
       (error "Malformed Google API client ID."))
     (if-let ((client-gmail (plist-get auth-plist :gmail)))
         (setq org-gcal-file-alist
-              ;; TODO change location, remove gmail from token
-              (list (cons client-gmail "~/org/google.org")))
+              (list (cons client-gmail
+                          (expand-file-name +org-gcal-org-file-name org-brain-path)))
+              +org-gcal-calendar-id client-gmail)
       (error "Malformed Google Mail address."))
     (if-let ((client-secret (plist-get auth-plist :secret))
              (client-secret-p (functionp client-secret)))
@@ -53,6 +61,3 @@ until it no longer changes."
 (defun +org-agenda--load-files (dir)
   "Sets `org-agenda-files' to all org files in directory DIR."
   (setq! org-agenda-files (directory-files-recursively dir "\\.org$")))
-
-;;;###autoload
-(defvar org-gcal-calendar-id nil)

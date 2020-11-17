@@ -104,6 +104,12 @@
        "C-c l <down>"  #'org-table-move-cell-down
        "C-c l <left>"  #'org-table-move-cell-left
        "C-c l <right>" #'org-table-move-cell-right
+       "C-c g g"       #'org-gcal-sync
+       "C-c g C-g"     #'org-gcal-sync
+       "C-c g p"       #'org-gcal-post-at-point
+       "C-c g C-p"     #'org-gcal-post-at-point
+       "C-c g d"       #'org-gcal-delete-at-point
+       "C-c g C-d"     #'org-gcal-delete-at-point
        (:prefix ("C-c b" . "brain")
         "c"            #'org-brain-goto
         "b"            #'org-brain-visualize

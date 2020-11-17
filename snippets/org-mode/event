@@ -4,7 +4,7 @@
 # --
 * ${1:EVENT-NAME}
   :PROPERTIES:
-  :calendar-id: `(concat org-gcal-calendar-id)`
+  :calendar-id: `(concat +org-gcal-calendar-id)`
   :END:
 :org-gcal:
 <${7:`(format-time-string "%Y-%m-%d %a")`} ${3:`(let* ((hour (string-to-number (format-time-string "%H")))) (format "%02d" hour))`}:${5:00}-${4:`(let* ((hour (string-to-number (format-time-string "%H")))) (format "%02d" (mod (+ 1 hour) 24)))`}:${6:30}>
