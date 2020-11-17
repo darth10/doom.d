@@ -3,7 +3,8 @@
 (setq initial-scratch-message (+ui--get-scratch-message))
 
 (setq-default left-fringe-width 8
-              right-fringe-width 8)
+              right-fringe-width 8
+              display-fill-column-indicator-character ?·)
 
 (add-hook! '(doom-switch-buffer-hook
              doom-switch-frame-hook
