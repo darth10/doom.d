@@ -1,5 +1,8 @@
 ;;; ~/.doom.d/+files.el -*- lexical-binding: t; -*-
 
+(after! persist
+  (setq persist--directory-location (concat doom-cache-dir "persist")))
+
 (use-package! nov
   :mode ("\\.epub\\'" . nov-mode)
   :config
