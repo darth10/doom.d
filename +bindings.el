@@ -23,6 +23,9 @@
       "M-<up>"         #'+editor/move-text-up
       "M-<down>"       #'+editor/move-text-down
       "M-i"            #'god-local-mode
+      "M-c"            #'capitalize-dwim
+      "M-l"            #'downcase-dwim
+      "M-u"            #'upcase-dwim
       "M-w"            #'+editor/kill-ring-save-region-or-line
       "M-SPC"          #'company-manual-begin
       "M-]"            #'helm-swoop
