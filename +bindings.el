@@ -1,8 +1,8 @@
 ;;; ~/.doom.d/+bindings.el -*- lexical-binding: t; -*-
 
-(map! "C-z"            nil               ; suspend-frame
-      "C-;"            nil               ; company-manual-begin
-      "C-S-s"          nil               ; swiper-helm
+(map! "C-z"            nil              ; suspend-frame
+      "C-;"            nil              ; company-manual-begin
+      "C-S-s"          nil              ; swiper-helm
       "<escape>"       #'god-local-mode
       "S-<escape>"     #'god-mode-all
       "C-s"            #'save-buffer
@@ -79,12 +79,12 @@
        "<f3>"          #'isearch-repeat-forward
        "S-<f3>"        #'isearch-repeat-backward)
       (:map lispy-mode-map-paredit
-       "C-:"           nil          ; lispy-colon
-       "C-<left>"      nil          ; lispy-forward-barf-sexp
-       "C-<right>"     nil          ; lispy-forward-slurp-sexp
-       "M-s"           nil          ; lispy-splice
-       "M-<up>"        nil          ; lispy-splice-sexp-killing-backward
-       "M-<down>"      nil          ; lispy-splice-sexp-killing-forward
+       "C-:"           nil              ; lispy-colon
+       "C-<left>"      nil              ; lispy-forward-barf-sexp
+       "C-<right>"     nil              ; lispy-forward-slurp-sexp
+       "M-s"           nil              ; lispy-splice
+       "M-<up>"        nil              ; lispy-splice-sexp-killing-backward
+       "M-<down>"      nil              ; lispy-splice-sexp-killing-forward
        "C-. k"         #'lispy-splice-sexp-killing-forward
        "C-. C-k"       #'lispy-splice-sexp-killing-forward
        "M-S-<down>"    #'lispy-splice-sexp-killing-forward
@@ -140,11 +140,11 @@
 
 (after! smartparens
   (map! (:map smartparens-mode-map
-         "C-<right>"   nil             ; sp-forward-slurp-sexp
-         "M-<right>"   nil             ; sp-forward-barf-sexp
-         "C-<left>"    nil             ; sp-backward-slurp-sexp
-         "M-<left>"    nil             ; sp-backward-barf-sexp
-         "C-M-d"       nil             ; sp-splice-sexp
+         "C-<right>"   nil              ; sp-forward-slurp-sexp
+         "M-<right>"   nil              ; sp-forward-barf-sexp
+         "C-<left>"    nil              ; sp-backward-slurp-sexp
+         "M-<left>"    nil              ; sp-backward-barf-sexp
+         "C-M-d"       nil              ; sp-splice-sexp
          "C-. f"       #'sp-forward-slurp-sexp
          "C-. C-f"     #'sp-forward-slurp-sexp
          "C-. . f"     #'sp-backward-barf-sexp
