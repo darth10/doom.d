@@ -22,6 +22,7 @@
 
        :checkers
        syntax
+       (spell +flyspell +aspell)
 
        :editor
        god
