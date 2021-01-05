@@ -21,6 +21,7 @@
        workspaces
 
        :checkers
+       grammar
        syntax
        (spell +flyspell +aspell)
 
