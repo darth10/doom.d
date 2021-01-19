@@ -1,13 +1,9 @@
 ;;; ~/.doom.d/+editor.el -*- lexical-binding: t; -*-
 
-(when IS-LINUX
-  (toggle-debug-on-error))
-
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-(setq garbage-collection-messages nil
-      uniquify-buffer-name-style 'forward
+(setq uniquify-buffer-name-style 'forward
       uniquify-separator "/"
       uniquify-after-kill-buffer-p t
       global-visual-line-mode nil)
