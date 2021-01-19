@@ -6,7 +6,8 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-(setq uniquify-buffer-name-style 'forward
+(setq garbage-collection-messages nil
+      uniquify-buffer-name-style 'forward
       uniquify-separator "/"
       uniquify-after-kill-buffer-p t
       global-visual-line-mode nil)
