@@ -4,6 +4,7 @@
 (package! cider-eval-sexp-fu)
 (package! clipmon)
 (package! edit-server)
+(package! esup)
 (package! eval-sexp-fu)
 (package! feature-mode)
 (package! ghub)
