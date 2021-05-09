@@ -1,5 +1,7 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
+(doom-debug-mode -1)
+
 (load! "+editor")
 (load! "+files")
 (load! "+games")
