@@ -1,6 +1,6 @@
 ;;; ~/.doom.d/+os.el -*- lexical-binding: t; -*-
 
-(when IS-LINUX
+(when (or IS-MAC IS-LINUX)
   (setq shell-command-switch "-ic"))
 
 (after! eshell
