@@ -15,6 +15,10 @@
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
 
+(after! cider
+  (cider-add-to-alist 'cider-jack-in-dependencies
+                      "com.cemerick/pomegranate" "0.4.0"))
+
 ;;; Racket
 
 (after! racket-mode
