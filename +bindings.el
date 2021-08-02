@@ -85,22 +85,22 @@
        "M-s"           nil              ; lispy-splice
        "M-<up>"        nil              ; lispy-splice-sexp-killing-backward
        "M-<down>"      nil              ; lispy-splice-sexp-killing-forward
-       "C-. k"         #'lispy-splice-sexp-killing-forward
-       "C-. C-k"       #'lispy-splice-sexp-killing-forward
+       "C-, k"         #'lispy-splice-sexp-killing-forward
+       "C-, C-k"       #'lispy-splice-sexp-killing-forward
        "M-S-<down>"    #'lispy-splice-sexp-killing-forward
-       "C-. . k"       #'lispy-splice-sexp-killing-backward
-       "C-. C-. C-k"   #'lispy-splice-sexp-killing-backward
+       "C-, , k"       #'lispy-splice-sexp-killing-backward
+       "C-, C-, C-k"   #'lispy-splice-sexp-killing-backward
        "M-S-<up>"      #'lispy-splice-sexp-killing-backward
-       "C-. f"         #'lispy-forward-slurp-sexp
-       "C-. C-f"       #'lispy-forward-slurp-sexp
-       "C-. . f"       #'lispy-backward-barf-sexp
-       "C-. C-. C-f"   #'lispy-backward-barf-sexp
-       "C-. b"         #'lispy-forward-barf-sexp
-       "C-. C-b"       #'lispy-forward-barf-sexp
-       "C-. . b"       #'lispy-backward-slurp-sexp
-       "C-. C-. C-b"   #'lispy-backward-slurp-sexp
-       "C-. s"         #'lispy-splice
-       "C-. C-s"       #'lispy-splice)
+       "C-, f"         #'lispy-forward-slurp-sexp
+       "C-, C-f"       #'lispy-forward-slurp-sexp
+       "C-, , f"       #'lispy-backward-barf-sexp
+       "C-, C-, C-f"   #'lispy-backward-barf-sexp
+       "C-, b"         #'lispy-forward-barf-sexp
+       "C-, C-b"       #'lispy-forward-barf-sexp
+       "C-, , b"       #'lispy-backward-slurp-sexp
+       "C-, C-, C-b"   #'lispy-backward-slurp-sexp
+       "C-, s"         #'lispy-splice
+       "C-, C-s"       #'lispy-splice)
       (:map org-mode-map
        "C-x C-e"       #'+org/recalculate-all
        "C-c l <up>"    #'org-table-move-cell-up
