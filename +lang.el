@@ -66,3 +66,7 @@
                            secret-list)))
             (setq grip-github-password secret))
         (doom-log "Password not found for %S" host)))))
+
+
+(after! plantuml-mode
+  (setq plantuml-default-exec-mode 'jar))

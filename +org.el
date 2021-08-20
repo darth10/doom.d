@@ -16,7 +16,11 @@
         org-id-locations-file (expand-file-name ".org-ids" doom-cache-dir)
         org-brain-data-file (expand-file-name ".org-brain.el" doom-cache-dir))
   (set-popup-rule! "^\\*Org Agenda" :side 'bottom :size 0.5 :select t :ttl nil)
-  (+org-agenda--load-files org-directory))
+  (+org-agenda--load-files org-directory)
+
+  (after! plantuml-mode
+    (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))))
 
 (after! org-brain
   (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil))
