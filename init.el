@@ -53,7 +53,7 @@
        gist
        (lookup +docsets)
        lsp
-       magit
+       (magit +forge)
        make
        pass
        pdf
