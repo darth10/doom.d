@@ -140,7 +140,7 @@
       (:map gnuplot-mode-map
        "C-c C-k"       #'gnuplot-send-buffer-to-gnuplot)
       (:map cider-mode-map
-       "M-."           nil)
+       "M-."           nil)             ; cider-find-var
       (:map clj-refactor-map
        "/"             nil))            ; cljr-slash
 
