@@ -172,4 +172,5 @@
 
 (after! clojure-mode
   (map! (:map clojure-mode-map
-         "C-:" nil)))
+         "C-:" nil))
+  (cljr-add-keybindings-with-prefix "C-c c :"))
