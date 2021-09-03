@@ -12,6 +12,14 @@
 
 ;;; Clojure
 
+(after! clojure-mode
+  (define-clojure-indent
+    (GET 2)
+    (POST 2)
+    (PUT 2)
+    (PATCH 2)
+    (DELETE 2)))
+
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
 
