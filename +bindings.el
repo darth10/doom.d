@@ -84,6 +84,7 @@
        "M-s"           nil              ; lispy-splice
        "M-<up>"        nil              ; lispy-splice-sexp-killing-backward
        "M-<down>"      nil              ; lispy-splice-sexp-killing-forward
+       "M-."           nil
        "C-, k"         #'lispy-splice-sexp-killing-forward
        "C-, C-k"       #'lispy-splice-sexp-killing-forward
        "M-S-<down>"    #'lispy-splice-sexp-killing-forward
@@ -136,8 +137,8 @@
        "C-c C-r"       #'omnisharp-run-code-action-refactoring)
       (:map gnuplot-mode-map
        "C-c C-k"       #'gnuplot-send-buffer-to-gnuplot)
-      (:map lsp-mode-map
-       "M-."           #'lsp-find-definition))
+      (:map cider-mode-map
+       "M-."           nil))
 
 (after! smartparens
   (map! (:map smartparens-mode-map
