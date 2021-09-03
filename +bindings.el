@@ -86,7 +86,7 @@
        "M-s"           nil              ; lispy-splice
        "M-<up>"        nil              ; lispy-splice-sexp-killing-backward
        "M-<down>"      nil              ; lispy-splice-sexp-killing-forward
-       "M-."           nil
+       "M-."           nil              ; lispy-goto-symbol
        "C-, k"         #'lispy-splice-sexp-killing-forward
        "C-, C-k"       #'lispy-splice-sexp-killing-forward
        "M-S-<down>"    #'lispy-splice-sexp-killing-forward
