@@ -47,3 +47,7 @@
 (use-package! helm-ls-git
   :after helm
   :commands (helm-ls-git-ls))
+
+(after! lsp-mode
+  (setq lsp-ui-sideline-enable nil
+        lsp-modeline-diagnostics-enable nil))

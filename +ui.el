@@ -76,6 +76,7 @@
    '(helm-swoop-target-word-face ((t (:background "Springgreen2" :foreground "DimGray"))))
    '(iedit-occurrence ((t (:foreground "Springgreen2" :background "DimGray"))))
    '(isearch ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(lsp-face-highlight-textual ((t (:background "Springgreen2" :foreground "DimGray"))))
    '(mode-line ((t (:box nil :overline nil :underline nil))))
    '(mode-line-inactive ((t (:box nil :overline nil :underline nil))))
    '(show-paren-match ((t (:background "Springgreen2" :foreground "DimGray"))))

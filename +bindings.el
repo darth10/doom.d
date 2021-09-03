@@ -135,7 +135,9 @@
       (:map csharp-mode-map
        "C-c C-r"       #'omnisharp-run-code-action-refactoring)
       (:map gnuplot-mode-map
-       "C-c C-k"       #'gnuplot-send-buffer-to-gnuplot))
+       "C-c C-k"       #'gnuplot-send-buffer-to-gnuplot)
+      (:map lsp-mode-map
+       "M-."           #'lsp-find-definition))
 
 (after! smartparens
   (map! (:map smartparens-mode-map
