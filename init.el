@@ -63,12 +63,12 @@
        cc
        (clojure +lsp)
        common-lisp
-       csharp
+       (csharp +lsp)
        data
        emacs-lisp
        go
-       (haskell +dante)
-       javascript
+       (haskell +dante +lsp)
+       (javascript +lsp)
        lua
        (markdown +grip)
        nix
