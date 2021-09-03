@@ -81,6 +81,8 @@
        "C-:"           nil              ; lispy-colon
        "C-<left>"      nil              ; lispy-forward-barf-sexp
        "C-<right>"     nil              ; lispy-forward-slurp-sexp
+       "C-j"           nil              ; lispy-newline-and-indent
+       "RET"           nil              ; lispy-newline-and-indent
        "M-s"           nil              ; lispy-splice
        "M-<up>"        nil              ; lispy-splice-sexp-killing-backward
        "M-<down>"      nil              ; lispy-splice-sexp-killing-forward
