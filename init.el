@@ -61,7 +61,7 @@
 
        :lang
        cc
-       clojure
+       (clojure +lsp)
        common-lisp
        csharp
        data
