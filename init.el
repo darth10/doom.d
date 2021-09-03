@@ -83,6 +83,7 @@
        scheme
        sh
        web
+       (yaml +lsp)
 
        :app
        calendar
