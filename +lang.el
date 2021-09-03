@@ -23,11 +23,6 @@
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
 
-;;; Racket
-
-(after! racket-mode
-  (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode)))
-
 ;;; JavaScript
 
 (after! js2-mode

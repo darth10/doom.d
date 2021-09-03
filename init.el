@@ -76,11 +76,10 @@
        php
        plantuml
        python
-       racket
        rest
        ruby
        scala
-       scheme
+       (scheme +racket)
        sh
        web
        (yaml +lsp)
