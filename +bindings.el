@@ -8,7 +8,6 @@
       "C-s"            #'save-buffer
       "C-w"            #'+editor/kill-region-or-line
       "C-%"            #'+editor/match-paren
-      "C--"            #'pop-tag-mark
       "C-+"            #'er/contract-region
       "C-<"            #'mc/mark-previous-like-this
       "C->"            #'mc/mark-next-like-this
