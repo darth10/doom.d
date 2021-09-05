@@ -30,6 +30,8 @@
       "M-]"            #'helm-swoop
       "M-."            #'+lookup/definition
       "<f12>"          #'+lookup/definition
+      (:when IS-LINUX
+       "s-s"           #'save-buffer)
       (:prefix ("C-c s" . "hide/show")
        "s"             #'hs-show-block
        "S"             #'hs-show-all
