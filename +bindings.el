@@ -30,6 +30,7 @@
       "M-]"            #'helm-swoop
       "M-."            #'+lookup/definition
       "<f12>"          #'+lookup/definition
+      "M-s-="          #'toggle-frame-maximized
       (:when IS-LINUX
        "s-s"           #'save-buffer)
       (:prefix ("C-c s" . "hide/show")
