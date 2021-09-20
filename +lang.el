@@ -18,7 +18,8 @@
     (POST 2)
     (PUT 2)
     (PATCH 2)
-    (DELETE 2)))
+    (DELETE 2)
+    (match 1)))
 
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
