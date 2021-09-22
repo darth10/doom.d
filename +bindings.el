@@ -31,6 +31,8 @@
       "M-."            #'+lookup/definition
       "<f12>"          #'+lookup/definition
       "M-s-="          #'toggle-frame-maximized
+      [wheel-right]    #'scroll-left
+      [wheel-left]     #'scroll-right
       (:when IS-LINUX
        "s-s"           #'save-buffer)
       (:prefix ("C-c s" . "hide/show")

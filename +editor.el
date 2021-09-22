@@ -2,6 +2,8 @@
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'scroll-left 'disabled nil)
+(put 'scroll-right 'disabled nil)
 
 (setq uniquify-buffer-name-style 'forward
       uniquify-separator "/"
