@@ -145,9 +145,7 @@
       (:map gnuplot-mode-map
        "C-c C-k"       #'gnuplot-send-buffer-to-gnuplot)
       (:map cider-mode-map
-       "M-."           nil)             ; cider-find-var
-      (:map clj-refactor-map
-       "/"             nil))            ; cljr-slash
+       "M-."           nil))            ; cider-find-var
 
 (after! smartparens
   (map! (:map smartparens-mode-map
@@ -182,5 +180,10 @@
 
 (after! clojure-mode
   (map! (:map clojure-mode-map
-         "C-:" nil))
-  (cljr-add-keybindings-with-prefix "C-c c :"))
+         "C-:" nil)))
+
+(after! clj-refactor-mode
+  (cljr-add-keybindings-with-prefix "C-c c :")
+  (map! (:map clj-refactor-map
+         ; Disable `cljr-slash' binding.
+         "/" nil)))
