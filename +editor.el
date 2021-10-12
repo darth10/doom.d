@@ -51,5 +51,6 @@
   :commands (helm-ls-git-ls))
 
 (after! lsp-mode
-  (setq lsp-ui-sideline-enable nil
+  (setq lsp-ui-doc-enable nil
+        lsp-ui-sideline-enable nil
         lsp-modeline-diagnostics-enable nil))
