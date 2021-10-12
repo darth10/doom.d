@@ -182,7 +182,7 @@
   (map! (:map clojure-mode-map
          "C-:" nil)))
 
-(after! clj-refactor-mode
+(after! clj-refactor
   (cljr-add-keybindings-with-prefix "C-c c :")
   (map! (:map clj-refactor-map
          ; Disable `cljr-slash' binding.
