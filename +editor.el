@@ -25,6 +25,9 @@
   (which-key-enable-god-mode-support)
   (setq which-key-separator " : "))
 
+(after! god-mode
+  (push 'helm-ls-git-rebase-todo-mode god-exempt-major-modes))
+
 (after! lispy
   (lispy-set-key-theme (setq lispy-key-theme '(paredit c-digits))))
 
