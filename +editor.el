@@ -16,7 +16,11 @@
   (remove-hook! 'dired-mode-hook #'dired-omit-mode))
 
 (after! flycheck
-  (setq flycheck-emacs-lisp-load-path 'inherit))
+  (setq flycheck-emacs-lisp-load-path 'inherit)
+
+  (defadvice! +flycheck--flycheck-popup-tip-maybe-a (&rest _)
+    :before-while #'flycheck-popup-tip-show-popup
+    (not (region-active-p))))
 
 (after! yasnippet
   (setq yas-indent-line 'fixed))
