@@ -59,6 +59,8 @@
        "C-:"           #'magit-status
        "="             #'vc-ediff
        "C-="           #'vc-ediff
+       "b"             #'magit-blame
+       "C-b"           #'magit-blame
        "f"             #'helm-ls-git-ls
        "C-f"           #'helm-ls-git-ls
        "d"             #'vc-diff
