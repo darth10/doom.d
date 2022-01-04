@@ -51,7 +51,10 @@
     (force-mode-line-update t)))
 
 (after! org-gcal
-  (setq org-gcal-remove-api-cancelled-events t)
+  (setq org-gcal-remove-api-cancelled-events t
+        ;; Set `org-gcal-auto-archive' to `nil' for workaround to:
+        ;; https://github.com/kidd/org-gcal.el/issues/172
+        org-gcal-auto-archive nil)
   (add-hook! (org-gcal-sync org-gcal-post-at-point org-gcal-delete-at-point)
              #'org-id-update-id-locations)
   (+org-gcal--load))
