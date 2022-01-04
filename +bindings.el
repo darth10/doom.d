@@ -30,6 +30,8 @@
       "M-."            #'+lookup/definition
       "<f12>"          #'+lookup/definition
       "M-s-="          #'toggle-frame-maximized
+      "C-x >"          #'scroll-left
+      "C-x <"          #'scroll-right
       [wheel-right]    #'scroll-left
       [wheel-left]     #'scroll-right
       (:when IS-LINUX
