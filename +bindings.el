@@ -2,7 +2,6 @@
 
 (map! "C-z"            nil              ; suspend-frame
       "C-;"            nil              ; company-manual-begin
-      "C-S-s"          nil              ; swiper-helm
       "<escape>"       #'god-local-mode
       "S-<escape>"     #'god-mode-all
       "C-s"            #'save-buffer
@@ -27,7 +26,7 @@
       "M-u"            #'upcase-dwim
       "M-w"            #'+editor/kill-ring-save-region-or-line
       "M-SPC"          #'company-manual-begin
-      "M-]"            #'helm-swoop
+      "M-]"            #'swiper-isearch-thing-at-point
       "M-."            #'+lookup/definition
       "<f12>"          #'+lookup/definition
       "M-s-="          #'toggle-frame-maximized
@@ -51,8 +50,8 @@
        "M-a"           #'+helm/project-search
        "f"             #'+helm/project-search
        "M-f"           #'+helm/project-search
-       "]"             #'helm-swoop
-       "M-]"           #'helm-swoop)
+       "]"             #'swiper-isearch-thing-at-point
+       "M-]"           #'swiper-isearch-thing-at-point)
       (:prefix "C-:"
        ":"             #'magit-status
        "C-:"           #'magit-status
