@@ -110,7 +110,11 @@
        "C-, , b"       #'lispy-backward-slurp-sexp
        "C-, C-, C-b"   #'lispy-backward-slurp-sexp
        "C-, s"         #'lispy-splice
-       "C-, C-s"       #'lispy-splice)
+       "C-, C-s"       #'lispy-splice
+       "C-, l"         #'lispy-oneline
+       "C-, C-l"       #'lispy-oneline
+       "C-, , l"       #'lispy-multiline
+       "C-, C-, C-l"   #'lispy-multiline)
       (:map org-mode-map
        "C-x C-e"       #'+org/recalculate-all
        "C-c l <up>"    #'org-table-move-cell-up
