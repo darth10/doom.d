@@ -20,7 +20,15 @@
     (PATCH 2)
     (DELETE 2)
     (match 1)
-    (friend/authorize 1)))
+    (friend/authorize 1))
+
+  (defadvice! +clojure-thread-first-all-a (&rest _)
+    :after #'clojure-thread-first-all
+    (+clojure-thread-oneline))
+
+  (defadvice! +clojure-thread-last-all-a (&rest _)
+    :after #'clojure-thread-last-all
+    (+clojure-thread-oneline)))
 
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
