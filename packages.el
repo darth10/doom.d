@@ -13,6 +13,7 @@
 (package! highlight-sexp)
 (package! k8s-mode)
 (package! kubernetes)
+(package! magit-delta)
 (package! nov)
 (package! powershell)
 

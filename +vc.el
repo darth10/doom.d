@@ -10,3 +10,8 @@
     '("y" "pull request" forge-checkout-pullreq))
   (transient-append-suffix 'magit-branch "W"
     '("Y" "from pull request" forge-branch-pullreq)))
+
+(use-package! magit-delta
+  :hook (magit-mode . magit-delta-mode)
+  :init
+  (setq magit-delta-default-dark-theme "Nord"))
