@@ -1,3 +1,5 @@
+![Made with Doom Emacs](https://img.shields.io/badge/Made_with-Doom_Emacs-blueviolet.svg)
+
 ## Installation
 
 ``` sh
