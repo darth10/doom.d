@@ -13,7 +13,8 @@
 
 (use-package! magit-delta
   :hook (magit-mode . magit-delta-mode)
-  :init
+  :after magit
+  :config
   (setq magit-delta-default-dark-theme "Nord"
         magit-delta-hide-plus-minus-markers nil)
   ;; These colors are obtained from `delta --show-config`
