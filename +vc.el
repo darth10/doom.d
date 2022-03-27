@@ -1,7 +1,22 @@
 ;;; ~/.doom.d/+vc.el -*- lexical-binding: t; -*-
 
 (after! magit
-  (setq magit-commit-show-diff nil))
+  (setq magit-commit-show-diff nil)
+
+  (defun +magit--get-default-branch ()
+    (or (magit-get "remote.origin.default-branch") "master"))
+
+  (transient-define-suffix +magit-fetch-origin-default-branch (branch)
+    "Runs 'git fetch origin branch:branch' where 'branch' is the
+value of the 'remote.origin.default-branch' configuration
+variable or 'master'."
+    :description (lambda () (let ((branch (+magit--get-default-branch)))
+                              (format "origin %s:%s" branch branch)))
+    (interactive (list (+magit--get-default-branch)))
+    (magit-run-git-async "fetch" "origin" (format "%s:%s" branch branch)))
+
+  (transient-append-suffix 'magit-fetch "o"
+    '("O" +magit-fetch-origin-default-branch)))
 
 (after! forge
 ;; forge-pull-notifications fails for a large number of notifications
