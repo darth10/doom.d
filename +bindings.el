@@ -26,7 +26,7 @@
       "M-u"            #'upcase-dwim
       "M-w"            #'+editor/kill-ring-save-region-or-line
       "M-SPC"          #'company-manual-begin
-      "M-]"            #'swiper-isearch-thing-at-point
+      "M-]"            #'swiper-thing-at-point
       "M-."            #'+lookup/definition
       "<f12>"          #'+lookup/definition
       "M-s-="          #'toggle-frame-maximized
@@ -52,8 +52,8 @@
        "M-a"           #'+helm/project-search
        "f"             #'+helm/project-search
        "M-f"           #'+helm/project-search
-       "]"             #'swiper-isearch-thing-at-point
-       "M-]"           #'swiper-isearch-thing-at-point)
+       "]"             #'swiper-thing-at-point
+       "M-]"           #'swiper-thing-at-point)
       (:prefix "C-:"
        ":"             #'magit-status
        "C-:"           #'magit-status

@@ -85,5 +85,11 @@
    '(region ((t (:foreground "SkyBlue" :background "DarkSlateGray"))))
    '(show-paren-match ((t (:background "Springgreen2" :foreground "DimGray"))))
    `(window-divider ((t (:foreground ,+ui--hl-line-background))))
+   '(ivy-minibuffer-match-face-1 ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(ivy-minibuffer-match-face-2 ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(swiper-background-match-face-2 ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(swiper-match-face-1 ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(swiper-match-face-2 ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(swiper-match-face-3 ((t (:background "Springgreen2" :foreground "DimGray"))))
+   '(swiper-line-face ((t (:inherit helm-selection :weight normal))))
    '(yaml-tab-face ((t (:inherit whitespace-tab))))))
-
