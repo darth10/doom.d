@@ -28,7 +28,9 @@
 
   (defadvice! +clojure-thread-last-all-a (&rest _)
     :after #'clojure-thread-last-all
-    (+clojure-thread-oneline)))
+    (+clojure-thread-oneline))
+
+  (add-hook! 'clojurescript-mode-hook #'+lsp-enable-eldoc-local))
 
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))

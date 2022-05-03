@@ -73,3 +73,7 @@ WINDOW defaults to current window."
     (if (one-window-p t)
         (delete-frame)
       (delete-window (selected-window)))))
+
+;;;###autoload
+(defun +lsp-enable-eldoc-local ()
+  (set (make-local-variable 'lsp-eldoc-enable-hover) t))

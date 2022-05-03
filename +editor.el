@@ -58,6 +58,7 @@
   :commands (helm-ls-git-ls))
 
 (after! lsp-mode
-  (setq lsp-ui-doc-enable nil
+  (setq lsp-eldoc-enable-hover nil
+        lsp-ui-doc-enable nil
         lsp-ui-sideline-enable nil
         lsp-modeline-diagnostics-enable nil))
