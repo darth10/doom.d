@@ -68,7 +68,9 @@
        "c d"           #'magit-diff-working-tree
        "C-c C-d"       #'magit-diff-working-tree
        "l"             #'magit-log-current
-       "C-l"           #'magit-log-current)
+       "C-l"           #'magit-log-current
+       "t"             #'magit-todos-list
+       "C-t"           #'magit-todos-list)
       (:map custom-mode-map
        "C-s"           #'Custom-save)
       (:map custom-new-theme-mode-map

@@ -26,6 +26,10 @@ variable or 'master'."
   (transient-append-suffix 'magit-branch "W"
     '("Y" "from pull request" forge-branch-pullreq)))
 
+
+(after! magit-todos
+  (magit-todos-mode t))
+
 (use-package! magit-delta
   :hook (magit-mode . magit-delta-mode)
   :after magit
