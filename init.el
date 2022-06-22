@@ -22,7 +22,7 @@
 
        :checkers
        grammar
-       syntax
+       (syntax +childframe)
        (spell +flyspell +aspell)
 
        :editor
