@@ -77,3 +77,10 @@ WINDOW defaults to current window."
 ;;;###autoload
 (defun +lsp-enable-eldoc-local ()
   (set (make-local-variable 'lsp-eldoc-enable-hover) t))
+
+;;;###autoload
+(defun +lsp-format-buffer-or-region ()
+  (interactive)
+  (if (region-active-p)
+      (lsp-format-region (region-beginning) (region-end))
+    (lsp-format-buffer)))

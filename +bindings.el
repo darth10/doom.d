@@ -154,7 +154,10 @@
       (:map gnuplot-mode-map
        "C-c C-k"       #'gnuplot-send-buffer-to-gnuplot)
       (:map cider-mode-map
-       "M-."           nil))            ; cider-find-var
+       "M-."           nil)             ; cider-find-var
+      (:map lsp-mode-map
+       "C-c l f"       #'+lsp-format-buffer-or-region
+       "C-c l F"       #'lsp-format-buffer))
 
 (after! smartparens
   (map! (:map smartparens-mode-map
