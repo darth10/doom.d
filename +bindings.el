@@ -3,6 +3,9 @@
 (put 'previous-buffer 'repeat-map '+bindings-buffer-repeat-map)
 (put 'next-buffer 'repeat-map '+bindings-buffer-repeat-map)
 
+(put '+editor/move-text-up 'repeat-map '+bindings-editor-move-text-repeat-map)
+(put '+editor/move-text-down 'repeat-map '+bindings-editor-move-text-repeat-map)
+
 (map! "C-z"            nil              ; suspend-frame
       "C-;"            nil              ; company-manual-begin
       "<escape>"       #'god-local-mode
