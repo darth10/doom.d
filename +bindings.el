@@ -22,7 +22,9 @@
       "C-x 9"          #'+editor/delete-single-window
       "C-x C-9"        #'+editor/delete-single-window
       "M-<up>"         #'+editor/move-text-up
+      "M-p"            #'+editor/move-text-up
       "M-<down>"       #'+editor/move-text-down
+      "M-n"            #'+editor/move-text-down
       "M-i"            #'god-local-mode
       "M-c"            #'capitalize-dwim
       "M-l"            #'downcase-dwim
