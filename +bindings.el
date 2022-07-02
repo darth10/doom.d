@@ -1,5 +1,8 @@
 ;;; ~/.doom.d/+bindings.el -*- lexical-binding: t; -*-
 
+(put 'previous-buffer 'repeat-map '+bindings-buffer-repeat-map)
+(put 'next-buffer 'repeat-map '+bindings-buffer-repeat-map)
+
 (map! "C-z"            nil              ; suspend-frame
       "C-;"            nil              ; company-manual-begin
       "<escape>"       #'god-local-mode
