@@ -202,3 +202,10 @@
   (map! (:map clj-refactor-map
          ; Disable `cljr-slash' binding.
          "/" nil)))
+
+(after! flycheck
+  (put 'flycheck-previous-error 'repeat-map '+bindings-flycheck-errors-repeat-map)
+  (put 'flycheck-next-error 'repeat-map '+bindings-flycheck-errors-repeat-map)
+  (map! (:map flycheck-mode-map
+         "M-g M-p" #'flycheck-previous-error
+         "M-g M-n" #'flycheck-next-error)))
