@@ -5,6 +5,9 @@
 (put 'scroll-left 'disabled nil)
 (put 'scroll-right 'disabled nil)
 
+(when EMACS28+
+  (repeat-mode t))
+
 (setq uniquify-buffer-name-style 'forward
       uniquify-separator "/"
       uniquify-after-kill-buffer-p t
