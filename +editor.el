@@ -15,6 +15,10 @@
 
 (remove-hook! 'text-mode-hook #'visual-line-mode)
 
+(use-package! bufler
+  :config
+  (advice-add 'bufler-list :after (λ! (set-window-text-height nil 16))))
+
 (after! dired
   (remove-hook! 'dired-mode-hook #'dired-omit-mode))
 

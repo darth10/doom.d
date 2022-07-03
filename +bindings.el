@@ -167,6 +167,10 @@
        "C-c l f"       #'+lsp-format-buffer-or-region
        "C-c l F"       #'lsp-format-buffer))
 
+(after! bufler
+  (map! "C-x M-b" #'ibuffer
+        "C-x C-b" #'bufler-list))
+
 (after! smartparens
   (map! (:map smartparens-mode-map
          "C-<right>"   nil              ; sp-forward-slurp-sexp

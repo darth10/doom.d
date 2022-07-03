@@ -1,5 +1,6 @@
 ;;; ~/.doom.d/packages.el -*- no-byte-compile: t; -*-
 
+(package! bufler)
 (package! chess)
 (package! cider-eval-sexp-fu)
 (package! clipmon)
