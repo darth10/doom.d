@@ -39,7 +39,7 @@
   (lispy-set-key-theme (setq lispy-key-theme '(paredit c-digits))))
 
 (after! calculator
-  (advice-add 'calculator :after (λ! (enlarge-window 2))))
+  (advice-add 'calculator :after (λ! (set-window-text-height nil 1))))
 
 (after! tramp
   ;; File paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf`
