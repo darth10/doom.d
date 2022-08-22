@@ -12,6 +12,7 @@
 (package! god-mode)
 (package! helm-ls-git)
 (package! highlight-sexp)
+(package! ialign)
 (package! k8s-mode)
 (package! kubernetes)
 (package! magit-delta)

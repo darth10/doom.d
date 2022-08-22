@@ -19,6 +19,9 @@
   :config
   (advice-add 'bufler-list :after (λ! (set-window-text-height nil 16))))
 
+(use-package! ialign
+  :commands (ialign))
+
 (after! dired
   (remove-hook! 'dired-mode-hook #'dired-omit-mode))
 
