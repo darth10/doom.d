@@ -16,7 +16,7 @@
        ophints
        (popup +all +defaults)
        unicode
-       vc-gutter
+       (vc-gutter +pretty)
        window-select
        workspaces
 
