@@ -7,7 +7,6 @@
        :ui
        doom
        doom-quit
-       fill-column
        hl-todo
        indent-guides
        modeline
