@@ -81,7 +81,7 @@
        ;; scala
        (scheme +racket)
        sh
-       web
+       (web +lsp)
        (yaml +lsp)
 
        :app
