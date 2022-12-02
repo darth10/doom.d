@@ -79,7 +79,7 @@
        ruby
        scala
        (scheme +racket)
-       sh
+       (sh +lsp)
        (web +lsp)
        (yaml +lsp)
 
