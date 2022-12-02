@@ -59,25 +59,25 @@
        terraform
 
        :lang
-       ;; cc
+       cc
        (clojure +lsp)
-       ;; common-lisp
-       ;; (csharp +lsp)
+       common-lisp
+       (csharp +lsp)
        data
        emacs-lisp
-       ;; go
-       ;; (haskell +dante +lsp)
+       go
+       (haskell +dante +lsp)
        (javascript +lsp)
-       ;; lua
+       lua
        (markdown +grip)
-       ;; nix
+       nix
        (org +brain +dragndrop +gnuplot +ipython +pandoc +pomodoro +present)
-       ;; php
+       php
        plantuml
-       ;; python
+       python
        rest
-       ;; ruby
-       ;; scala
+       ruby
+       scala
        (scheme +racket)
        sh
        (web +lsp)
