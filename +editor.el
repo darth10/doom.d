@@ -55,10 +55,6 @@
 (after! helm
   (setq helm-allow-mouse t))
 
-(use-package! helm-swoop
-  :after helm
-  :commands (helm-swoop))
-
 (use-package! helm-ls-git
   :after helm
   :commands (helm-ls-git-ls))
