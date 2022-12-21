@@ -16,7 +16,7 @@
       "C-+"            #'er/contract-region
       "C-<"            #'mc/mark-previous-like-this
       "C->"            #'mc/mark-next-like-this
-      "C-<f2>"         #'helm-imenu
+      "C-<f2>"         #'consult-imenu
       "C-c \\"         #'just-one-space
       "C-x C-0"        #'delete-window
       "C-x C-1"        #'delete-other-windows
@@ -50,16 +50,16 @@
        "D"             #'hs-hide-all
        "d"             #'hs-hide-block)
       (:prefix "M-s"
-       "i"             #'helm-occur
-       "M-i"           #'helm-occur
+       "i"             #'consult-multi-occur
+       "M-i"           #'consult-multi-occur
        "s"             #'isearch-forward
        "M-s"           #'isearch-forward
        "r"             #'isearch-backward
        "M-r"           #'isearch-backward
-       "a"             #'+helm/project-search
-       "M-a"           #'+helm/project-search
-       "f"             #'+helm/project-search
-       "M-f"           #'+helm/project-search
+       "a"             #'+default/search-project-for-symbol-at-point
+       "M-a"           #'+default/search-project-for-symbol-at-point
+       "f"             #'+default/search-project-for-symbol-at-point
+       "M-f"           #'+default/search-project-for-symbol-at-point
        "]"             #'swiper-thing-at-point
        "M-]"           #'swiper-thing-at-point)
       (:prefix "C-:"
@@ -69,8 +69,8 @@
        "C-="           #'vc-ediff
        "b"             #'magit-blame
        "C-b"           #'magit-blame
-       "f"             #'helm-ls-git-ls
-       "C-f"           #'helm-ls-git-ls
+       "f"             #'+lookup/file
+       "C-f"           #'+lookup/file
        "d"             #'vc-diff
        "C-d"           #'vc-diff
        "c d"           #'magit-diff-working-tree
@@ -89,9 +89,6 @@
        "."             #'repeat
        "z"             #'repeat
        "i"             #'god-local-mode)
-      (:map helm-map
-       "<tab>"         #'helm-execute-persistent-action
-       "C-i"           #'helm-select-action)
       (:map isearch-mode-map
        "<f3>"          #'isearch-repeat-forward
        "S-<f3>"        #'isearch-repeat-backward)
@@ -140,7 +137,8 @@
        (:prefix ("C-c b" . "brain")
         "c"            #'org-brain-goto
         "b"            #'org-brain-visualize
-        "/"            #'org-brain-switch-brain))
+        "/"            #'org-brain-switch-brain)
+       (:leader "a" nil))               ; embark-act
       (:map org-agenda-mode-map
        "C-s"           #'org-save-all-org-buffers)
       (:map org-brain-visualize-mode-map

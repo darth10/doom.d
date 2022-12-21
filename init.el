@@ -2,7 +2,7 @@
 
 (doom! :completion
        company
-       helm
+       vertico
 
        :ui
        doom
