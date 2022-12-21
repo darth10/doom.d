@@ -15,7 +15,6 @@
 (remove-hook! 'prog-mode-hook #'vi-tilde-fringe-mode)
 
 (blink-cursor-mode t)
-(display-battery-mode t)
 
 (when IS-WINDOWS
   ;; Using `add-hook!' doesn't work here.
