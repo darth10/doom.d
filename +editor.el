@@ -31,6 +31,9 @@
 (after! yasnippet
   (setq yas-indent-line 'fixed))
 
+(after! company-box
+  (setq company-box-scrollbar nil))
+
 (after! which-key
   (which-key-enable-god-mode-support)
   (setq which-key-separator " : "))
