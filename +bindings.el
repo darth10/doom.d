@@ -24,6 +24,7 @@
       "C-x C-3"        #'split-window-right
       "C-x 9"          #'+editor/delete-single-window
       "C-x C-9"        #'+editor/delete-single-window
+      "C-."            #'embark-act
       "M-<up>"         #'+editor/move-text-up
       "M-p"            #'+editor/move-text-up
       "M-<down>"       #'+editor/move-text-down
@@ -187,6 +188,11 @@
          "C-, s"       #'sp-splice-sexp
          "C-, C-s"     #'sp-splice-sexp)))
 
+(after! flyspell
+  (map! (:map flyspell-mode-map
+              ; flyspell-auto-correct-word
+              "C-." nil)))
+
 (after! ediff
   (advice-add
    'ediff-setup-keymap :after
@@ -207,7 +213,7 @@
 (after! clj-refactor
   (cljr-add-keybindings-with-prefix "C-c c :")
   (map! (:map clj-refactor-map
-         ; Disable `cljr-slash' binding.
+         ; cljr-slash
          "/" nil)))
 
 (after! flycheck
