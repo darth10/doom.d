@@ -17,6 +17,7 @@
       "C-<"            #'mc/mark-previous-like-this
       "C->"            #'mc/mark-next-like-this
       "C-<f2>"         #'consult-imenu
+      "C-!"            #'list-processes
       "C-c \\"         #'just-one-space
       "C-x C-0"        #'delete-window
       "C-x C-1"        #'delete-other-windows
