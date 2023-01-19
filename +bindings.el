@@ -208,7 +208,9 @@
 
 (after! clojure-mode
   (map! (:map clojure-mode-map
-         "C-:" nil)))
+         "C-:" nil)
+        (:map clojurescript-mode-map
+         "C-c l b" #'+clojurescript-run-cljsbuild)))
 
 (after! clj-refactor
   (cljr-add-keybindings-with-prefix "C-c c :")
