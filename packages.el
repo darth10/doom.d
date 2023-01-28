@@ -16,6 +16,7 @@
 (package! kubernetes)
 (package! magit-delta)
 (package! nov)
+(package! password-generator)
 (package! powershell)
 
 (package! flycheck-joker :disable t)
