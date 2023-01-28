@@ -14,3 +14,6 @@
 (use-package! clipmon
   :config
   (clipmon-mode-start))
+
+(after! pass
+  (set-popup-rule! "^\\*Password-Store" :side 'left :size 0.4 :quit nil))
