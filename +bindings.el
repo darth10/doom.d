@@ -81,6 +81,11 @@
        "C-l"           #'magit-log-current
        "t"             #'magit-todos-list
        "C-t"           #'magit-todos-list)
+      (:prefix "C-x P"
+       "w" #'+pass/copy-secret-to-kill-ring
+       "b" #'+pass/copy-username-to-kill-ring
+       "u" #'+pass/copy-url-to-kill-ring
+       "U" #'+pass/open-url)
       (:map custom-mode-map
        "C-s"           #'Custom-save)
       (:map custom-new-theme-mode-map
