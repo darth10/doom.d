@@ -16,4 +16,6 @@
   (clipmon-mode-start))
 
 (after! pass
-  (set-popup-rule! "^\\*Password-Store" :side 'left :size 0.4 :quit nil))
+  (set-popup-rule! "^\\*Password-Store" :side 'left :size 0.4 :quit nil)
+  (after! recentf
+    (add-to-list 'recentf-exclude (concat (expand-file-name (getenv "PASSWORD_STORE_DIR")) ".+"))))
