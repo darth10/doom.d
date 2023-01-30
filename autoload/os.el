@@ -37,14 +37,14 @@
            (shell-command-to-string "aws configure list-profiles"))))
 
 ;;;###autoload
-(defun +aws-sso-login ()
+(defun +aws/sso-login ()
   (interactive)
   (let* ((choices (+aws-list-profiles))
          (profile (completing-read "Profile: " choices)))
     (async-shell-command (concat "aws sso login --profile " profile))))
 
 ;;;###autoload
-(defun +aws-assume-role ()
+(defun +aws/assume-role ()
   (interactive)
   (let* ((choices (+aws-list-profiles))
          (profile (completing-read "Profile: " choices)))
