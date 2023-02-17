@@ -63,3 +63,6 @@
         lsp-ui-doc-enable nil
         lsp-ui-sideline-enable nil
         lsp-modeline-diagnostics-enable nil))
+
+(after! recentf
+  (add-to-list 'recentf-exclude (expand-file-name "~/projects/doom-emacs/.local/etc/workspaces/")))
