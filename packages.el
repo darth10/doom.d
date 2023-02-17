@@ -4,6 +4,7 @@
 (package! chess)
 (package! cider-eval-sexp-fu)
 (package! clipmon)
+(package! dashboard)
 (package! edit-server)
 (package! esup)
 (package! eval-sexp-fu)

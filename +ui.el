@@ -61,6 +61,15 @@
     (hl-line-mode (if highlight-sexp-mode -1 +1)))
   (setq! hl-sexp-background-color +ui--hl-line-background))
 
+(use-package! dashboard
+  :config
+  (setq dashboard-set-init-info t
+        dashboard-set-footer nil
+        dashboard-startup-banner (expand-file-name "resources/doomemacs.txt" doom-private-dir)
+        dashboard-items '((projects . 3)
+                          (recents  . 5)))
+  (dashboard-setup-startup-hook))
+
 (let ((default-height (cond (IS-LINUX 148)
                             (IS-MAC 166)
                             (t 138))))
