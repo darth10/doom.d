@@ -10,4 +10,4 @@
 
 (after! pdf-tools
   (setq-default pdf-view-display-size 'fit-width)
-  (add-hook! 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode))
+  (add-hook! 'pdf-view-mode-hook #'pdf-view-themed-minor-mode))
