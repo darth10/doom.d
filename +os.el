@@ -19,3 +19,7 @@
   (set-popup-rule! "^\\*Password-Store" :side 'left :size 0.4 :quit nil)
   (after! recentf
     (add-to-list 'recentf-exclude (concat (expand-file-name (getenv "PASSWORD_STORE_DIR")) ".+"))))
+
+(after! plstore
+  (after! epa
+    (setq plstore-encrypt-to epa-file-encrypt-to)))

@@ -20,7 +20,14 @@
 
   (after! plantuml-mode
     (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
-    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))))
+    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml)))
+
+  (use-package! org-gcal
+    :init (+org-gcal--load)
+    :config
+    (setq org-gcal-remove-api-cancelled-events t)
+    (add-hook! (org-gcal-sync org-gcal-post-at-point org-gcal-delete-at-point)
+               #'org-id-update-id-locations)))
 
 (after! org-brain
   (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil))
@@ -49,15 +56,6 @@
             (when (and (org-pomodoro-active-p) (> (length s) 0))
               (list " [" (format s (org-pomodoro-format-seconds)) "]"))))
     (force-mode-line-update t)))
-
-(after! org-gcal
-  (setq org-gcal-remove-api-cancelled-events t
-        ;; Set `org-gcal-auto-archive' to `nil' for workaround to:
-        ;; https://github.com/kidd/org-gcal.el/issues/172
-        org-gcal-auto-archive nil)
-  (add-hook! (org-gcal-sync org-gcal-post-at-point org-gcal-delete-at-point)
-             #'org-id-update-id-locations)
-  (+org-gcal--load))
 
 (after! org-download
   (setq! org-download-screenshot-method

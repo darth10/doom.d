@@ -25,6 +25,7 @@ until it no longer changes."
 (defun +org-gcal--load ()
   "Load client ID, secret and email from `auth-sources'."
   (require 'org-brain)
+  (require 'auth-source)
   (let* ((org-gcal-host "www.googleapis.com")
          (auth-sources '("~/.authinfo.gpg"))
          (auth-source-creation-defaults
