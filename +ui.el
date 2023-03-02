@@ -67,7 +67,7 @@
         dashboard-set-footer nil
         dashboard-startup-banner (expand-file-name "resources/doomemacs.txt" doom-private-dir)
         dashboard-items '((projects . 3)
-                          (recents  . 5)))
+                          (recents  . 10)))
   (dashboard-setup-startup-hook))
 
 (let ((default-height (cond (IS-LINUX 148)
