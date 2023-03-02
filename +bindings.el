@@ -71,8 +71,8 @@
        "C-="           #'vc-ediff
        "b"             #'magit-blame
        "C-b"           #'magit-blame
-       "f"             #'+lookup/file
-       "C-f"           #'+lookup/file
+       "f"             #'projectile-find-file
+       "C-f"           #'projectile-find-file
        "d"             #'vc-diff
        "C-d"           #'vc-diff
        "c d"           #'magit-diff-working-tree
