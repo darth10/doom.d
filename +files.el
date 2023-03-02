@@ -3,6 +3,10 @@
 (after! persist
   (setq persist--directory-location (concat doom-cache-dir "persist")))
 
+(after! recentf
+  (add-to-list 'recentf-exclude (expand-file-name "~/projects/doom-emacs/.local/etc/workspaces/"))
+  (add-to-list 'recentf-exclude (expand-file-name "~/.emacs.d/.local/etc/workspaces/")))
+
 (use-package! nov
   :mode ("\\.epub\\'" . nov-mode)
   :config
