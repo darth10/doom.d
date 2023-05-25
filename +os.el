@@ -23,3 +23,6 @@
 (after! plstore
   (after! epa
     (setq plstore-encrypt-to epa-file-encrypt-to)))
+
+(use-package! password-generator
+  :commands (password-generator-words))
