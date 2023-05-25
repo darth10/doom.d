@@ -230,3 +230,7 @@
   (map! (:map flycheck-mode-map
          "M-g M-p" #'flycheck-previous-error
          "M-g M-n" #'flycheck-next-error)))
+
+(after! code-review
+  (map! (:map code-review-mode-map
+         "A" #'+vc-approve-with-feedback)))
