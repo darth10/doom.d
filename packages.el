@@ -16,6 +16,7 @@
 (package! k8s-mode)
 (package! kubernetes)
 (package! magit-delta)
+(package! monkeytype)
 (package! nov)
 (package! password-generator)
 (package! powershell)

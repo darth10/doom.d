@@ -17,3 +17,8 @@
                                chess-fruit
                                chess-phalanx
                                chess-ai)))
+
+(use-package! monkeytype
+  :custom-face
+  (monkeytype-default ((t (:inherit font-lock-string-face))))
+  :hook (god-local-mode . +monkeytype-god-mode))
