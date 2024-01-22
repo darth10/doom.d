@@ -1,5 +1,6 @@
 ;;; ~/.doom.d/packages.el -*- no-byte-compile: t; -*-
 
+(package! ascii-art-to-unicode)
 (package! bufler)
 (package! chess)
 (package! cider-eval-sexp-fu)
