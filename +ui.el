@@ -51,7 +51,8 @@
 
 (after! highlight-indent-guides
   (setq highlight-indent-guides-responsive 'stack
-        highlight-indent-guides-method 'bitmap))
+        highlight-indent-guides-method 'bitmap
+        highlight-indent-guides-bitmap-function #'highlight-indent-guides--bitmap-dots))
 
 (use-package! highlight-sexp
   :commands (highlight-sexp-mode)
