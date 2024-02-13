@@ -49,7 +49,6 @@
        docker
        editorconfig
        eval
-       gist
        (lookup +docsets)
        lsp
        (magit +forge)
