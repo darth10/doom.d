@@ -230,3 +230,18 @@
 (after! code-review
   (map! (:map code-review-mode-map
          "A" #'+vc-approve-with-feedback)))
+
+(after! avy
+  (map! (:prefix "M-g"
+                 "s" #'avy-goto-symbol-1
+                 "C-s" #'avy-goto-symbol-1
+                 "l" #'avy-goto-line
+                 "C-l" #'avy-goto-line
+                 "1" #'avy-goto-char
+                 "C-1" #'avy-goto-char
+                 "2" #'avy-goto-char-2
+                 "C-2" #'avy-goto-char-2
+                 "p" #'avy-goto-word-1-above
+                 "C-p" #'avy-goto-word-1-above
+                 "n" #'avy-goto-word-1-below
+                 "C-n" #'avy-goto-word-1-below)))
