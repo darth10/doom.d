@@ -30,7 +30,7 @@
 
   (doom-modeline-def-modeline 'main
     '(workspace-name window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
-    '(debug compilation misc-info persp-name input-method indent-info buffer-encoding major-mode process checker vcs)))
+    '(debug compilation misc-info persp-name input-method indent-info buffer-encoding major-mode process check vcs)))
 
 (after! (:and god-mode doom-modeline)
   (defun +ui--configure-modeline-indicator-h ()
