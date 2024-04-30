@@ -16,6 +16,10 @@
 
 (blink-cursor-mode t)
 
+(when (and IS-MAC (functionp 'pixel-scroll-precision-mode))
+  (setq pixel-scroll-precision-use-momentum t)
+  (pixel-scroll-precision-mode t))
+
 (when IS-WINDOWS
   ;; Using `add-hook!' doesn't work here.
   (add-hook 'window-setup-hook (λ! (w32-send-sys-command 61488))))
