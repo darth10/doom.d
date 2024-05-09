@@ -24,5 +24,5 @@
 (package! flycheck-joker :disable t)
 (package! org-superstar :disable t)
 
-(when IS-WINDOWS
+(when (featurep :system 'windows)
   (package! forge :disable t))

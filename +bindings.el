@@ -44,7 +44,7 @@
       "C-x <"          #'scroll-right
       [wheel-right]    #'scroll-left
       [wheel-left]     #'scroll-right
-      (:when IS-LINUX
+      (:when (featurep :system 'linux)
        "s-s"           #'save-buffer)
       (:prefix ("C-c s" . "hide/show")
        "s"             #'hs-show-block

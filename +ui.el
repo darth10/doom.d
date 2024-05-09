@@ -16,11 +16,12 @@
 
 (blink-cursor-mode t)
 
-(when (and IS-MAC (functionp 'pixel-scroll-precision-mode))
+(when (and (featurep :system 'macos)
+           (functionp 'pixel-scroll-precision-mode))
   (setq pixel-scroll-precision-use-momentum t)
   (pixel-scroll-precision-mode t))
 
-(when IS-WINDOWS
+(when (featurep :system 'windows)
   ;; Using `add-hook!' doesn't work here.
   (add-hook 'window-setup-hook (λ! (w32-send-sys-command 61488))))
 
@@ -75,8 +76,8 @@
                           (recents  . 10)))
   (dashboard-setup-startup-hook))
 
-(let ((default-height (cond (IS-LINUX 148)
-                            (IS-MAC 166)
+(let ((default-height (cond ((featurep :system 'linux) 148)
+                            ((featurep :system 'macos) 166)
                             (t 138))))
   (setq! doom-theme 'doom-solarized-dark)
   (custom-set-faces

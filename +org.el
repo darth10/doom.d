@@ -59,5 +59,5 @@
 
 (after! org-download
   (setq! org-download-screenshot-method
-         (cond (IS-MAC "screencapture -i %s")
+         (cond ((featurep :system 'macos) "screencapture -i %s")
                (t "flameshot gui --raw > %s"))))
