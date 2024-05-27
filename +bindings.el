@@ -132,7 +132,8 @@
        "C-, , l"       #'lispy-multiline
        "C-, C-, C-l"   #'lispy-multiline)
       (:map org-mode-map
-       "C-x C-e"       #'+org/recalculate-all
+       "C-x C-e"       #'+org/eval-and-replace
+       "C-c l b x"     #'+org/eval-and-replace
        "C-c l <up>"    #'org-table-move-cell-up
        "C-c l <down>"  #'org-table-move-cell-down
        "C-c l <left>"  #'org-table-move-cell-left

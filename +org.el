@@ -61,3 +61,6 @@
   (setq! org-download-screenshot-method
          (cond ((featurep :system 'macos) "screencapture -i %s")
                (t "flameshot gui --raw > %s"))))
+
+(after! lispy
+  (add-to-list 'lispy-eval-alist '(org-mode elisp-mode lispy--eval-elisp)))

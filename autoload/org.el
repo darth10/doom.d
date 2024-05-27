@@ -62,3 +62,22 @@ until it no longer changes."
 (defun +org-agenda--load-files (dir)
   "Sets `org-agenda-files' to all org files in directory DIR."
   (setq! org-agenda-files (directory-files-recursively dir "\\.org$")))
+
+;;;###autoload
+(defun +org/eval-and-replace ()
+  "Evaluates and replaces last expression as Emacs Lisp."
+  (interactive)
+  (require 'lispy)
+  (let* ((leftp (lispy--leftp))
+         (bnd (lispy--bounds-dwim))
+         (str (lispy--string-dwim bnd))
+         (res (lispy--eval str)))
+    (delete-region (car bnd) (cdr bnd))
+    (deactivate-mark)
+    (insert res)
+    (unless (or (lispy-left-p)
+                (lispy-right-p)
+                (member major-mode '(python-mode org-mode julia-mode)))
+      (lispy--out-backward 1))
+    (when (and leftp (lispy-right-p))
+      (lispy-different))))
