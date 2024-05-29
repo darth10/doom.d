@@ -81,7 +81,7 @@
                             (t 138))))
   (setq! doom-theme 'doom-solarized-dark)
   (custom-set-faces
-   `(default ((t (:height ,default-height :family "Consolas" :weight normal :width normal))))
+   `(default ((t (:height ,default-height :family "Consolas ligaturized v3" :weight normal :width normal))))
    '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
    '(doom-modeline-inactive-bar ((t (:inherit mode-line-emphasis))))
    '(doom-modeline-panel ((t (:inherit mode-line-emphasis))))

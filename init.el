@@ -9,6 +9,7 @@
        doom-quit
        hl-todo
        indent-guides
+       ligatures
        modeline
        nav-flash
        neotree
