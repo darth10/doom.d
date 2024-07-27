@@ -80,7 +80,7 @@
        scala
        (scheme +racket)
        (sh +lsp)
-       (web +lsp)
+       (web +css +lsp)
        (yaml +lsp)
 
        :app
