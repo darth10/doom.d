@@ -45,11 +45,10 @@ variable or 'master'."
                       :background "#3f0001")
   (set-face-attribute 'magit-diff-removed nil
                       :background "#3f0001")
-  (add-hook 'magit-delta-mode-hook
-            (lambda ()
-              (setq face-remapping-alist
-                    (seq-difference face-remapping-alist
-                                    '((magit-diff-removed . default)
-                                      (magit-diff-removed-highlight . default)
-                                      (magit-diff-added . default)
-                                      (magit-diff-added-highlight . default)))))))
+  (add-hook! 'magit-delta-mode-hook
+    (setq face-remapping-alist
+          (seq-difference face-remapping-alist
+                          '((magit-diff-removed . default)
+                            (magit-diff-removed-highlight . default)
+                            (magit-diff-added . default)
+                            (magit-diff-added-highlight . default))))))
