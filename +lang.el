@@ -2,6 +2,9 @@
 
 ;;; Emacs Lisp
 
+(after! lisp-mode
+  (setq lisp-prettify-symbols-alist nil))
+
 (use-package! eval-sexp-fu
   :hook ((lisp-mode emacs-lisp-mode eshell-mode) . +eval-sexp-fu--init)
   :custom-face
@@ -20,7 +23,11 @@
     (PATCH 2)
     (DELETE 2)
     (match 1)
-    (friend/authorize 1))
+    (friend/authorize 1)
+    (featureflag 1))
+
+  (setq clojure--prettify-symbols-alist
+    '(("fn" . (?\s (Br . Bl) ?\s (Bc . Bc) ?λ))))
 
   (defadvice! +clojure-thread-first-all-a (&rest _)
     :after #'clojure-thread-first-all
