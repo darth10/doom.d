@@ -59,3 +59,7 @@
         lsp-ui-doc-enable nil
         lsp-ui-sideline-enable nil
         lsp-modeline-diagnostics-enable nil))
+
+(use-package! mise
+  :config
+  (add-hook! 'doom-init-ui-hook #'global-mise-mode))
