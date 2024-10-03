@@ -47,6 +47,7 @@
 
        :tools
        debugger
+       direnv
        docker
        editorconfig
        eval
