@@ -88,3 +88,10 @@
 
 (after! plantuml-mode
   (setq plantuml-default-exec-mode 'jar))
+
+(after! nix-mode
+  (set-formatter! 'alejandra '("alejandra" "--quiet") :modes '(nix-mode)))
+
+(after! lsp-nix
+  (setq lsp-nix-nil-auto-eval-inputs nil
+        lsp-nix-nil-formatter ["alejandra"]))
