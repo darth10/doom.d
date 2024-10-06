@@ -27,7 +27,10 @@ variable or 'master'."
     '("Y" "from pull request" forge-branch-pullreq)))
 
 
-(after! magit-todos
+(use-package! magit-todos
+  :after magit
+  :config
+  (setq magit-todos-keyword-suffix "\\(?:([^)]+)\\)?:?") ; make colon optional
   (magit-todos-mode t))
 
 (use-package! magit-delta

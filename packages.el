@@ -15,6 +15,7 @@
 (package! ialign)
 (package! k8s-mode)
 (package! kubernetes)
+(package! magit-todos)
 (package! magit-delta)
 (package! mise)
 (package! monkeytype)
