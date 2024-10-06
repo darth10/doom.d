@@ -16,6 +16,9 @@
 
 (blink-cursor-mode t)
 
+(when (featurep :system 'linux)
+  (add-hook 'window-setup-hook #'toggle-frame-maximized))
+
 (when (and (featurep :system 'macos)
            (functionp 'pixel-scroll-precision-mode))
   (setq pixel-scroll-precision-use-momentum t)
