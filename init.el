@@ -71,7 +71,7 @@
        (javascript +lsp)
        lua
        (markdown +grip)
-       nix
+       (nix +lsp)
        (org +brain +dragndrop +gnuplot +ipython +pandoc +pomodoro +present)
        php
        plantuml
