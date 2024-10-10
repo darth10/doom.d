@@ -21,4 +21,4 @@
 (use-package! monkeytype
   :custom-face
   (monkeytype-default ((t (:inherit font-lock-string-face))))
-  :hook (god-local-mode . +monkeytype-god-mode))
+  :hook ((evil-normal-state-entry evil-insert-state-entry) . +monkeytype-evil-normal-mode))

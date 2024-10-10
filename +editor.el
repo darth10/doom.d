@@ -21,6 +21,14 @@
 (after! dired
   (remove-hook! 'dired-mode-hook #'dired-omit-mode))
 
+(use-package! god-mode)
+(use-package! evil-god-state
+  :config
+  (defun +evil-god-state-cursor-fn ()
+    (evil-set-cursor-color "yellow"))
+
+  (setq evil-god-state-cursor '(box +evil-god-state-cursor-fn)))
+
 (after! flycheck
   (setq flycheck-emacs-lisp-load-path 'inherit))
 
@@ -31,7 +39,6 @@
   (setq company-box-scrollbar nil))
 
 (after! which-key
-  (which-key-enable-god-mode-support)
   (setq which-key-separator " : "))
 
 (after! lispy

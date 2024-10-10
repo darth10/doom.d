@@ -8,6 +8,7 @@
 (package! edit-server)
 (package! esup)
 (package! eval-sexp-fu)
+(package! evil-god-state)
 (package! feature-mode)
 (package! ghub)
 (package! god-mode)

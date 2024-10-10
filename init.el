@@ -26,7 +26,8 @@
        (spell +flyspell +aspell)
 
        :editor
-       god
+       ;; god
+       (evil +everywhere)
        file-templates
        fold
        format

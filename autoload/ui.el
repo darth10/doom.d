@@ -8,9 +8,6 @@ To quit Emacs, type C-x C-c.
 For information about GNU Emacs and the GNU system, type C-h C-a.")
 
 ;;;###autoload
-(defvar +ui--modeline-mode-string " ")
-
-;;;###autoload
 (defun +ui--get-scratch-message ()
   "Get message to show in *scratch* buffer."
   ;; '((t (:inherit font-lock-keyword-face :weight bold)))

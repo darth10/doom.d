@@ -10,8 +10,8 @@
       "C-;"            nil              ; company-manual-begin
       "C-<wheel-up>"   nil
       "C-<wheel-down>" nil
-      "<escape>"       #'god-local-mode
-      "S-<escape>"     #'god-mode-all
+      ;; "<escape>"       #'god-local-mode
+      ;; "S-<escape>"     #'god-mode-all
       "C-s"            #'save-buffer
       "C-w"            #'+editor/kill-region-or-line
       "C-%"            #'+editor/match-paren
@@ -32,7 +32,7 @@
       "M-p"            #'+editor/move-text-up
       "M-<down>"       #'+editor/move-text-down
       "M-n"            #'+editor/move-text-down
-      "M-i"            #'god-local-mode
+      ;; "M-i"            #'god-local-mode
       "M-c"            #'capitalize-dwim
       "M-l"            #'downcase-dwim
       "M-u"            #'upcase-dwim
@@ -95,9 +95,7 @@
       (:map custom-theme-choose-mode-map
        "C-s"           #'custom-theme-save)
       (:map god-local-mode-map
-       "."             #'repeat
-       "z"             #'repeat
-       "i"             #'god-local-mode)
+       "."             #'repeat)
       (:map isearch-mode-map
        "<f3>"          #'isearch-repeat-forward
        "S-<f3>"        #'isearch-repeat-backward)
@@ -248,3 +246,9 @@
                  "C-p" #'avy-goto-word-1-above
                  "n" #'avy-goto-word-1-below
                  "C-n" #'avy-goto-word-1-below)))
+
+(after! evil-god-state
+  (map! :leader "v" #'evil-god-state)
+  (map! (:map god-local-mode-map
+              "i"        #'evil-insert-state
+              "<escape>" #'evil-god-state-bail)))
