@@ -1,10 +1,10 @@
 ;;; ~/.doom.d/+bindings.el -*- lexical-binding: t; -*-
 
-(put 'previous-buffer 'repeat-map '+bindings-buffer-repeat-map)
-(put 'next-buffer 'repeat-map '+bindings-buffer-repeat-map)
+;; (put 'previous-buffer 'repeat-map '+bindings-buffer-repeat-map)
+;; (put 'next-buffer 'repeat-map '+bindings-buffer-repeat-map)
 
-(put '+editor/move-text-up 'repeat-map '+bindings-editor-move-text-repeat-map)
-(put '+editor/move-text-down 'repeat-map '+bindings-editor-move-text-repeat-map)
+;; (put '+editor/move-text-up 'repeat-map '+bindings-editor-move-text-repeat-map)
+;; (put '+editor/move-text-down 'repeat-map '+bindings-editor-move-text-repeat-map)
 
 (map! "C-z"            nil              ; suspend-frame
       "C-;"            nil              ; company-manual-begin
@@ -12,13 +12,18 @@
       "C-<wheel-down>" nil
       ;; "<escape>"       #'god-local-mode
       ;; "S-<escape>"     #'god-mode-all
+      ;; TODO
       "C-s"            #'save-buffer
-      "C-w"            #'+editor/kill-region-or-line
-      "C-%"            #'+editor/match-paren
+      ;; "C-w"            #'+editor/kill-region-or-line
+      ;; "C-%"            #'+editor/match-paren
+      ;; TODO er/expand-region
       "C-+"            #'er/contract-region
+      ;; TODO multiple cursors with evil
       "C-<"            #'mc/mark-previous-like-this
       "C->"            #'mc/mark-next-like-this
+      ;; TODO remove
       "C-<f2>"         #'consult-imenu
+      ;; TODO <leader> !
       "C-!"            #'list-processes
       "C-c \\"         #'just-one-space
       "C-x C-0"        #'delete-window
@@ -28,6 +33,7 @@
       "C-x 9"          #'+editor/delete-single-window
       "C-x C-9"        #'+editor/delete-single-window
       "C-."            #'embark-act
+      ;; TODO <leader> r j/k/up/down
       "M-<up>"         #'+editor/move-text-up
       "M-p"            #'+editor/move-text-up
       "M-<down>"       #'+editor/move-text-down
@@ -37,7 +43,9 @@
       "M-l"            #'downcase-dwim
       "M-u"            #'upcase-dwim
       "M-w"            #'+editor/kill-ring-save-region-or-line
+      ;; TODO ! company
       "M-SPC"          #'company-manual-begin
+       ;; TODO also bind to <leader> s S
       "M-]"            #'swiper-thing-at-point
       "M-."            #'+lookup/definition
       "<f12>"          #'+lookup/definition
@@ -64,6 +72,9 @@
        "M-a"           #'+default/search-project-for-symbol-at-point
        "f"             #'+default/search-project-for-symbol-at-point
        "M-f"           #'+default/search-project-for-symbol-at-point
+       ;; TODO needs wrapper to check selected region
+       "g"             #'consult-ripgrep
+       "M-g"           #'consult-ripgrep
        "]"             #'swiper-thing-at-point
        "M-]"           #'swiper-thing-at-point)
       (:prefix "C-:"
@@ -95,10 +106,11 @@
       (:map custom-theme-choose-mode-map
        "C-s"           #'custom-theme-save)
       (:map god-local-mode-map
+       ;; `.' overrides `embark-act' in `god-local-mode'.
        "."             #'repeat)
-      (:map isearch-mode-map
-       "<f3>"          #'isearch-repeat-forward
-       "S-<f3>"        #'isearch-repeat-backward)
+      ;; (:map isearch-mode-map
+      ;;  "<f3>"          #'isearch-repeat-forward
+      ;;  "S-<f3>"        #'isearch-repeat-backward)
       (:map lispy-mode-map-paredit
        "C-:"           nil              ; lispy-colon
        "C-<left>"      nil              ; lispy-forward-barf-sexp
@@ -129,8 +141,11 @@
        "C-, C-l"       #'lispy-oneline
        "C-, , l"       #'lispy-multiline
        "C-, C-, C-l"   #'lispy-multiline)
+
       (:map org-mode-map
        "C-x C-e"       #'+org/eval-and-replace
+       ;; TODO use <leader> o g ... instead of <C-c> g
+       ;; TODO use <leader> o l ... instead of <C-c> l
        "C-c l b x"     #'+org/eval-and-replace
        "C-c l <up>"    #'org-table-move-cell-up
        "C-c l <down>"  #'org-table-move-cell-down
@@ -148,6 +163,7 @@
         "/"            #'org-brain-switch-brain)
        (:leader "a" nil))               ; embark-act
       (:map org-agenda-mode-map
+            ;; TODO
        "C-s"           #'org-save-all-org-buffers)
       (:map org-brain-visualize-mode-map
        "L"             #'+org-brain/cliplink-resource)
@@ -162,6 +178,7 @@
              hy-mode-map
              lfe-mode-map
              clojure-mode-map)
+            ;; TODO this should be a hook
        "C-c ["         #'highlight-sexp-mode)
       (:map csharp-mode-map
        "C-c C-r"       #'omnisharp-run-code-action-refactoring)
@@ -174,6 +191,7 @@
        "C-c l F"       #'lsp-format-buffer))
 
 (after! smartparens
+  ;; TODO evil-cleverparens
   (map! (:map smartparens-mode-map
          "C-<right>"   nil              ; sp-forward-slurp-sexp
          "M-<right>"   nil              ; sp-forward-barf-sexp
@@ -199,6 +217,7 @@
 (after! ediff
   (advice-add
    'ediff-setup-keymap :after
+   ;; TODO
    (λ! (map! (:map ediff-mode-map
               "M-<up>"      #'ediff-previous-difference
               "M-<down>"    #'ediff-next-difference
@@ -216,15 +235,17 @@
          "C-c l b" #'+clojurescript-run-cljsbuild)))
 
 (after! clj-refactor
+  ;; TODO
   (cljr-add-keybindings-with-prefix "C-c c :")
   (map! (:map clj-refactor-map
          ; cljr-slash
          "/" nil)))
 
 (after! flycheck
-  (put 'flycheck-previous-error 'repeat-map '+bindings-flycheck-errors-repeat-map)
-  (put 'flycheck-next-error 'repeat-map '+bindings-flycheck-errors-repeat-map)
+  ;; (put 'flycheck-previous-error 'repeat-map '+bindings-flycheck-errors-repeat-map)
+  ;; (put 'flycheck-next-error 'repeat-map '+bindings-flycheck-errors-repeat-map)
   (map! (:map flycheck-mode-map
+              ;; TODO
          "M-g M-p" #'flycheck-previous-error
          "M-g M-n" #'flycheck-next-error)))
 
@@ -232,6 +253,7 @@
   (map! (:map code-review-mode-map
          "A" #'+vc-approve-with-feedback)))
 
+;; TODO are these really needed?
 (after! avy
   (map! (:prefix "M-g"
                  "s" #'avy-goto-symbol-1
