@@ -1,6 +1,7 @@
 ;;; ~/.doom.d/+ui.el -*- lexical-binding: t; -*-
 
-(setq initial-scratch-message (+ui--get-scratch-message))
+(setq display-line-numbers-type 'relative
+      initial-scratch-message (+ui--get-scratch-message))
 
 (setq-default left-fringe-width 8
               right-fringe-width 8
