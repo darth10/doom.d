@@ -7,15 +7,7 @@
   (require 'org-cliplink)
   (org-brain-add-resource (org-cliplink-clipboard-content) nil t))
 
-;;;###autoload
-(defun +org/recalculate-all ()
-  "Recalculate the current table line by applying all stored formulas
-until it no longer changes."
-  (interactive)
-  (when (org-at-table-p)
-    (org-table-recalculate 'iterate)))
-
-;;;###autoload
+;;;autoload
 (defvar +org-gcal-calendar-id nil)
 
 ;;;###autoload
@@ -75,9 +67,24 @@ until it no longer changes."
     (delete-region (car bnd) (cdr bnd))
     (deactivate-mark)
     (insert res)
+    (when (org-at-table-p)
+      (org-table-recalculate 'iterate))
     (unless (or (lispy-left-p)
                 (lispy-right-p)
                 (member major-mode '(python-mode org-mode julia-mode)))
       (lispy--out-backward 1))
     (when (and leftp (lispy-right-p))
       (lispy-different))))
+
+;;;###autoload
+(defun +org/insert-parens-and-add ()
+  (interactive)
+  (when (not (eq 'insert evil-state))
+    (evil-insert 0))
+  (insert-char ?\()
+  (insert-char ?+)
+  (just-one-space)
+  (forward-word)
+  (insert-char ?\s)
+  (insert-char ?\))
+  (backward-char))
