@@ -48,7 +48,8 @@
     ;; Save to `auth-sources'. This is required on creating token.
     (when-let ((save-function (plist-get auth-plist :save-function))
                (save-function-p (functionp save-function)))
-      (funcall save-function))))
+      (funcall save-function))
+    (org-gcal-reload-client-id-secret)))
 
 ;;;###autoload
 (defun +org-agenda--load-files (dir)

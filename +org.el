@@ -23,11 +23,19 @@
     (add-to-list 'org-src-lang-modes '("plantuml" . plantuml)))
 
   (use-package! org-gcal
-    :init (+org-gcal--load)
+    :init (setq org-gcal-remove-api-cancelled-events t
+                ;; Set client ID and secret to stub values to avoid warning on `(require 'org-gcal)`
+                org-gcal-client-id "stub-client-id"
+                org-gcal-client-secret "stub-client-secret")
+    :commands (org-gcal-sync org-gcal-post-at-point org-gcal-delete-at-point)
     :config
-    (setq org-gcal-remove-api-cancelled-events t)
-    (add-hook! (org-gcal-sync org-gcal-post-at-point org-gcal-delete-at-point)
-               #'org-id-update-id-locations)))
+    (advice-add 'org-gcal-sync :before #'+org-gcal--load)
+    (advice-add 'org-gcal-post-at-point :before #'+org-gcal--load)
+    (advice-add 'org-gcal-delete-at-point :before #'+org-gcal--load)
+
+    (advice-add 'org-gcal-sync :after #'org-id-update-id-locations)
+    (advice-add 'org-gcal-post-at-point :after #'org-id-update-id-locations)
+    (advice-add 'org-gcal-delete-at-point :after #'org-id-update-id-locations)))
 
 (after! org-brain
   (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil))
