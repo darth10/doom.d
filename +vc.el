@@ -20,7 +20,8 @@ variable or 'master'."
 
 (after! forge
 ;; forge-pull-notifications fails for a large number of notifications
-  (setq forge-pull-notifications nil)
+  (setq forge-pull-notifications nil
+        forge-topic-list-limit '(10 . 5))
   (transient-append-suffix 'magit-branch "w"
     '("y" "pull request" forge-checkout-pullreq))
   (transient-append-suffix 'magit-branch "W"
