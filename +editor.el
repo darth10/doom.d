@@ -31,11 +31,20 @@
   (setq company-box-scrollbar nil))
 
 (after! which-key
-  (which-key-enable-god-mode-support)
   (setq which-key-separator " : "))
 
-(after! lispy
-  (lispy-set-key-theme (setq lispy-key-theme '(paredit c-digits))))
+(after! lispyville
+  (lispyville-set-key-theme
+   '((operators normal)
+     c-w
+     (prettify insert)
+     (atom-movement t)
+     slurp/barf-lispy
+     commentary
+     wrap
+     additional
+     additional-insert
+     (additional-movement normal visual motion))))
 
 (after! calculator
   (advice-add 'calculator :after (λ! (set-window-text-height nil 1))))

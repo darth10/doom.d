@@ -31,26 +31,9 @@
 (after! doom-modeline
   (setq doom-modeline-height 40)
 
-  (doom-modeline-def-segment cur-mode
-    (if (doom-modeline--active)
-        '(" " core--modeline-mode-string " ")
-      "   "))
-
   (doom-modeline-def-modeline 'main
-    '(workspace-name window-number bar cur-mode matches buffer-info-simple buffer-position selection-info)
+    '(workspace-name window-number bar modals matches buffer-info-simple buffer-position selection-info)
     '(debug compilation misc-info persp-name input-method indent-info buffer-encoding major-mode process check vcs)))
-
-(after! (:and god-mode doom-modeline)
-  (defun +ui--configure-modeline-indicator-h ()
-    "Configure modeline indicator depending on mode."
-    (let* ((is-god-mode (bound-and-true-p god-local-mode))
-           (next-mode-string (cond ((or is-god-mode
-                                        (and overwrite-mode is-god-mode)) ":")
-                                   (overwrite-mode "!")
-                                   (t " "))))
-      (setq core--modeline-mode-string next-mode-string)))
-
-  (add-hook! 'post-command-hook #'+ui--configure-modeline-indicator-h))
 
 (after! neotree
   (setq doom-themes-neotree-enable-variable-pitch nil
