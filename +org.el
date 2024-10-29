@@ -38,7 +38,19 @@
     (advice-add 'org-gcal-delete-at-point :after #'org-id-update-id-locations)))
 
 (after! org-brain
-  (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil))
+  (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil)
+  (defadvice! +org-brain-entry-data (entry)
+    "Run `org-element-parse-buffer' on ENTRY text.
+Sets `tab-width' in the used temporary buffer, as
+`org-current-text-column' expects it to be 8.
+
+If this override is not used, `org-brain-visualize' will crash on
+opening an org entry with a list."
+    :override #'org-brain-entry-data
+    (with-temp-buffer
+      (setq-local tab-width 8)
+      (insert (org-brain-text entry t))
+      (org-element-parse-buffer))))
 
 (after! flycheck
   (setq flycheck-global-modes '(not org-mode)))
