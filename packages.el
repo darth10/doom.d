@@ -22,6 +22,7 @@
 (package! password-generator)
 (package! powershell)
 
+(package! evil-snipe :disable t)
 (package! flycheck-joker :disable t)
 (package! org-superstar :disable t)
 

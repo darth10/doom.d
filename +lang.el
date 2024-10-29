@@ -39,6 +39,11 @@
 
   (add-hook! 'clojurescript-mode-hook #'+lsp-enable-eldoc-local))
 
+(after! cider
+  (remove-hook! cider--debug-mode
+    'turn-off-evil-snipe-mode
+    'turn-off-evil-snipe-override-mode))
+
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
 
