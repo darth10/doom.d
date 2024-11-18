@@ -89,10 +89,14 @@
        "w" #'+pass/copy-secret-to-kill-ring
        :desc "Copy username"
        "b" #'+pass/copy-username-to-kill-ring
+       :desc "Copy field"
+       "f" #'password-store-copy-field
        :desc "Copy URL"
        "u" #'+pass/copy-url-to-kill-ring
        :desc "Open URL"
-       "U" #'+pass/open-url))
+       "U" #'+pass/open-url
+       :desc "Edit entry"
+       "c" #'password-store-edit))
 
 (map! :localleader
       (:map (common-lisp-mode-map
