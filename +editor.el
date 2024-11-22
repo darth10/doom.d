@@ -73,3 +73,10 @@
   :when (executable-find "mise")
   :config
   (add-hook! 'doom-init-ui-hook #'global-mise-mode))
+
+(use-package! gptel
+  :config
+  (setq gptel-use-curl t
+        gptel-stream t
+        gptel-default-mode 'org-mode
+        gptel-log-level 'debug))
