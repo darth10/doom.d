@@ -2,7 +2,7 @@
 
 (when (or (featurep :system 'macos)
           (featurep :system 'linux))
-  (setq shell-command-switch "-ic"))
+  (setq shell-command-switch "-c"))
 
 (after! eshell
   (add-hook! 'eshell-mode-hook #'+eshell--load-bash-aliases-h))
