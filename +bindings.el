@@ -131,9 +131,7 @@
               "]" #'lispy-close-square
               "M-r" #'lispy-raise-sexp
               "M-}" #'lispy-splice-sexp-killing-backward
-              "M-]" #'lispy-splice-sexp-killing-forward)
-        (:map lispy-mode-map-special
-              "p" nil)))
+              "M-]" #'lispy-splice-sexp-killing-forward)))
 
 (after! clojure-mode
   (map! (:localleader
