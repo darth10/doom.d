@@ -17,17 +17,19 @@
 
 (after! clojure-mode
   (define-clojure-indent
-    (GET 2)
-    (POST 2)
-    (PUT 2)
-    (PATCH 2)
-    (DELETE 2)
-    (match 1)
-    (friend/authorize 1)
-    (featureflag 1))
+   (GET 2)
+   (POST 2)
+   (PUT 2)
+   (PATCH 2)
+   (DELETE 2)
+   (match 1)
+   (friend/authorize 1)
+   (featureflag 1))
 
-  (setq clojure--prettify-symbols-alist
-    '(("fn" . (?\s (Br . Bl) ?\s (Bc . Bc) ?λ))))
+  (plist-put +ligatures-extra-symbols :fn '(?\s (Br . Bl) ?\s (Bc . Bc) ?λ))
+
+  (set-ligatures! 'clojure-mode
+    :fn "fn")
 
   (defadvice! +clojure-thread-first-all-a (&rest _)
     :after #'clojure-thread-first-all
