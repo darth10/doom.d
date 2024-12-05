@@ -105,4 +105,6 @@
 
 (after! auctex
   (add-hook! 'LaTeX-mode-hook
-             #'auto-fill-mode #'prettify-symbols-mode))
+             #'auto-fill-mode #'prettify-symbols-mode)
+
+  (setq +latex-viewers '(pdf-tools skim evince sumatrapdf zathura okular)))
