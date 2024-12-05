@@ -102,3 +102,7 @@
 (after! lsp-nix
   (setq lsp-nix-nil-auto-eval-inputs nil
         lsp-nix-nil-formatter ["alejandra"]))
+
+(after! auctex
+  (add-hook! 'LaTeX-mode-hook
+             #'auto-fill-mode #'prettify-symbols-mode))

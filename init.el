@@ -71,6 +71,7 @@
        ;; (haskell +dante +lsp)
        (javascript +lsp)
        ;; lua
+       (latex +lsp)
        (markdown +grip)
        (nix +lsp)
        (org +brain +dragndrop +gnuplot +ipython +pandoc +pomodoro +present)
