@@ -26,7 +26,10 @@
     :init (setq org-gcal-remove-api-cancelled-events t
                 ;; Set client ID and secret to stub values to avoid warning on `(require 'org-gcal)`
                 org-gcal-client-id "stub-client-id"
-                org-gcal-client-secret "stub-client-secret")
+                org-gcal-client-secret "stub-client-secret"
+                ;; Ensure that `allow-loopback-pinentry' is added to `~/.gnupg/gpg-agent.conf'.
+                epg-pinentry-mode 'loopback
+                plstore-cache-passphrase-for-symmetric-encryption t)
     :commands (org-gcal-sync org-gcal-post-at-point org-gcal-delete-at-point)
     :config
     (advice-add 'org-gcal-sync :before #'+org-gcal--load)
