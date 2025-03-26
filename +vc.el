@@ -19,13 +19,11 @@ variable or 'master'."
     '("O" +magit-fetch-origin-default-branch)))
 
 (after! forge
-;; forge-pull-notifications fails for a large number of notifications
+  ;; forge-pull-notifications fails for a large number of notifications
   (setq forge-pull-notifications nil
         forge-topic-list-limit '(10 . 5))
-  (transient-append-suffix 'magit-branch "w"
-    '("y" "pull request" forge-checkout-pullreq))
-  (transient-append-suffix 'magit-branch "W"
-    '("Y" "from pull request" forge-branch-pullreq)))
+  (transient-append-suffix 'magit-branch "x"
+    '("o" "review pull-request" code-review-forge-pr-at-point)))
 
 
 (use-package! magit-todos
