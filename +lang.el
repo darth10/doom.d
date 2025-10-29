@@ -26,7 +26,7 @@
    (friend/authorize 1)
    (featureflag 1))
 
-  (plist-put +ligatures-extra-symbols :fn '(?\s (Br . Bl) ?\s (Bc . Bc) ?λ))
+  (plist-put +ligatures-extra-symbols :fn '(?\s (Br . Bl) ?\s (Bc . Bc) ?𝝺))
 
   (set-ligatures! 'clojure-mode
     :fn "fn")
