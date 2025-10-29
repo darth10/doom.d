@@ -22,6 +22,7 @@
 (package! nov)
 (package! password-generator)
 (package! powershell)
+(package! rainbow-delimiters)
 
 (package! evil-snipe :disable t)
 (package! flycheck-joker :disable t)

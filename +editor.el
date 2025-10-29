@@ -18,6 +18,9 @@
 (use-package! ialign
   :commands (ialign))
 
+(use-package! rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 (after! dired
   (remove-hook! 'dired-mode-hook #'dired-omit-mode))
 

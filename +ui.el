@@ -83,6 +83,7 @@
    '(mode-line ((t (:box nil :overline nil :underline nil))))
    '(mode-line-inactive ((t (:box nil :overline nil :underline nil))))
    '(rainbow-delimiters-depth-2-face ((t (:foreground "#5ac8f5"))))
+   '(rainbow-delimiters-depth-7-face ((t (:foreground "#5ac8f5"))))
    '(region ((t (:foreground "SkyBlue" :background "DarkSlateGray"))))
    '(show-paren-match ((t (:background "Springgreen2" :foreground "DimGray"))))
    `(window-divider ((t (:foreground ,+ui--hl-line-background))))
