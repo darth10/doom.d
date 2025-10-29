@@ -35,6 +35,7 @@
        multiple-cursors
        rotate-text
        snippets
+       (whitespace +trim)
 
        :emacs
        (dired +dirvish +icons)
