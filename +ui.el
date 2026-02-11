@@ -77,6 +77,7 @@
    '(eval-sexp-fu-flash ((t (:foreground "DodgerBlue" :background "DimGray"))))
    '(font-lock-constant-face ((t (:foreground "#859900"))))
    '(font-lock-keyword-face ((t (:foreground "#5ac8f5"))))
+   '(font-lock-number-face ((t (:foreground "dark gray"))))
    '(highlight-numbers-number ((t (:foreground "#2aa198"))))
    '(iedit-occurrence ((t (:foreground "Springgreen2" :background "DimGray"))))
    '(isearch ((t (:background "Springgreen2" :foreground "DimGray"))))
