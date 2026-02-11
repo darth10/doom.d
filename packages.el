@@ -20,6 +20,7 @@
 (package! mise)
 (package! monkeytype)
 (package! nov)
+(package! org-brain)
 (package! password-generator)
 (package! powershell)
 (package! rainbow-delimiters)

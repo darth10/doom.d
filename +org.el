@@ -12,6 +12,7 @@
         org-directory "~/Cloud/org"
         org-log-into-drawer t
         org-log-done t
+        org-id-locations-file-relative t   ;; Required for org-brain
         org-attach-id-dir (expand-file-name "attachments/" org-directory)
         org-id-locations-file (expand-file-name ".org-ids" doom-cache-dir)
         org-brain-data-file (expand-file-name ".org-brain.el" doom-cache-dir))
@@ -40,7 +41,14 @@
     (advice-add 'org-gcal-post-at-point :after #'org-id-update-id-locations)
     (advice-add 'org-gcal-delete-at-point :after #'org-id-update-id-locations)))
 
-(after! org-brain
+(use-package! org-brain
+  :defer t
+  :init
+  (setq org-brain-visualize-default-choices 'all
+        org-brain-title-max-length 24
+        org-brain-include-file-entries nil
+        org-brain-file-entries-use-title nil)
+  :config
   (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil)
   (defadvice! +org-brain-entry-data (entry)
     "Run `org-element-parse-buffer' on ENTRY text.
@@ -53,7 +61,33 @@ opening an org entry with a list."
     (with-temp-buffer
       (setq-local tab-width 8)
       (insert (org-brain-text entry t))
-      (org-element-parse-buffer))))
+      (org-element-parse-buffer)))
+
+  (cl-pushnew '("b" "Brain" plain (function org-brain-goto-end)
+                "* %i%?" :empty-lines 1)
+              org-capture-templates
+              :key #'car :test #'equal)
+
+  (when (modulep! :editor evil +everywhere)
+    (set-evil-initial-state!
+      '(org-brain-visualize-mode
+        org-brain-select-map
+        org-brain-move-map
+        org-brain-polymode-map)
+      'normal)
+    (defun +org--evilify-map (map)
+      (let (keys)
+        (map-keymap (lambda (event function)
+                      (push function keys)
+                      (push (vector event) keys))
+                    map)
+        (apply #'evil-define-key* 'normal map keys)))
+
+    (+org--evilify-map org-brain-visualize-mode-map)
+    (+org--evilify-map org-brain-select-map)
+    (+org--evilify-map org-brain-move-map)
+    (after! polymode
+      (+org--evilify-map org-brain-polymode-map))))
 
 (after! flycheck
   (setq flycheck-global-modes '(not org-mode)))
