@@ -60,21 +60,22 @@
        pass
        pdf
        terraform
+       tree-sitter
 
        :lang
        ;; cc
-       (clojure +lsp)
+       (clojure +lsp +tree-sitter)
        ;; common-lisp
        ;; (csharp +lsp)
        data
        emacs-lisp
        ;; go
        ;; (haskell +dante +lsp)
-       (javascript +lsp)
+       (javascript +lsp +tree-sitter)
        ;; lua
        (latex +lsp)
        (markdown +grip)
-       (nix +lsp)
+       (nix +lsp +tree-sitter)
        (org +brain +dragndrop +gnuplot +ipython +pandoc +pomodoro +present)
        ;; php
        plantuml
@@ -84,8 +85,8 @@
        ;; scala
        ;; (scheme +racket)
        (sh +lsp)
-       (web +css +lsp)
-       (yaml +lsp)
+       (web +css +lsp +tree-sitter)
+       (yaml +lsp +tree-sitter)
 
        :app
        calendar
