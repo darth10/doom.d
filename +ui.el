@@ -57,7 +57,6 @@
 (use-package! dashboard
   :config
   (setq dashboard-set-init-info t
-        dashboard-set-footer nil
         dashboard-startup-banner (expand-file-name "resources/doomemacs.txt" doom-private-dir)
         dashboard-items '((projects . 3)
                           (recents  . 10)))
