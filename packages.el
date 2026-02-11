@@ -23,6 +23,7 @@
 (package! password-generator)
 (package! powershell)
 (package! rainbow-delimiters)
+(package! ultra-scroll)
 
 (package! evil-snipe :disable t)
 (package! flycheck-joker :disable t)

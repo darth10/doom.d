@@ -20,11 +20,6 @@
 (when (featurep :system 'linux)
   (add-hook 'window-setup-hook #'toggle-frame-maximized))
 
-(when (and (featurep :system 'macos)
-           (functionp 'pixel-scroll-precision-mode))
-  (setq pixel-scroll-precision-use-momentum t)
-  (pixel-scroll-precision-mode t))
-
 (when (featurep :system 'windows)
   ;; Using `add-hook!' doesn't work here.
   (add-hook 'window-setup-hook (λ! (w32-send-sys-command 61488))))
@@ -51,6 +46,13 @@
   (defun +highlight-sexp--set-hl-line ()
     (hl-line-mode (if highlight-sexp-mode -1 +1)))
   (setq! hl-sexp-background-color +ui--hl-line-background))
+
+(use-package! ultra-scroll
+  :init
+  (setq scroll-conservatively 3
+        scroll-margin 0)
+  :config
+  (ultra-scroll-mode 1))
 
 (use-package! dashboard
   :config
