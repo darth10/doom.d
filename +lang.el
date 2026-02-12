@@ -39,6 +39,7 @@
     :after #'clojure-thread-last-all
     (+clojure-thread-oneline))
 
+  (add-hook! 'clojure-ts-mode-hook #'clojure-mode-variables)
   (add-hook! 'clojurescript-mode-hook #'+lsp-enable-eldoc-local))
 
 (after! cider
