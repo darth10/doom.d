@@ -1,7 +1,7 @@
 ;;; ~/.doom.d/init.el -*- lexical-binding: t; -*-
 
 (doom! :completion
-       (company +childframe)
+       (corfu +icons +orderless)
        vertico
 
        :ui
