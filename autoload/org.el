@@ -54,7 +54,7 @@
 ;;;###autoload
 (defun +org-agenda--load-files (dir)
   "Sets `org-agenda-files' to all org files in directory DIR."
-  (setq! org-agenda-files (directory-files-recursively dir "\\.org$")))
+  (setopt org-agenda-files (directory-files-recursively dir "\\.org$")))
 
 ;;;###autoload
 (defun +org/eval-and-replace ()
