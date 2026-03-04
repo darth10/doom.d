@@ -65,6 +65,10 @@
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
 
+(after! lispy
+  (add-to-list 'lispy-clojure-modes 'clojure-ts-mode)
+  (add-to-list 'lispy-clojure-modes 'clojure-ts-clojurescript-mode))
+
 ;;; JavaScript
 
 (after! js2-mode
