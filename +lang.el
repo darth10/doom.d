@@ -42,6 +42,21 @@
   (add-hook! 'clojure-ts-mode-hook #'clojure-mode-variables)
   (add-hook! 'clojurescript-mode-hook #'+lsp-enable-eldoc-local))
 
+(after! clojure-ts-mode
+  (defadvice! +clojure-ts-thread-first-all-a (&rest _)
+    :after #'clojure-ts-thread-first-all
+    (+clojure-thread-oneline))
+
+  (defadvice! +clojure-ts-thread-last-all-a (&rest _)
+    :after #'clojure-ts-thread-last-all
+    (+clojure-thread-oneline))
+
+  (map! (:map clojure-ts-mode-map
+              (:localleader
+               (:prefix ("f" . "refactor"))
+               "f" clojure-ts-refactor-map))))
+
+
 (after! cider
   (remove-hook! cider--debug-mode
     'turn-off-evil-snipe-mode
