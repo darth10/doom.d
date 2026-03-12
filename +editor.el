@@ -31,7 +31,7 @@
   (setq yas-indent-line 'fixed))
 
 (after! which-key
-  (setq which-key-separator " : "))
+  (setq which-key-separator ": "))
 
 (after! lispyville
   (lispyville-set-key-theme
