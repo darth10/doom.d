@@ -30,9 +30,6 @@
 (after! yasnippet
   (setq yas-indent-line 'fixed))
 
-(after! company-box
-  (setq company-box-scrollbar nil))
-
 (after! which-key
   (setq which-key-separator " : "))
 
