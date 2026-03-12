@@ -45,7 +45,7 @@
   :config
   (defun +highlight-sexp--set-hl-line ()
     (hl-line-mode (if highlight-sexp-mode -1 +1)))
-  (setq! hl-sexp-background-color +ui--hl-line-background))
+  (setopt hl-sexp-background-color +ui--hl-line-background))
 
 (use-package! ultra-scroll
   :init
@@ -65,7 +65,7 @@
 (let ((default-height (cond ((featurep :system 'linux) 148)
                             ((featurep :system 'macos) 166)
                             (t 138))))
-  (setq! doom-theme 'doom-solarized-dark)
+  (setq doom-theme 'doom-solarized-dark)
   (custom-set-faces
    `(default ((t (:height ,default-height :family "Consolas ligaturized v3" :weight normal :width normal))))
    '(doom-modeline-buffer-modified ((t (:inherit (warning bold) :background nil))))
