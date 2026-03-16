@@ -74,9 +74,12 @@
   :config
   (add-hook! 'doom-init-ui-hook #'global-mise-mode))
 
-(use-package! gptel
-  :config
+(after! gptel
   (setq gptel-use-curl t
         gptel-stream t
         gptel-default-mode 'org-mode
-        gptel-log-level 'debug))
+        gptel-log-level 'debug)
+
+  (gptel-make-anthropic "Claude"
+    :stream t
+    :key #'+gptel-anthropic-key))

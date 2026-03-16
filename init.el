@@ -54,6 +54,7 @@
        docker
        editorconfig
        eval
+       llm
        (lookup +docsets)
        lsp
        (magit +forge)
