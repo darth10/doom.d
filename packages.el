@@ -3,6 +3,8 @@
 (package! ascii-art-to-unicode)
 (package! chess)
 (package! cider-eval-sexp-fu)
+(package! claude-code-ide
+  :recipe (:host github :repo "manzaltu/claude-code-ide.el"))
 (package! clipmon)
 (package! dashboard)
 (package! edit-server)

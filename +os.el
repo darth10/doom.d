@@ -27,3 +27,6 @@
 
 (use-package! password-generator
   :commands (password-generator-words))
+
+(after! vterm
+  (add-hook! 'vterm-mode-hook #'+vterm-font-setup))

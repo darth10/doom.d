@@ -73,3 +73,16 @@
 
 ;;;###autoload
 (defalias '+pass/open-url 'password-store-url)
+
+;;;###autoload
+(defun +vterm-font-setup ()
+  "Applies ASCII replacements specifically for vterm and claude-code."
+  (let ((tbl (or buffer-display-table (setq buffer-display-table (make-display-table)))))
+    (dolist (pair
+             '((#x273B . ?*)            ; ✻ TEARDROP-SPOKED ASTERISK
+               (#x273D . ?*)            ; ✽ HEAVY TEARDROP-SPOKED ASTERISK
+               (#x2722 . ?+)            ; ✢ FOUR TEARDROP-SPOKED ASTERISK
+               (#x2736 . ?+)            ; ✶ SIX-POINTED BLACK STAR
+               (#x2733 . ?*)            ; ✳ EIGHT SPOKED ASTERISK
+               ))
+      (aset tbl (car pair) (vector (cdr pair))))))
