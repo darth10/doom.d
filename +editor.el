@@ -83,3 +83,6 @@
   (gptel-make-anthropic "Claude"
     :stream t
     :key #'+gptel-anthropic-key))
+
+(after! corfu
+  (keymap-unset corfu-map "RET"))
