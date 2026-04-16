@@ -66,6 +66,8 @@
 
        :lang
        ;; cc
+       ;; FIXME entering '#(' shows '# ()' instead of '#()'
+       ;; FIXME backspace in '(cond (|))' deletes outer cond form - because lispy--out-forward has different behaviour in clojure-mode
        (clojure +lsp +tree-sitter)
        ;; common-lisp
        ;; (csharp +lsp)

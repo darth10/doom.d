@@ -3,16 +3,18 @@
 ;;; Org
 
 (after! org
+  ;; TODO org-eldoc is causing hanging when scrolling
+  (remove-hook! 'org-mode-hook #'org-bullets-mode #'org-eldoc-load)
   (remove-hook! 'org-mode-hook #'org-bullets-mode)
   (add-hook! 'org-mode-hook #'org-toggle-inline-images)
   (setq org-modules '(ol-bibtex org-habit)
         org-startup-indented nil
-        org-eldoc-breadcrumb-separator " > "
+        ;; org-eldoc-breadcrumb-separator " > "
         org-clock-heading-function (λ! "")
         org-directory "~/Cloud/org"
         org-log-into-drawer t
         org-log-done t
-        org-id-locations-file-relative t   ;; Required for org-brain
+        org-id-locations-file-relative t ;; Required for org-brain
         org-attach-id-dir (expand-file-name "attachments/" org-directory)
         org-id-locations-file (expand-file-name ".org-ids" doom-cache-dir)
         org-brain-data-file (expand-file-name ".org-brain.el" doom-cache-dir))
