@@ -62,7 +62,7 @@
        pass
        pdf
        terraform
-       tree-sitter
+       ;; tree-sitter
 
        :lang
        ;; cc
