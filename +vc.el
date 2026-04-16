@@ -15,8 +15,21 @@ variable or 'master'."
     (interactive (list (+magit--get-default-branch)))
     (magit-run-git-async "fetch" "origin" (format "%s:%s" branch branch)))
 
+  (transient-define-suffix +magit-fetch-all (branch)
+    "Runs 'forge-pull' and 'git fetch origin branch:branch --prune' where 'branch' is the
+value of the 'remote.origin.default-branch' configuration variable or
+'master'."
+    :description (lambda () (let ((branch (+magit--get-default-branch)))
+                         (format "forge topics, fetch origin %s:%s -p" branch branch)))
+    (interactive (list (+magit--get-default-branch)))
+    (when (fboundp 'forge-pull) (forge-pull))
+    ;; FIXME `--prune` doesn't work
+    (magit-run-git-async "fetch" "origin" (format "%s:%s" branch branch) "--prune"))
+
   (transient-append-suffix 'magit-fetch "o"
-    '("O" +magit-fetch-origin-default-branch)))
+    '("O" +magit-fetch-origin-default-branch))
+  (transient-append-suffix 'magit-fetch "N"
+    '("A" +magit-fetch-all)))
 
 (after! forge
   ;; forge-pull-notifications fails for a large number of notifications
