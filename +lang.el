@@ -69,8 +69,18 @@
   :after (clojure-mode cider))
 
 (after! lispy
-  (add-to-list 'lispy-clojure-modes 'clojure-ts-mode)
-  (add-to-list 'lispy-clojure-modes 'clojure-ts-clojurescript-mode))
+  (dolist (el '(clojure-ts-mode clojure-ts-clojurescript-mode clojure-ts-clojurec-mode))
+    (add-to-list 'lispy-parens-preceding-syntax-alist `(,el . ("[`'~@]+" "#" "#\\?@?")))
+    (add-to-list 'lispy-clojure-modes el))
+  (define-advice lispy-mode (:after (&rest _) +lispy-fix-clojure-ts-nav)
+    "Disable treesit-forward-sexp while lispy-mode is on in clojure-ts-mode.
+Works around Emacs bug#76784, where up-list overshoots top-level
+boundaries when `forward-sexp-function' is treesit-based, which in turn
+makes lispy's boundary detection (e.g. `lispy-delete-backward') grab the
+wrong sexp. This should be fixed in Emacs 31:
+https://debbugs.gnu.org/cgi/bugreport.cgi?bug=76784"
+    (when (and lispy-mode (derived-mode-p 'clojure-ts-mode))
+      (setq-local forward-sexp-function nil))))
 
 ;;; JavaScript
 
