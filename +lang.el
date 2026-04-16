@@ -58,8 +58,9 @@
   :after (clojure-mode cider))
 
 (after! lispy
-  (add-to-list 'lispy-clojure-modes 'clojure-ts-mode)
-  (add-to-list 'lispy-clojure-modes 'clojure-ts-clojurescript-mode))
+  (dolist (el '(clojure-ts-mode clojure-ts-clojurescript-mode clojure-ts-clojurec-mode))
+    (add-to-list 'lispy-parens-preceding-syntax-alist `(,el . ("[`'~@]+" "#" "#\\?@?")))
+    (add-to-list 'lispy-clojure-modes el)))
 
 ;;; JavaScript
 
