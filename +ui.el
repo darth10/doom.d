@@ -25,7 +25,8 @@
   (add-hook 'window-setup-hook (λ! (w32-send-sys-command 61488))))
 
 (after! doom-modeline
-  (setq doom-modeline-height 40)
+  (setq doom-modeline-height 68
+        doom-modeline-bar-width 4)
 
   (doom-modeline-def-modeline 'main
     '(workspace-name window-number bar modals matches buffer-info-simple buffer-position selection-info)
@@ -62,7 +63,7 @@
                           (recents  . 10)))
   (dashboard-setup-startup-hook))
 
-(let ((default-height (cond ((featurep :system 'linux) 148)
+(let ((default-height (cond ((featurep :system 'linux) 132)
                             ((featurep :system 'macos) 166)
                             (t 138))))
   (setq doom-theme 'doom-solarized-dark)
@@ -97,3 +98,6 @@
    '(swiper-match-face-3 ((t (:background "Springgreen2" :foreground "DimGray"))))
    '(swiper-line-face ((t (:inherit bold :foreground "DodgerBlue" :background "DarkSlateGray"))))
    '(yaml-tab-face ((t (:inherit whitespace-tab))))))
+
+(after! evil
+  (setq evil-insert-state-cursor '(bar . 3)))
