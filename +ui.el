@@ -25,7 +25,7 @@
   (add-hook 'window-setup-hook (λ! (w32-send-sys-command 61488))))
 
 (after! doom-modeline
-  (setq doom-modeline-height 40)
+  (setq doom-modeline-height 80)
 
   (doom-modeline-def-modeline 'main
     '(workspace-name window-number bar modals matches buffer-info-simple buffer-position selection-info)
@@ -63,7 +63,7 @@
   (dashboard-setup-startup-hook))
 
 (setq doom-theme 'doom-solarized-dark
-      doom-font (font-spec :family "Consolas ligaturized v3" :size 17 :weight 'normal))
+      doom-font (font-spec :family "Consolas ligaturized v3" :size 34 :weight 'normal))
 
 (custom-theme-set-faces! 'doom-solarized-dark
   '(doom-modeline-buffer-modified :inherit (warning bold) :background nil)

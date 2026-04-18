@@ -66,21 +66,21 @@
 
        :lang
        ;; cc
-       (clojure +lsp +tree-sitter)
+       ;; (clojure +lsp +tree-sitter)
        ;; common-lisp
        ;; (csharp +lsp)
        data
        emacs-lisp
        ;; go
        ;; (haskell +dante +lsp)
-       (javascript +lsp +tree-sitter)
+       ;; (javascript +lsp +tree-sitter)
        ;; lua
-       (latex +lsp)
+       ;; (latex +lsp)
        (markdown +grip)
        (nix +lsp +tree-sitter)
        (org +dragndrop +gnuplot +ipython +pandoc +pomodoro +present)
        ;; php
-       plantuml
+       ;; plantuml
        ;; python
        rest
        ;; ruby
