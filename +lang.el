@@ -51,7 +51,9 @@
     :after #'clojure-ts-thread-last-all
     (+clojure-thread-oneline))
 
-  (map! (:map clojure-ts-mode-map
+  (map! (:map (clojure-ts-mode-map
+               clojure-ts-clojurescript-mode-map
+               clojure-ts-clojurec-mode-map)
               (:localleader
                (:prefix ("f" . "refactor"))
                "f" clojure-ts-refactor-map))))
