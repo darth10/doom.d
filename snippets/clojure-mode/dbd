@@ -1,0 +1,3 @@
+#name: dbd
+# --
+(db @datomic/conn) $0

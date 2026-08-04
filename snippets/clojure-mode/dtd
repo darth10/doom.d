@@ -1,0 +1,3 @@
+#name: dtd
+# --
+@(datomic/transact @datomic/conn [$0])

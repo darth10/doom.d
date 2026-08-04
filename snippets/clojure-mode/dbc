@@ -1,0 +1,3 @@
+#name: dbc
+# --
+(db conn) $0
