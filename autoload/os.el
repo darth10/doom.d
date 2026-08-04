@@ -46,7 +46,7 @@
 
 ;;;###autoload
 (defun +vterm-font-setup ()
-  "Applies ASCII replacements specifically for vterm and claude-code."
+  "Applies ASCII replacements specifically for vterm and ai-code-interface/claude-code."
   (let ((tbl (or buffer-display-table (setq buffer-display-table (make-display-table)))))
     (dolist (pair
              '((#x273B . ?*)            ; ✻ TEARDROP-SPOKED ASTERISK

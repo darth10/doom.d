@@ -87,3 +87,13 @@
 
 (after! corfu
   (keymap-unset corfu-map "RET"))
+
+(use-package! ai-code
+  :config
+  (setq ai-code-onboarding-auto-show nil
+        ai-code-auto-test-type 'ask-me)
+  (ai-code-set-backend 'claude-code)
+  (after! evil
+    (ai-code-backends-infra-evil-setup))
+  (after! magit
+    (ai-code-magit-setup-transients)))

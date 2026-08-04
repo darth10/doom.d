@@ -65,10 +65,10 @@
       :desc "List processes"
       "!" #'list-processes
       (:prefix "c"
-       :desc "Switch to Claude Code session"
-       "." #'claude-code-ide
-       :desc "Show Claude Code menu"
-       "," #'claude-code-ide-menu)
+       ;; :desc "Switch to Claude Code session"
+       ;; "." #'claude-code-ide
+       :desc "Show AI code interface menu"
+       "," #'ai-code-menu)
       "x" nil
       (:prefix ("x" . "current-window")
        :desc "Delete this window"
