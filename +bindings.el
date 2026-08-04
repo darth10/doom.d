@@ -63,7 +63,7 @@
       "+" #'er/expand-region
       :desc "List processes"
       "!" #'list-processes
-      (:prefix ("c" . "claude-code")
+      (:prefix "c"
        :desc "Switch to Claude Code session"
        "." #'claude-code-ide
        :desc "Show Claude Code menu"
