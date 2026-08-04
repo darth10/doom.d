@@ -110,7 +110,8 @@
              racket-mode-map
              hy-mode-map
              lfe-mode-map
-             clojure-mode-map)
+             clojure-mode-map
+             clojure-ts-mode-map)
             "[" #'highlight-sexp-mode))
 
 (after! flyspell
