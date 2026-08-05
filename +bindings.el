@@ -38,6 +38,7 @@
             (:localleader (:prefix-map "b"
                                        "x" #'+org/eval-and-replace
                                        "+" #'+org/insert-parens-and-add
+                                       "r" #'org-table-recalculate
                                        (:prefix-map ("l" . "cell")
                                                     "h" #'org-table-move-cell-left
                                                     "j" #'org-table-move-cell-down
