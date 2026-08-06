@@ -95,3 +95,6 @@
   '(swiper-match-face-3 :background "Springgreen2" :foreground "DimGray")
   '(swiper-line-face :inherit bold :foreground "DodgerBlue" :background "DarkSlateGray")
   '(yaml-tab-face :inherit whitespace-tab))
+
+;; TODO needs vertico to be loaded
+;; (add-to-list 'vertico-multiform-categories '(embark-keybinding grid))
