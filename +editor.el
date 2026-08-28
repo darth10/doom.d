@@ -88,10 +88,14 @@
 (after! corfu
   (keymap-unset corfu-map "RET"))
 
+(after! ghostel
+  (setq ghostel-max-scrollback (* 20 1024 1024)))
+
 (use-package! ai-code
   :config
   (setq ai-code-onboarding-auto-show nil
-        ai-code-auto-test-type 'ask-me)
+        ai-code-auto-test-type 'ask-me
+        ai-code-backends-infra-terminal-backend 'ghostel)
   (ai-code-set-backend 'claude-code)
   (after! evil
     (ai-code-backends-infra-evil-setup))
