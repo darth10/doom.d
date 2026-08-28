@@ -46,7 +46,8 @@
        :term
        eshell
        shell
-       vterm
+       (ghostel +everywhere)
+       ;; vterm
 
        :tools
        debugger
