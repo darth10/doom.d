@@ -7,7 +7,7 @@
   (require 'org-cliplink)
   (org-brain-add-resource (org-cliplink-clipboard-content) nil t))
 
-;;;autoload
+;;;###autoload
 (defvar +org-gcal-calendar-id nil)
 
 ;;;###autoload
