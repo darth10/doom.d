@@ -16,7 +16,9 @@
 (after! pass
   (set-popup-rule! "^\\*Password-Store" :side 'left :size 0.4 :quit nil)
   (after! recentf
-    (add-to-list 'recentf-exclude (concat (file-truename (expand-file-name (getenv "PASSWORD_STORE_DIR"))) ".+"))))
+    (dolist (dir (list (expand-file-name (password-store-dir))
+                       (abbreviate-file-name (password-store-dir))))
+      (add-to-list 'recentf-exclude (concat "\\`" (regexp-quote dir))))))
 
 (after! plstore
   (after! epa
