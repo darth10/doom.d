@@ -19,7 +19,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
          (face-for-comments 'font-lock-comment-delimiter-face)
          (version-text (concat
                         (propertize (format "doom %s"
-                                            doom-version)
+                                            (doom-version))
                                     'face face-for-logo)
                         " / "
                         (propertize (format "GNU Emacs %s"
