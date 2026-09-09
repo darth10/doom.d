@@ -78,11 +78,12 @@
   (setq gptel-use-curl t
         gptel-stream t
         gptel-default-mode 'org-mode
-        gptel-log-level 'debug)
+        gptel-log-level 'debug
+        gptel-model 'claude-opus-5
+        gptel-backend (gptel-make-anthropic "Claude"
+                        :stream t
+                        :key #'+gptel-anthropic-key)))
 
-  (gptel-make-anthropic "Claude"
-    :stream t
-    :key #'+gptel-anthropic-key))
 
 (after! corfu
   (keymap-unset corfu-map "RET"))
