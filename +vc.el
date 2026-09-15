@@ -15,6 +15,16 @@ variable or 'master'."
     (interactive (list (+magit--get-default-branch)))
     (magit-run-git-async "fetch" "origin" (format "%s:%s" branch branch)))
 
+  (transient-define-suffix +magit-fetch-all (branch)
+    "Runs 'forge-pull' and 'git fetch origin branch:branch --prune' where 'branch' is the
+value of the 'remote.origin.default-branch' configuration variable or
+'master'."
+    :description (lambda () (let ((branch (+magit--get-default-branch)))
+                         (format "forge topics, fetch origin --prune %s:%s" branch branch)))
+    (interactive (list (+magit--get-default-branch)))
+    (when (fboundp 'forge-pull) (forge-pull))
+    (magit-run-git-async "fetch" "origin" "--prune" "+refs/heads/*:refs/remotes/origin/*" (format "%s:%s" branch branch)))
+
   (transient-append-suffix 'magit-fetch "o"
     '("O" +magit-fetch-origin-default-branch)))
 
@@ -26,13 +36,17 @@ variable or 'master'."
   ;; forge-pull-notifications fails for a large number of notifications
   (setq forge-pull-notifications nil
         forge-topic-list-limit '(10 . 5))
-  (transient-append-suffix 'magit-branch "x"
-    '("o" "review pull-request" code-review-forge-pr-at-point)))
+  (transient-append-suffix 'magit-fetch "N"
+    '("A" +magit-fetch-all))
+  (transient-append-suffix 'magit-merge "y"
+    '("Y" "approve pull-request" forge-approve-pullreq)))
 
 (after! code-review
   (setq code-review-new-buffer-window-strategy #'switch-to-buffer)
   (set-popup-rule! "^\\*Code Review" :ignore t)
-  (add-hook 'code-review-sections-hook #'+code-review-delta-colorize))
+  (add-hook 'code-review-sections-hook #'+code-review-delta-colorize)
+  (transient-append-suffix 'magit-branch "x"
+    '("o" "review pull-request" +magit/start-code-review)))
 
 (use-package! magit-todos
   :after magit
