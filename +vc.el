@@ -29,6 +29,10 @@ variable or 'master'."
   (transient-append-suffix 'magit-branch "x"
     '("o" "review pull-request" code-review-forge-pr-at-point)))
 
+(after! code-review
+  (setq code-review-new-buffer-window-strategy #'switch-to-buffer)
+  (set-popup-rule! "^\\*Code Review" :ignore t)
+  (add-hook 'code-review-sections-hook #'+code-review-delta-colorize))
 
 (use-package! magit-todos
   :after magit
