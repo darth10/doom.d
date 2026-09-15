@@ -23,9 +23,11 @@
 (package! org-brain)
 (package! password-generator)
 (package! powershell)
+(package! pr-review)
 (package! rainbow-delimiters)
 (package! ultra-scroll)
 
+(package! code-review :disable t)
 (package! evil-snipe :disable t)
 (package! flycheck-joker :disable t)
 (package! org-superstar :disable t)

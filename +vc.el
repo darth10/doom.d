@@ -26,11 +26,11 @@ value of the 'remote.origin.default-branch' configuration variable or
     (magit-run-git-async "fetch" "origin" "--prune" "+refs/heads/*:refs/remotes/origin/*" (format "%s:%s" branch branch)))
 
   (transient-append-suffix 'magit-fetch "o"
-    '("O" +magit-fetch-origin-default-branch)))
-
-(after! ghub
-  ;; ghub 5.1+ moved `ghub-graphql' (used by code-review) to ghub-legacy.el
-  (require 'ghub-legacy nil t))
+    '("O" +magit-fetch-origin-default-branch))
+  (transient-append-suffix 'magit-merge "d"
+    '("y" "review pull-request" +vc-pr-review-forge-pr-at-point))
+  (transient-append-suffix 'magit-branch "x"
+    '("y" "review pull-request" +vc-pr-review-forge-pr-at-point)))
 
 (after! forge
   ;; forge-pull-notifications fails for a large number of notifications
@@ -39,14 +39,17 @@ value of the 'remote.origin.default-branch' configuration variable or
   (transient-append-suffix 'magit-fetch "N"
     '("A" +magit-fetch-all))
   (transient-append-suffix 'magit-merge "y"
-    '("Y" "approve pull-request" forge-approve-pullreq)))
+    '("Y" "approve pull-request" forge-approve-pullreq))
+  (transient-append-suffix 'forge-dispatch "c u"
+    '("c r" "review pull-request" +vc-pr-review-forge-pr-at-point)))
 
-(after! code-review
-  (setq code-review-new-buffer-window-strategy #'switch-to-buffer)
-  (set-popup-rule! "^\\*Code Review" :ignore t)
-  (add-hook 'code-review-sections-hook #'+code-review-delta-colorize)
-  (transient-append-suffix 'magit-branch "x"
-    '("o" "review pull-request" +magit/start-code-review)))
+(use-package! pr-review
+  :defer t
+  :init
+  (setq pr-review-forges-alist '(("github.com" . (github nil nil))))
+  :config
+  (set-popup-rule! "^\\*pr-review" :ignore t)
+  (set-evil-initial-state! 'pr-review-mode 'normal))
 
 (use-package! magit-todos
   :after magit
