@@ -88,6 +88,9 @@
        "k" #'+editor/move-text-up
        :desc "Move region down"
        "j" #'+editor/move-text-down)
+      (:prefix "g"
+       :desc "Show Github notifications"
+       "n" #'pr-review-notification)
       (:prefix ("P" . "password-store")
        :desc "Copy secret"
        "w" #'+pass/copy-secret-to-kill-ring
@@ -150,7 +153,3 @@
 (after! flycheck
   (map! :localleader (:map flycheck-mode-map
                            "!" #'consult-flycheck)))
-
-(after! code-review
-  (map! (:map code-review-mode-map
-              "A" #'+vc-approve-with-feedback)))
