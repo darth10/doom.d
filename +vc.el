@@ -18,6 +18,10 @@ variable or 'master'."
   (transient-append-suffix 'magit-fetch "o"
     '("O" +magit-fetch-origin-default-branch)))
 
+(after! ghub
+  ;; ghub 5.1+ moved `ghub-graphql' (used by code-review) to ghub-legacy.el
+  (require 'ghub-legacy nil t))
+
 (after! forge
   ;; forge-pull-notifications fails for a large number of notifications
   (setq forge-pull-notifications nil
