@@ -10,8 +10,6 @@
       "C-<wheel-up>"   nil
       "C-<wheel-down>" nil
       "C-s"            #'save-buffer
-      "C-<"            #'mc/mark-previous-like-this
-      "C->"            #'mc/mark-next-like-this
       "C-!"            #'list-processes
       "C-c \\"         #'just-one-space
       "C-x 9"          #'+editor/delete-single-window
