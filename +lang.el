@@ -15,34 +15,23 @@
 
 ;;; Clojure
 
-(after! clojure-mode
-  (define-clojure-indent
-   (GET 2)
-   (POST 2)
-   (PUT 2)
-   (PATCH 2)
-   (DELETE 2)
-   (match 1)
-   (friend/authorize 1)
-   (featureflag 1))
-
-  (plist-put +ligatures-extra-symbols :fn '(?\s (Br . Bl) ?\s (Bc . Bc) ?𝝺))
-
-  (set-ligatures! 'clojure-mode
-    :fn "fn")
-
-  (defadvice! +clojure-thread-first-all-a (&rest _)
-    :after #'clojure-thread-first-all
-    (+clojure-thread-oneline))
-
-  (defadvice! +clojure-thread-last-all-a (&rest _)
-    :after #'clojure-thread-last-all
-    (+clojure-thread-oneline))
-
-  (add-hook! 'clojure-ts-mode-hook #'clojure-mode-variables)
-  (add-hook! 'clojurescript-mode-hook #'+lsp-enable-eldoc-local))
+(plist-put +ligatures-extra-symbols :fn '(?\s (Br . Bl) ?\s (Bc . Bc) ?𝝺))
+(set-ligatures! '(clojure-mode clojure-ts-mode)
+  :fn "fn")
 
 (after! clojure-ts-mode
+  (setq clojure-ts-semantic-indent-rules
+        '(("GET" . ((:block 2)))
+          ("POST" . ((:block 2)))
+          ("PUT" . ((:block 2)))
+          ("PATCH" . ((:block 2)))
+          ("DELETE" . ((:block 2)))
+          ("defroutes" . ((:block 2)))
+          ("authorize" . ((:block 1)))
+          ("featureflag" . ((:block 1)))))
+
+  (add-hook! 'clojure-ts-clojurescript-mode-hook #'+lsp-enable-eldoc-local)
+
   (defadvice! +clojure-ts-thread-first-all-a (&rest _)
     :after #'clojure-ts-thread-first-all
     (+clojure-thread-oneline))
