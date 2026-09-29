@@ -20,6 +20,7 @@
 (package! monkeytype)
 (package! nov)
 (package! org-brain)
+(package! org-pomodoro)
 (package! password-generator)
 (package! powershell)
 (package! pr-review :pin "938db766007f3444a2899b2457d9e2f4b4ffbebf")
