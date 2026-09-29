@@ -82,10 +82,6 @@
                         :stream t
                         :key #'+gptel-anthropic-key)))
 
-
-(after! corfu
-  (keymap-unset corfu-map "RET"))
-
 (after! ghostel
   (setq ghostel-max-scrollback (* 20 1024 1024)))
 
