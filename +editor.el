@@ -47,7 +47,9 @@
      (additional-movement normal visual motion))))
 
 (after! calculator
-  (advice-add 'calculator :after (λ! (set-window-text-height nil 1))))
+  (defadvice! +calculator-shrink-window-a (&rest _)
+    :after #'calculator
+    (set-window-text-height nil 1)))
 
 (after! tramp
   ;; File paths like `/sshx:user@remotehost|sudo:remotehost:/etc/dhcpd.conf`
