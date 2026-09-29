@@ -7,11 +7,6 @@
               right-fringe-width 8
               display-fill-column-indicator-character ?·)
 
-(add-hook! '(doom-switch-buffer-hook
-             doom-switch-frame-hook
-             doom-switch-window-hook)
-           #'+ui--switch-buffer-or-frame-h)
-
 (blink-cursor-mode t)
 
 (when (featurep :system 'linux)
