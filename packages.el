@@ -1,6 +1,6 @@
 ;;; ~/.doom.d/packages.el -*- no-byte-compile: t; -*-
 
-(package! ai-code)
+(package! ai-code :pin "024722baaf7249b666cf255ed11b2cf4f4235a04")
 (package! ascii-art-to-unicode)
 (package! chess)
 (package! cider-eval-sexp-fu)
@@ -23,7 +23,7 @@
 (package! org-brain)
 (package! password-generator)
 (package! powershell)
-(package! pr-review)
+(package! pr-review :pin "938db766007f3444a2899b2457d9e2f4b4ffbebf")
 (package! rainbow-delimiters)
 (package! ultra-scroll)
 
