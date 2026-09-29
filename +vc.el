@@ -23,7 +23,9 @@ value of the 'remote.origin.default-branch' configuration variable or
                          (format "forge topics, fetch origin --prune %s:%s" branch branch)))
     (interactive (list (+magit--get-default-branch)))
     (when (fboundp 'forge-pull) (forge-pull))
-    (magit-run-git-async "fetch" "origin" "--prune" "+refs/heads/*:refs/remotes/origin/*" (format "%s:%s" branch branch)))
+    (magit-run-git-async "fetch" "origin" "--prune" "+refs/heads/*:refs/remotes/origin/*"
+                         (when (not (equal branch (magit-get-current-branch)))
+                           (format "%s:%s" branch branch))))
 
   (transient-append-suffix 'magit-fetch "o"
     '("O" +magit-fetch-origin-default-branch))
