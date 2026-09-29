@@ -87,7 +87,7 @@
        ;; scala
        ;; (scheme +racket)
        (sh +lsp)
-       (web +css +lsp +tree-sitter)
+       (web +lsp +tree-sitter)
        (yaml +lsp +tree-sitter)
 
        :app
