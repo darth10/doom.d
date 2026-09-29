@@ -57,10 +57,14 @@
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
 
-(after! lispy
-  (dolist (el '(clojure-ts-mode clojure-ts-clojurescript-mode clojure-ts-clojurec-mode))
-    (add-to-list 'lispy-parens-preceding-syntax-alist `(,el . ("[`'~@]+" "#" "#\\?@?")))
-    (add-to-list 'lispy-clojure-modes el)))
+(use-package! lispy
+  :defer t
+  :init
+  (setq lispy-clojure-modes '(clojure-mode clojurescript-mode clojurex-mode clojurec-mode
+                              clojure-ts-mode clojure-ts-clojurescript-mode clojure-ts-clojurec-mode))
+  :config
+  (dolist (mode lispy-clojure-modes)
+    (add-to-list 'lispy-parens-preceding-syntax-alist `(,mode . ("[`'~@]+" "#" "#\\?@?")))))
 
 ;;; JavaScript
 
