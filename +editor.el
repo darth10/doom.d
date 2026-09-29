@@ -76,7 +76,7 @@
   (setq gptel-use-curl t
         gptel-stream t
         gptel-default-mode 'org-mode
-        gptel-log-level 'debug
+        gptel-log-level 'info
         gptel-model 'claude-opus-5
         gptel-backend (gptel-make-anthropic "Claude"
                         :stream t
