@@ -3,7 +3,6 @@
 ;;; Org
 
 (after! org
-  (remove-hook! 'org-mode-hook #'org-bullets-mode)
   (add-hook! 'org-mode-hook #'org-toggle-inline-images)
   (setq org-modules '(ol-bibtex org-habit)
         org-startup-indented nil
