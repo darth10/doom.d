@@ -5,8 +5,7 @@
 (put 'scroll-left 'disabled nil)
 (put 'scroll-right 'disabled nil)
 
-(when (functionp 'repeat-mode)
-  (repeat-mode t))
+(repeat-mode t)
 
 (setq uniquify-buffer-name-style 'forward
       uniquify-separator "/"
