@@ -9,3 +9,9 @@
         (require 'pr-review)
         (pr-review (forge-get-url pullreq)))
     (user-error "No pull-request at point")))
+
+;;;###autoload
+(defun +magit--branch-checked-out-p (branch)
+  "Non-nil if BRANCH is checked out in any worktree."
+  (seq-some (lambda (wt) (equal (nth 2 wt) branch))
+            (magit-list-worktrees)))

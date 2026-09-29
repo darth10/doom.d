@@ -13,7 +13,9 @@ variable or 'master'."
     :description (lambda () (let ((branch (+magit--get-default-branch)))
                               (format "origin %s:%s" branch branch)))
     (interactive (list (+magit--get-default-branch)))
-    (magit-run-git-async "fetch" "origin" (format "%s:%s" branch branch)))
+    (magit-run-git-async "fetch" "origin" (if (+magit--branch-checked-out-p branch)
+                                              branch
+                                            (format "%s:%s" branch branch))))
 
   (transient-define-suffix +magit-fetch-all (branch)
     "Runs 'forge-pull' and 'git fetch origin branch:branch --prune' where 'branch' is the
@@ -24,7 +26,7 @@ value of the 'remote.origin.default-branch' configuration variable or
     (interactive (list (+magit--get-default-branch)))
     (when (fboundp 'forge-pull) (forge-pull))
     (magit-run-git-async "fetch" "origin" "--prune" "+refs/heads/*:refs/remotes/origin/*"
-                         (when (not (equal branch (magit-get-current-branch)))
+                         (unless (+magit--branch-checked-out-p branch)
                            (format "%s:%s" branch branch))))
 
   (transient-append-suffix 'magit-fetch "o"
