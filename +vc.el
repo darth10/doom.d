@@ -33,9 +33,6 @@ value of the 'remote.origin.default-branch' configuration variable or
     '("y" "review pull-request" +vc-pr-review-forge-pr-at-point)))
 
 (after! forge
-  ;; forge-pull-notifications fails for a large number of notifications
-  (setq forge-pull-notifications nil
-        forge-topic-list-limit '(10 . 5))
   (transient-append-suffix 'magit-fetch "N"
     '("A" +magit-fetch-all))
   (transient-append-suffix 'magit-merge "y"
