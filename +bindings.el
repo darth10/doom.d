@@ -32,25 +32,6 @@
             "C-s"           #'custom-theme-save)
       (:map custom-theme-choose-mode-map
             "C-s"           #'custom-theme-save)
-      (:map org-mode-map
-            (:localleader (:prefix-map "b"
-                                       "x" #'+org/eval-and-replace
-                                       "+" #'+org/insert-parens-and-add
-                                       "r" #'org-table-recalculate
-                                       (:prefix-map ("l" . "cell")
-                                                    "h" #'org-table-move-cell-left
-                                                    "j" #'org-table-move-cell-down
-                                                    "k" #'org-table-move-cell-up
-                                                    "l" #'org-table-move-cell-right))
-                          (:prefix-map ("w" . "gcal")
-                                       "w" #'org-gcal-sync
-                                       "p" #'org-gcal-post-at-point
-                                       "d" #'org-gcal-delete-at-point)
-                          (:prefix-map (";" . "brain")
-                                       ";" #'org-brain-goto
-                                       ":" #'org-brain-visualize
-                                       "/" #'org-brain-switch-brain))
-            "C-x C-e"       #'+org/eval-and-replace)
       (:map org-agenda-mode-map
             "C-s"           #'org-save-all-org-buffers
             "s-s"           #'org-save-all-org-buffers)
@@ -113,6 +94,28 @@
              clojure-mode-map
              clojure-ts-mode-map)
             "[" #'highlight-sexp-mode))
+
+(after! org
+  (map!
+   (:map org-mode-map
+         (:localleader (:prefix "b"
+                        "x" #'+org/eval-and-replace
+                        "+" #'+org/insert-parens-and-add
+                        "r" #'org-table-recalculate
+                        (:prefix ("l" . "cell")
+                         "h" #'org-table-move-cell-left
+                         "j" #'org-table-move-cell-down
+                         "k" #'org-table-move-cell-up
+                         "l" #'org-table-move-cell-right))
+                       (:prefix ("w" . "gcal")
+                        "w" #'org-gcal-sync
+                        "p" #'org-gcal-post-at-point
+                        "d" #'org-gcal-delete-at-point)
+                       (:prefix (";" . "brain")
+                        ";" #'org-brain-goto
+                        ":" #'org-brain-visualize
+                        "/" #'org-brain-switch-brain))
+         "C-x C-e" #'+org/eval-and-replace)))
 
 (after! flyspell
   (map! (:map flyspell-mode-map
