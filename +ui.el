@@ -12,9 +12,6 @@
              doom-switch-window-hook)
            #'+ui--switch-buffer-or-frame-h)
 
-(remove-hook! 'text-mode-hook #'vi-tilde-fringe-mode)
-(remove-hook! 'prog-mode-hook #'vi-tilde-fringe-mode)
-
 (blink-cursor-mode t)
 
 (when (featurep :system 'linux)
@@ -86,12 +83,4 @@
   '(rainbow-delimiters-depth-7-face :foreground "#5ac8f5")
   '(region :foreground "SkyBlue" :background "DarkSlateGray")
   '(show-paren-match :background "Springgreen2" :foreground "DimGray")
-  `(window-divider :foreground ,+ui--hl-line-background)
-  '(ivy-minibuffer-match-face-1 :background "Springgreen2" :foreground "DimGray")
-  '(ivy-minibuffer-match-face-2 :background "Springgreen2" :foreground "DimGray")
-  '(swiper-background-match-face-2 :background "Springgreen2" :foreground "DimGray")
-  '(swiper-match-face-1 :background "Springgreen2" :foreground "DimGray")
-  '(swiper-match-face-2 :background "Springgreen2" :foreground "DimGray")
-  '(swiper-match-face-3 :background "Springgreen2" :foreground "DimGray")
-  '(swiper-line-face :inherit bold :foreground "DodgerBlue" :background "DarkSlateGray")
-  '(yaml-tab-face :inherit whitespace-tab))
+  `(window-divider :foreground ,+ui--hl-line-background))
