@@ -30,7 +30,6 @@
 (package! code-review :disable t)
 (package! evil-snipe :disable t)
 (package! flycheck-joker :disable t)
-(package! org-superstar :disable t)
 
 (when (featurep :system 'windows)
   (package! forge :disable t))
