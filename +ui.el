@@ -58,9 +58,6 @@
       doom-font (font-spec :family "Consolas ligaturized v3" :size 17 :weight 'normal))
 
 (custom-theme-set-faces! 'doom-solarized-dark
-  '(doom-modeline-buffer-modified :inherit (warning bold) :background nil)
-  '(doom-modeline-inactive-bar :inherit mode-line-emphasis)
-  '(doom-modeline-panel :inherit mode-line-emphasis)
   '(consult-highlight-match :background "Springgreen2" :foreground "DimGray")
   '(orderless-match-face-0 :background "Springgreen2" :foreground "DimGray")
   '(orderless-match-face-1 :background "#033445" :foreground "#4b8eba")
