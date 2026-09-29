@@ -9,10 +9,7 @@
 
 (setq uniquify-buffer-name-style 'forward
       uniquify-separator "/"
-      uniquify-after-kill-buffer-p t
-      global-visual-line-mode nil)
-
-(remove-hook! 'text-mode-hook #'visual-line-mode)
+      uniquify-after-kill-buffer-p t)
 
 (use-package! ialign
   :commands (ialign))
