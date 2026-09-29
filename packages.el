@@ -10,7 +10,6 @@
 (package! esup)
 (package! eval-sexp-fu)
 (package! feature-mode)
-(package! ghub)
 (package! highlight-sexp)
 (package! ialign)
 (package! k8s-mode)
