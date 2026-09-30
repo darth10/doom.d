@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
+;;; +org.el -*- lexical-binding: t; -*-
 
 ;;; Org
 

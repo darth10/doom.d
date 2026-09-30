@@ -1,4 +1,4 @@
-;;; ~/.doom.d/autoload/os.el -*- lexical-binding: t; -*-
+;;; autoload/os.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
 (defun +aws-list-profiles ()

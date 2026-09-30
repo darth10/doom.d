@@ -1,4 +1,4 @@
-;;; ~/.doom.d/autoload/bindings.el -*- lexical-binding: t; -*-
+;;; autoload/bindings.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
 (defvar +bindings-buffer-repeat-map

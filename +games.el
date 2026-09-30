@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+games.el -*- lexical-binding: t; -*-
+;;; +games.el -*- lexical-binding: t; -*-
 
 (use-package! chess
   :commands (chess)

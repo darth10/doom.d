@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+os.el -*- lexical-binding: t; -*-
+;;; +os.el -*- lexical-binding: t; -*-
 
 (when (or (featurep :system 'macos)
           (featurep :system 'linux))

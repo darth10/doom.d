@@ -1,4 +1,4 @@
-;;; ~/.doom.d/packages.el -*- no-byte-compile: t; -*-
+;;; packages.el -*- no-byte-compile: t; -*-
 
 (package! ai-code :pin "024722baaf7249b666cf255ed11b2cf4f4235a04")
 (package! ascii-art-to-unicode)

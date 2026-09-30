@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+editor.el -*- lexical-binding: t; -*-
+;;; +editor.el -*- lexical-binding: t; -*-
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

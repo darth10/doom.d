@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+vc.el -*- lexical-binding: t; -*-
+;;; +vc.el -*- lexical-binding: t; -*-
 
 (after! magit
   (setq magit-commit-show-diff nil)

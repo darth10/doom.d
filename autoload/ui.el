@@ -1,4 +1,4 @@
-;;; ~/.doom.d/autoload/ui.el -*- lexical-binding: t; -*-
+;;; autoload/ui.el -*- lexical-binding: t; -*-
 
 (defconst +ui--scratch-message-help-text
   "To open a file, type C-x C-f.

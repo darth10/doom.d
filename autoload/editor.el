@@ -1,4 +1,4 @@
-;;; ~/.doom.d/autoload/editor.el -*- lexical-binding: t; -*-
+;;; autoload/editor.el -*- lexical-binding: t; -*-
 
 (defun +editor--move-text (arg)
    (cond

@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+bindings.el -*- lexical-binding: t; -*-
+;;; +bindings.el -*- lexical-binding: t; -*-
 
 (put 'previous-buffer 'repeat-map '+bindings-buffer-repeat-map)
 (put 'next-buffer 'repeat-map '+bindings-buffer-repeat-map)

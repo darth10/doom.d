@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+ui.el -*- lexical-binding: t; -*-
+;;; +ui.el -*- lexical-binding: t; -*-
 
 (setq display-line-numbers-type 'relative
       initial-scratch-message (+ui--get-scratch-message))

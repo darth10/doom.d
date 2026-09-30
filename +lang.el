@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+lang.el -*- lexical-binding: t; -*-
+;;; +lang.el -*- lexical-binding: t; -*-
 
 ;;; Emacs Lisp
 

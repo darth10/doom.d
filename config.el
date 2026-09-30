@@ -1,4 +1,4 @@
-;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
+;;; config.el -*- lexical-binding: t; -*-
 
 (load! "+editor")
 (load! "+llm")

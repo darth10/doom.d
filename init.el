@@ -1,4 +1,4 @@
-;;; ~/.doom.d/init.el -*- lexical-binding: t; -*-
+;;; init.el -*- lexical-binding: t; -*-
 
 (doom! :completion
        (corfu +icons +orderless)

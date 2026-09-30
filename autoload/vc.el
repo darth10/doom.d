@@ -1,4 +1,4 @@
-;;; ~/.doom.d/autoload/vc.el -*- lexical-binding: t; -*-
+;;; autoload/vc.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
 (defun +vc-pr-review-forge-pr-at-point ()

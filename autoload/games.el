@@ -1,4 +1,4 @@
-;;; ~/.doom.d/autoload/games.el -*- lexical-binding: t; -*-
+;;; autoload/games.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
 (defun +monkeytype-evil-normal-mode ()

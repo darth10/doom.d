@@ -1,4 +1,4 @@
-;;; ~/.doom.d/autoload/org.el -*- lexical-binding: t; -*-
+;;; autoload/org.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
 (defun +org-brain/cliplink-resource ()

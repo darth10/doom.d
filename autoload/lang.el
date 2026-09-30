@@ -1,4 +1,4 @@
-;;; ~/.doom.d/autoload/lang.el -*- lexical-binding: t; -*-
+;;; autoload/lang.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
 (defun +clojure-thread-oneline ()
