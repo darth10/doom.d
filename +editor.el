@@ -72,28 +72,5 @@
   :config
   (add-hook! 'doom-init-ui-hook #'global-mise-mode))
 
-(after! gptel
-  (setq gptel-use-curl t
-        gptel-stream t
-        gptel-default-mode 'org-mode
-        gptel-log-level 'info
-        gptel-model 'claude-opus-5
-        gptel-backend (gptel-make-anthropic "Claude"
-                        :stream t
-                        :key #'+gptel-anthropic-key)))
-
 (after! ghostel
   (setq ghostel-max-scrollback (* 20 1024 1024)))
-
-(use-package! ai-code
-  :defer t
-  :init
-  (setq ai-code-onboarding-auto-show nil
-        ai-code-auto-test-type 'ask-me
-        ai-code-backends-infra-terminal-backend 'ghostel)
-  :config
-  (ai-code-set-backend 'claude-code)
-  (after! evil
-    (ai-code-backends-infra-evil-setup))
-  (after! magit
-    (ai-code-magit-setup-transients)))
