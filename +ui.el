@@ -31,14 +31,6 @@
 (after! indent-bars
   (setq indent-bars-display-on-blank-lines nil))
 
-(use-package! highlight-sexp
-  :commands (highlight-sexp-mode)
-  :hook (highlight-sexp-mode . +highlight-sexp--set-hl-line)
-  :config
-  (defun +highlight-sexp--set-hl-line ()
-    (hl-line-mode (if highlight-sexp-mode -1 +1)))
-  (setopt hl-sexp-background-color +ui--hl-line-background))
-
 (use-package! ultra-scroll
   :init
   (setq scroll-conservatively 3

@@ -21,6 +21,21 @@
                          (abbreviate-file-name resolved-password-store-dir)))
         (add-to-list 'recentf-exclude (concat "\\`" (regexp-quote dir)))))))
 
+(map! :leader
+      (:prefix ("P" . "password-store")
+       :desc "Copy secret"
+       "w" #'+pass/copy-secret-to-kill-ring
+       :desc "Copy username"
+       "b" #'+pass/copy-username-to-kill-ring
+       :desc "Copy field"
+       "f" #'password-store-copy-field
+       :desc "Copy URL"
+       "u" #'+pass/copy-url-to-kill-ring
+       :desc "Open URL"
+       "U" #'+pass/open-url
+       :desc "Edit entry"
+       "c" #'password-store-edit))
+
 (after! plstore
   (after! epa
     (setq plstore-encrypt-to epa-file-encrypt-to)))

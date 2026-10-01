@@ -1,5 +1,27 @@
 ;;; +lang.el -*- lexical-binding: t; -*-
 
+;;; Lisps
+
+(use-package! highlight-sexp
+  :commands (highlight-sexp-mode)
+  :hook (highlight-sexp-mode . +highlight-sexp--set-hl-line)
+  :config
+  (defun +highlight-sexp--set-hl-line ()
+    (hl-line-mode (if highlight-sexp-mode -1 +1)))
+  (setopt hl-sexp-background-color +ui--hl-line-background))
+
+(map! :localleader
+      (:map (common-lisp-mode-map
+             emacs-lisp-mode-map
+             scheme-mode-map
+             racket-mode-map
+             hy-mode-map
+             lfe-mode-map
+             clojure-mode-map
+             clojure-ts-mode-map)
+            :desc "Highlight sexp"
+            "[" #'highlight-sexp-mode))
+
 ;;; Emacs Lisp
 
 (after! lisp-mode
@@ -47,6 +69,15 @@
                (:prefix ("f" . "refactor"))
                "f" clojure-ts-refactor-map))))
 
+(after! clojure-mode
+  (map! (:map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
+              (:localleader
+               (:prefix ("f" . "refactor"))
+               "f" clojure-refactor-map))))
+
+(after! clj-refactor
+  (map! (:map clj-refactor-map
+              "/" nil)))        ; cljr-slash
 
 (after! cider
   ;; This is still needed even though the evil-snipe package is disabled.
@@ -64,12 +95,24 @@
                               clojure-ts-mode clojure-ts-clojurescript-mode clojure-ts-clojurec-mode))
   :config
   (dolist (mode lispy-clojure-modes)
-    (add-to-list 'lispy-parens-preceding-syntax-alist `(,mode . ("[`'~@]+" "#" "#\\?@?")))))
+    (add-to-list 'lispy-parens-preceding-syntax-alist `(,mode . ("[`'~@]+" "#" "#\\?@?"))))
+  (map! (:map lispy-mode-map-lispy
+              "[" #'lispy-open-square
+              "]" #'lispy-close-square
+              "M-r" #'lispy-raise-sexp
+              "M-}" #'lispy-splice-sexp-killing-backward
+              "M-]" #'lispy-splice-sexp-killing-forward)))
 
 ;;; JavaScript
 
 (after! js
   (setq js-indent-level 2))
+
+;;; Web
+
+(after! emmet-mode
+  (map! (:map emmet-mode-keymap
+              "<tab>" #'emmet-expand-line)))
 
 ;;; PowerShell
 

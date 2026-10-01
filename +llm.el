@@ -16,6 +16,10 @@
   (setq ai-code-onboarding-auto-show nil
         ai-code-auto-test-type 'ask-me
         ai-code-backends-infra-terminal-backend 'ghostel)
+  (map! :leader
+        (:prefix "c"
+         :desc "Show AI code interface menu"
+         "," #'ai-code-menu))
   :config
   (ai-code-set-backend 'claude-code)
   (after! evil

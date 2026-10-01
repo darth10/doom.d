@@ -9,7 +9,6 @@
 (load! "+vc")
 (load! "+ui")
 (load! "+os")
-(load! "+bindings")
 
 (setq user-full-name "Akhil Wali"
       user-mail-address "akhil.wali.10@gmail.com")

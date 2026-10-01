@@ -3,6 +3,9 @@
 (after! magit
   (setq magit-commit-show-diff nil)
 
+  (map! (:map magit-status-mode-map
+              "M-j" #'magit-status-jump))
+
   (defun +magit--get-default-branch ()
     (or (magit-get "remote.origin.default-branch") "master"))
 
@@ -48,6 +51,10 @@ value of the 'remote.origin.default-branch' configuration variable or
   :defer t
   :init
   (setq pr-review-forges-alist '(("github.com" . (github nil nil))))
+  (map! :leader
+        (:prefix "g"
+         :desc "Show Github notifications"
+         "n" #'pr-review-notification))
   :config
   (set-popup-rule! "^\\*pr-review" :ignore t)
   (set-evil-initial-state! 'pr-review-mode 'normal))

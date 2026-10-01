@@ -18,27 +18,68 @@
   (set-popup-rule! "^\\*Org Agenda" :side 'bottom :size 0.5 :select t :ttl nil)
   (+org-agenda--load-files org-directory)
 
+  (map! (:map org-mode-map
+              (:localleader (:prefix "b"
+                             :desc "Eval and replace"
+                             "x" #'+org/eval-and-replace
+                             :desc "Insert parens and add"
+                             "+" #'+org/insert-parens-and-add
+                             :desc "Recalculate table"
+                             "r" #'org-table-recalculate
+                             (:prefix ("l" . "cell")
+                              :desc "Move cell left"
+                              "h" #'org-table-move-cell-left
+                              :desc "Move cell down"
+                              "j" #'org-table-move-cell-down
+                              :desc "Move cell up"
+                              "k" #'org-table-move-cell-up
+                              :desc "Move cell right"
+                              "l" #'org-table-move-cell-right))
+                            (:prefix (";" . "brain")
+                             :desc "Goto entry"
+                             ";" #'org-brain-goto
+                             :desc "Visualize entry"
+                             ":" #'org-brain-visualize
+                             :desc "Switch brain"
+                             "/" #'org-brain-switch-brain))
+              "C-x C-e" #'+org/eval-and-replace))
+
   (after! plantuml-mode
     (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
-    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml)))
+    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))))
 
-  (use-package! org-gcal
-    :init (setq org-gcal-remove-api-cancelled-events t
-                ;; Set client ID and secret to stub values to avoid warning on `(require 'org-gcal)`
-                org-gcal-client-id "stub-client-id"
-                org-gcal-client-secret "stub-client-secret"
-                ;; Ensure that `allow-loopback-pinentry' is added to `~/.gnupg/gpg-agent.conf'.
-                epg-pinentry-mode 'loopback
-                plstore-cache-passphrase-for-symmetric-encryption t)
-    :commands (org-gcal-sync org-gcal-post-at-point org-gcal-delete-at-point)
-    :config
-    (advice-add 'org-gcal-sync :before #'+org-gcal--load)
-    (advice-add 'org-gcal-post-at-point :before #'+org-gcal--load)
-    (advice-add 'org-gcal-delete-at-point :before #'+org-gcal--load)
+(use-package! org-gcal
+  :after org
+  :init
+  (setq org-gcal-remove-api-cancelled-events t
+        ;; Set client ID and secret to stub values to avoid warning on `(require 'org-gcal)`
+        org-gcal-client-id "stub-client-id"
+        org-gcal-client-secret "stub-client-secret"
+        ;; Ensure that `allow-loopback-pinentry' is added to `~/.gnupg/gpg-agent.conf'.
+        epg-pinentry-mode 'loopback
+        plstore-cache-passphrase-for-symmetric-encryption t)
+  (map! (:map org-mode-map
+              (:localleader (:prefix ("w" . "gcal")
+                             :desc "Sync calendars"
+                             "w" #'org-gcal-sync
+                             :desc "Post event at point"
+                             "p" #'org-gcal-post-at-point
+                             :desc "Delete event at point"
+                             "d" #'org-gcal-delete-at-point))))
+  :commands (org-gcal-sync org-gcal-post-at-point org-gcal-delete-at-point)
+  :config
+  (advice-add 'org-gcal-sync :before #'+org-gcal--load)
+  (advice-add 'org-gcal-post-at-point :before #'+org-gcal--load)
+  (advice-add 'org-gcal-delete-at-point :before #'+org-gcal--load)
 
-    (advice-add 'org-gcal-sync :after #'org-id-update-id-locations)
-    (advice-add 'org-gcal-post-at-point :after #'org-id-update-id-locations)
-    (advice-add 'org-gcal-delete-at-point :after #'org-id-update-id-locations)))
+  (advice-add 'org-gcal-sync :after #'org-id-update-id-locations)
+  (advice-add 'org-gcal-post-at-point :after #'org-id-update-id-locations)
+  (advice-add 'org-gcal-delete-at-point :after #'org-id-update-id-locations))
+
+(after! org-agenda
+  (map! (:map org-agenda-mode-map
+              "C-s"           #'org-save-all-org-buffers
+              "s-s"           #'org-save-all-org-buffers)))
 
 (use-package! org-brain
   :defer t
@@ -49,6 +90,8 @@
         org-brain-file-entries-use-title nil)
   :config
   (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil)
+  (map! (:map org-brain-visualize-mode-map
+              "L"             #'+org-brain/cliplink-resource))
   (defadvice! +org-brain-entry-data (entry)
     "Run `org-element-parse-buffer' on ENTRY text.
 Sets `tab-width' in the used temporary buffer, as
