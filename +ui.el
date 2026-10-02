@@ -9,12 +9,7 @@
 
 (blink-cursor-mode t)
 
-(when (featurep :system 'linux)
-  (add-hook 'window-setup-hook #'toggle-frame-maximized))
-
-(when (featurep :system 'windows)
-  ;; Using `add-hook!' doesn't work here.
-  (add-hook 'window-setup-hook (λ! (w32-send-sys-command 61488))))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (after! doom-modeline
   (setq doom-modeline-height 40)
