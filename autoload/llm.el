@@ -10,10 +10,10 @@
           (car (auth-source-search :host claude-host
                                    :user (user-login-name)
                                    :max 1 :create t)))
-         (api-key (if-let ((secret (plist-get auth-plist :secret)))
+         (api-key (if-let* ((secret (plist-get auth-plist :secret)))
                       (if (functionp secret) (funcall secret) secret)
                     (error "No API key found"))))
-    (when-let ((save-function (plist-get auth-plist :save-function))
-               (save-function-p (functionp save-function)))
+    (when-let* ((save-function (plist-get auth-plist :save-function))
+                ((functionp save-function)))
       (funcall save-function))
     api-key))
