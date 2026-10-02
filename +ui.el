@@ -48,7 +48,6 @@
   '(consult-highlight-match :background "Springgreen2" :foreground "DimGray")
   '(orderless-match-face-0 :background "Springgreen2" :foreground "DimGray")
   '(orderless-match-face-1 :background "#033445" :foreground "#4b8eba")
-  '(eval-sexp-fu-flash :foreground "DodgerBlue" :background "DimGray")
   '(font-lock-constant-face :foreground "#859900")
   '(font-lock-keyword-face :foreground "#5ac8f5")
   '(font-lock-number-face :foreground "dark gray")
