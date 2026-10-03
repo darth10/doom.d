@@ -139,4 +139,4 @@
   (add-hook! 'doom-init-ui-hook #'global-mise-mode))
 
 (after! ghostel
-  (setq ghostel-max-scrollback (* 20 1024 1024)))
+  (setq ghostel-max-scrollback (* 10 1024 1024)))
