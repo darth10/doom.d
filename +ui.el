@@ -35,8 +35,7 @@
 
 (use-package! dashboard
   :config
-  (setq dashboard-set-init-info t
-        dashboard-startup-banner (expand-file-name "resources/doomemacs.txt" doom-private-dir)
+  (setq dashboard-startup-banner (expand-file-name "resources/doomemacs.txt" doom-private-dir)
         dashboard-items '((projects . 3)
                           (recents  . 10)))
   (dashboard-setup-startup-hook))
