@@ -16,10 +16,7 @@
 (after! pass
   (set-popup-rule! "^\\*Password-Store" :side 'left :size 0.4 :quit nil)
   (after! recentf
-    (let* ((resolved-password-store-dir (file-truename (password-store-dir))))
-      (dolist (dir (list resolved-password-store-dir
-                         (abbreviate-file-name resolved-password-store-dir)))
-        (add-to-list 'recentf-exclude (concat "\\`" (regexp-quote dir)))))))
+    (+recentf-exclude-path (password-store-dir))))
 
 (map! :leader
       (:prefix ("P" . "password-store")
