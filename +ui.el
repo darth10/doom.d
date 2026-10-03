@@ -51,7 +51,6 @@
   '(font-lock-constant-face :foreground "#859900")
   '(font-lock-keyword-face :foreground "#5ac8f5")
   '(font-lock-number-face :foreground "dark gray")
-  '(highlight-numbers-number :foreground "#2aa198")
   '(iedit-occurrence :foreground "Springgreen2" :background "DimGray")
   '(isearch :background "Springgreen2" :foreground "DimGray")
   '(lsp-face-highlight-textual :background "Springgreen2" :foreground "DimGray")
