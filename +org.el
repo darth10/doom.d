@@ -7,7 +7,7 @@
         org-startup-indented nil
         org-startup-with-link-previews t
         org-eldoc-breadcrumb-separator " > "
-        org-clock-heading-function (λ! "")
+        org-clock-heading-function (lambda () "")
         org-directory "~/Cloud/org"
         org-log-into-drawer t
         org-log-done t
