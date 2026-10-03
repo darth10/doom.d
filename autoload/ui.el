@@ -14,7 +14,7 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
   (let* ((face-for-logo 'font-lock-keyword-face)
          (face-for-keys 'font-lock-function-name-face)
          (logo-text (with-temp-buffer
-                      (insert-file-contents (expand-file-name "resources/doomemacs.txt" doom-private-dir))
+                      (insert-file-contents (expand-file-name "resources/doomemacs.txt" doom-user-dir))
                       (buffer-string)))
          (face-for-comments 'font-lock-comment-delimiter-face)
          (version-text (concat
