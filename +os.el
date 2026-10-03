@@ -5,9 +5,9 @@
   (setq shell-command-switch "-c"))
 
 (use-package! edit-server
-  :if window-system
   :config
-  (edit-server-start))
+  (add-hook! 'server-after-make-frame-hook #'+edit-server-start-h)
+  (+edit-server-start-h))
 
 (use-package! clipmon
   :config

@@ -43,3 +43,10 @@
 
 ;;;###autoload
 (defalias '+pass/open-url 'password-store-url)
+
+;;;###autoload
+(defun +edit-server-start-h ()
+  "Start the edit server once a graphical frame exists."
+  (when (and (display-graphic-p)
+             (not (process-status "edit-server")))
+    (edit-server-start)))
