@@ -89,3 +89,7 @@
   (insert-char ?\s)
   (insert-char ?\))
   (backward-char))
+
+;;;###autoload
+(defun +org-disable-visual-line-mode-h ()
+  (visual-line-mode -1))

@@ -15,6 +15,7 @@
         org-attach-id-dir (expand-file-name "attachments/" org-directory)
         org-id-locations-file (expand-file-name ".org-ids" doom-cache-dir)
         org-brain-data-file (expand-file-name ".org-brain.el" doom-cache-dir))
+  (add-hook 'org-mode-hook #'+org-disable-visual-line-mode-h)
   (set-popup-rule! "^\\*Org Agenda" :side 'bottom :size 0.5 :select t :ttl nil)
   (+org-agenda--load-files org-directory)
 
