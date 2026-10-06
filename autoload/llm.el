@@ -2,6 +2,7 @@
 
 ;;;###autoload
 (defun +gptel-anthropic-key ()
+  (require 'auth-source)
   (let* ((claude-host "platform.claude.com")
          (auth-sources '("~/.authinfo.gpg"))
          (auth-source-creation-prompts
