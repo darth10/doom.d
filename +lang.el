@@ -163,8 +163,10 @@
   (setq lsp-nix-nil-auto-eval-inputs nil
         lsp-nix-nil-formatter ["alejandra"]))
 
-(after! auctex
+(use-package! auctex
+  :defer t
+  :init
+  (setq +latex-viewers '(pdf-tools skim evince sumatrapdf zathura okular))
+  :config
   (add-hook! 'LaTeX-mode-hook
-             #'auto-fill-mode #'prettify-symbols-mode)
-
-  (setq +latex-viewers '(pdf-tools skim evince sumatrapdf zathura okular)))
+             #'auto-fill-mode #'prettify-symbols-mode))
