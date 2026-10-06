@@ -37,7 +37,7 @@
 
 ;;; Clojure
 
-(plist-put +ligatures-extra-symbols :fn '(?\s (Br . Bl) ?\s (Bc . Bc) ?𝝺))
+(plist-put +ligatures-extra-symbols :fn '(?\s (Br . Bl) ?\s (Bc . Bc) ?λ))
 (set-ligatures! '(clojure-mode clojure-ts-mode)
   :fn "fn")
 
