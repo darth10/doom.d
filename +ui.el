@@ -35,7 +35,8 @@
 
 (use-package! dashboard
   :config
-  (setq dashboard-startup-banner (expand-file-name "resources/doomemacs.txt" doom-user-dir)
+  (setq dashboard-startup-banner (cons +ui-banner-image-file +ui-banner-text-file)
+        dashboard-banner-logo-title "Welcome to Doom Emacs!"
         dashboard-items '((projects . 3)
                           (recents  . 10)))
   (dashboard-setup-startup-hook))

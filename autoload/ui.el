@@ -8,13 +8,19 @@ To quit Emacs, type C-x C-c.
 For information about GNU Emacs and the GNU system, type C-h C-a.")
 
 ;;;###autoload
+(defconst +ui-banner-image-file (expand-file-name "resources/doomemacs.png" doom-user-dir))
+
+;;;###autoload
+(defconst +ui-banner-text-file (expand-file-name "resources/doomemacs.txt" doom-user-dir))
+
+;;;###autoload
 (defun +ui--get-scratch-message ()
   "Get message to show in *scratch* buffer."
   ;; '((t (:inherit font-lock-keyword-face :weight bold)))
   (let* ((face-for-logo 'font-lock-keyword-face)
          (face-for-keys 'font-lock-function-name-face)
          (logo-text (with-temp-buffer
-                      (insert-file-contents (expand-file-name "resources/doomemacs.txt" doom-user-dir))
+                      (insert-file-contents +ui-banner-text-file)
                       (buffer-string)))
          (face-for-comments 'font-lock-comment-delimiter-face)
          (version-text (concat
