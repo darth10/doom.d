@@ -34,9 +34,9 @@
   "Add username for ENTRY into the kill ring."
   (interactive
    (list (password-store--completing-read)))
-  (if-let* ((url (+pass-get-field entry +pass-user-fields)))
-      (password-store--save-field-in-kill-ring entry url "username")
-    (error "URL not found.")))
+  (if-let* ((username (+pass-get-field entry +pass-user-fields)))
+      (password-store--save-field-in-kill-ring entry username "username")
+    (error "Username not found.")))
 
 ;;;###autoload
 (defalias '+pass/copy-secret-to-kill-ring 'password-store-copy)
