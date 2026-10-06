@@ -27,6 +27,8 @@
                              "+" #'+org/insert-parens-and-add
                              :desc "Recalculate table"
                              "r" #'org-table-recalculate
+                             :desc "Credit card entries for month"
+                             "n" #'+org/credit-card-matching-entries-for-month
                              (:prefix ("l" . "cell")
                               :desc "Move cell left"
                               "h" #'org-table-move-cell-left

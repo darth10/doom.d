@@ -93,3 +93,51 @@
 ;;;###autoload
 (defun +org-disable-visual-line-mode-h ()
   (visual-line-mode -1))
+
+(defun +org--credit-card-table ()
+  (save-excursion
+    (unless (org-at-table-p)
+      (goto-char (point-min))
+      (unless (re-search-forward org-table-line-regexp nil t)
+        (user-error "No table in this buffer")))
+    (org-table-to-lisp)))
+
+(defun +org--credit-card-month-entries (table)
+  "Data rows of TABLE as (MONTH . ROW), MONTH being the latest MMM marker above ROW."
+  (let ((rows (cdr (memq 'hline table)))
+        month acc)
+    (while (and rows (not (eq (car rows) 'hline)))
+      (let ((row (pop rows)))
+        (unless (string-empty-p (car row))
+          (setq month (car row)))
+        (push (cons month row) acc)))
+    (nreverse acc)))
+
+(defun +org--credit-card-matching-entries (regexp month)
+  (let ((case-fold-search nil))
+    (seq-keep (lambda (entry)
+                (and (equal (car entry) month)
+                     (string-match-p regexp (nth 4 (cdr entry)))
+                     (cdr entry)))
+              (+org--credit-card-month-entries (+org--credit-card-table)))))
+
+;;;###autoload
+(defun +org/credit-card-matching-entries-for-month (regexp month)
+  "Show the current credit card entries for MONTH that match REGEXP."
+  (interactive
+   (let ((regexp (read-string "Search: " (current-word) 'regexp-history))
+         (months (delete-dups (delq nil (mapcar #'car (+org--credit-card-month-entries (+org--credit-card-table)))))))
+     (list regexp (completing-read "Month: " months nil t nil nil (car (last months))))))
+  (let ((rows (+org--credit-card-matching-entries regexp month)))
+    (with-current-buffer (get-buffer-create (format "*Credit card %s: %s*" regexp month))
+      (erase-buffer)
+      (org-mode)
+      (insert "| MMM | - | + | = | R |\n|-\n")
+      (insert "| " month " |   |   |   |   |\n")
+      (dolist (row rows)
+        (insert "| " (string-join row " | ") " |\n"))
+      (insert "|-\n| _ | credit | paid | total | |\n| # | | | | |\n")
+      (insert "#+TBLFM: $credit=vsum(@2..@-2)::$paid=vsum(@2..@-2)::$total=vsum(@2$2..@-2$2)-vsum(@2$3..@-2$3)")
+      (goto-char (point-min))
+      (org-table-recalculate t)
+      (pop-to-buffer (current-buffer)))))
