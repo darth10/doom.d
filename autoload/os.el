@@ -11,14 +11,14 @@
   (interactive)
   (let* ((choices (+aws-list-profiles))
          (profile (completing-read "Profile: " choices)))
-    (async-shell-command (concat "aws sso login --profile " profile))))
+    (async-shell-command (concat "aws sso login --profile " (shell-quote-argument  profile)))))
 
 ;;;###autoload
 (defun +aws/assume-role ()
   (interactive)
   (let* ((choices (+aws-list-profiles))
          (profile (completing-read "Profile: " choices)))
-    (async-shell-command (concat "assume-aws " profile))))
+    (async-shell-command (concat "assume-aws " (shell-quote-argument profile)))))
 
 ;;;###autoload
 (defun +pass/copy-url-to-kill-ring (entry)
