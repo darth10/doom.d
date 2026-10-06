@@ -139,25 +139,12 @@ opening an org entry with a list."
 
 (after! org-pomodoro
   (setq org-pomodoro-format "~%s")
-  (defadvice! +org-pomodoro-update-mode-line-a ()
-    "Set the modeline accordingly to the current `org-pomodoro' state."
-    :override #'org-pomodoro-update-mode-line
-    (let ((s (cl-case org-pomodoro-state
-               (:pomodoro
-                (propertize org-pomodoro-format 'face 'org-pomodoro-mode-line))
-               (:overtime
-                (propertize org-pomodoro-overtime-format
-                            'face 'org-pomodoro-mode-line-overtime))
-               (:short-break
-                (propertize org-pomodoro-short-break-format
-                            'face 'org-pomodoro-mode-line-break))
-               (:long-break
-                (propertize org-pomodoro-long-break-format
-                            'face 'org-pomodoro-mode-line-break)))))
-      (setq org-pomodoro-mode-line
-            (when (and (org-pomodoro-active-p) (> (length s) 0))
-              (list " [" (format s (org-pomodoro-format-seconds)) "]"))))
-    (force-mode-line-update t)))
+  (defadvice! +org-pomodoro-mode-line-spacing-a ()
+    "Put the space before the pomodoro timer instead of after it."
+    :after #'org-pomodoro-update-mode-line
+    (pcase org-pomodoro-mode-line
+      (`("[" ,time "] ")
+       (setq org-pomodoro-mode-line (list " [" time "]"))))))
 
 (after! org-download
   (setopt org-download-screenshot-method
