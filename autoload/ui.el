@@ -44,6 +44,3 @@ For information about GNU Emacs and the GNU system, type C-h C-a.")
       "^" (propertize ";; " 'face face-for-comments)
       help-text)
      "\n\n")))
-
-;;;###autoload
-(defvar +ui--hl-line-background "#00212b") ; solaire-hl-line-face background

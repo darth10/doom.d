@@ -44,23 +44,25 @@
 (setq doom-theme 'doom-solarized-dark
       doom-font (font-spec :family "Consolas ligaturized v3" :size 17 :weight 'normal))
 
-(custom-theme-set-faces! 'doom-solarized-dark
-  '(consult-highlight-match :background "Springgreen2" :foreground "DimGray")
-  '(orderless-match-face-0 :background "Springgreen2" :foreground "DimGray")
-  '(orderless-match-face-1 :background "#033445" :foreground "#4b8eba")
-  '(font-lock-constant-face :foreground "#859900")
-  '(font-lock-keyword-face :foreground "#5ac8f5")
-  '(font-lock-number-face :foreground "dark gray")
-  '(iedit-occurrence :foreground "Springgreen2" :background "DimGray")
-  '(isearch :background "Springgreen2" :foreground "DimGray")
-  '(lsp-face-highlight-textual :background "Springgreen2" :foreground "DimGray")
-  '(mode-line :box nil :overline nil :underline nil)
-  '(mode-line-inactive :box nil :overline nil :underline nil)
-  '(rainbow-delimiters-depth-2-face :foreground "#5ac8f5")
-  '(rainbow-delimiters-depth-7-face :foreground "#5ac8f5")
-  '(region :foreground "SkyBlue" :background "DarkSlateGray")
-  '(show-paren-match :background "Springgreen2" :foreground "DimGray")
-  `(window-divider :foreground ,+ui--hl-line-background))
+(let ((match-face '(:background "Springgreen2" :foreground "DimGray"))
+      (keyword-blue-color "#5ac8f5"))
+  (custom-theme-set-faces! 'doom-solarized-dark
+    `(consult-highlight-match ,@match-face)
+    `(orderless-match-face-0 ,@match-face)
+    '(orderless-match-face-1 :background "#033445" :foreground "#4b8eba")
+    `(font-lock-constant-face :foreground ,(doom-color 'green))
+    `(font-lock-keyword-face :foreground ,keyword-blue-color)
+    '(font-lock-number-face :foreground "dark gray")
+    '(iedit-occurrence :foreground "Springgreen2" :background "DimGray")
+    `(isearch ,@match-face)
+    `(lsp-face-highlight-textual ,@match-face)
+    '(mode-line :box nil :overline nil :underline nil)
+    '(mode-line-inactive :box nil :overline nil :underline nil)
+    `(rainbow-delimiters-depth-2-face :foreground ,keyword-blue-color)
+    `(rainbow-delimiters-depth-7-face :foreground ,keyword-blue-color)
+    '(region :foreground "SkyBlue" :background "DarkSlateGray")
+    `(show-paren-match ,@match-face)
+    `(window-divider :foreground ,(doom-color 'bg-alt))))
 
 (setq +ligatures-alist
       '((prog-mode "|||>" "<|||" "<==>" "<!--" "~~>" "||=" "||>"

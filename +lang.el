@@ -8,7 +8,7 @@
   :config
   (defun +highlight-sexp--set-hl-line ()
     (hl-line-mode (if highlight-sexp-mode -1 +1)))
-  (setopt hl-sexp-background-color +ui--hl-line-background))
+  (setopt hl-sexp-background-color (doom-color 'bg-alt)))
 
 (map! :localleader
       (:map (common-lisp-mode-map
