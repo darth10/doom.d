@@ -19,7 +19,6 @@
 (package! mise)
 (package! monkeytype)
 (package! nov)
-(package! org-brain)
 (package! org-pomodoro)
 (package! password-generator)
 (package! powershell)

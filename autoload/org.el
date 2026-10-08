@@ -1,13 +1,6 @@
 ;;; autoload/org.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
-(defun +org-brain/cliplink-resource ()
-  "Add a URL from the clipboard as an org-brain resource with prompts."
-  (interactive)
-  (require 'org-cliplink)
-  (org-brain-add-resource (org-cliplink-clipboard-content) nil t))
-
-;;;###autoload
 (defvar +org-gcal-calendar-id nil)
 
 ;;;###autoload
@@ -16,7 +9,6 @@
 ;;;###autoload
 (defun +org-gcal--load ()
   "Load client ID, secret and email from `auth-sources'."
-  (require 'org-brain)
   (require 'auth-source)
   (let* ((org-gcal-host "www.googleapis.com")
          (auth-sources '("~/.authinfo.gpg"))
@@ -38,7 +30,7 @@
     (if-let* ((client-gmail (plist-get auth-plist :gmail)))
         (setq org-gcal-file-alist
               (list (cons client-gmail
-                          (expand-file-name +org-gcal-org-file-name org-brain-path)))
+                          (expand-file-name +org-gcal-org-file-name org-roam-directory)))
               +org-gcal-calendar-id client-gmail)
       (error "Malformed Google Mail address."))
     (if-let* ((client-secret (plist-get auth-plist :secret))
@@ -50,11 +42,6 @@
                 ((functionp save-function)))
       (funcall save-function))
     (org-gcal-reload-client-id-secret)))
-
-;;;###autoload
-(defun +org-agenda--load-files (dir)
-  "Sets `org-agenda-files' to all org files in directory DIR."
-  (setopt org-agenda-files (directory-files-recursively dir "\\.org$")))
 
 ;;;###autoload
 (defun +org/eval-and-replace ()

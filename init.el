@@ -78,7 +78,7 @@
        (latex +lsp)
        (markdown +grip)
        (nix +lsp +tree-sitter)
-       (org +dragndrop +gnuplot +pandoc +present)
+       (org +dragndrop +gnuplot +pandoc +present +roam)
        ;; php
        plantuml
        ;; python

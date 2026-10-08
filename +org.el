@@ -11,13 +11,14 @@
         org-directory "~/Cloud/org"
         org-log-into-drawer t
         org-log-done t
-        org-id-locations-file-relative t ;; Required for org-brain
         org-attach-id-dir (expand-file-name "attachments/" org-directory)
         org-id-locations-file (expand-file-name ".org-ids" doom-cache-dir)
-        org-brain-data-file (expand-file-name ".org-brain.el" doom-cache-dir))
+        org-refile-targets '((nil :maxlevel . 3)
+                             (org-roam-list-files :maxlevel . 3)
+                             (+roam-agenda--capture-files :maxlevel . 3)))
+  (add-to-list 'org-tags-exclude-from-inheritance "agenda")
   (add-hook 'org-mode-hook #'+org-disable-visual-line-mode-h)
   (set-popup-rule! "^\\*Org Agenda" :side 'bottom :size 0.5 :select t :ttl nil)
-  (+org-agenda--load-files org-directory)
 
   (map! (:map org-mode-map
               (:localleader (:prefix "b"
@@ -37,14 +38,7 @@
                               :desc "Move cell up"
                               "k" #'org-table-move-cell-up
                               :desc "Move cell right"
-                              "l" #'org-table-move-cell-right))
-                            (:prefix (";" . "brain")
-                             :desc "Goto entry"
-                             ";" #'org-brain-goto
-                             :desc "Visualize entry"
-                             ":" #'org-brain-visualize
-                             :desc "Switch brain"
-                             "/" #'org-brain-switch-brain))
+                              "l" #'org-table-move-cell-right)))
               "C-x C-e" #'+org/eval-and-replace))
 
   (after! plantuml-mode
@@ -84,55 +78,24 @@
               "C-s"           #'org-save-all-org-buffers
               "s-s"           #'org-save-all-org-buffers)))
 
-(use-package! org-brain
+(use-package! org-roam
   :defer t
   :init
-  (setq org-brain-visualize-default-choices 'all
-        org-brain-title-max-length 24
-        org-brain-include-file-entries nil
-        org-brain-file-entries-use-title nil)
+  (setq org-roam-directory "~/Cloud/org/brain/")
+  (set-file-template! 'org-mode
+    :when (lambda (file) (file-in-directory-p file org-roam-directory))
+    :ignore t)
+  (add-hook 'find-file-hook #'+roam-agenda-update-tag-h)
+  (add-hook 'before-save-hook #'+roam-agenda-update-tag-h)
+  (dolist (fn '(org-agenda org-agenda-list org-todo-list))
+    (advice-add fn :before #'+roam-agenda-files-update-a))
+  (dolist (fn '(org-tags-view org-search-view))
+    (advice-add fn :around #'+roam-agenda-all-files-a))
   :config
-  (set-popup-rule! "^\\*org-brain" :side 'bottom :size 0.5 :select t :ttl nil)
-  (map! (:map org-brain-visualize-mode-map
-              "L"             #'+org-brain/cliplink-resource))
-  (defadvice! +org-brain-entry-data (entry)
-    "Run `org-element-parse-buffer' on ENTRY text.
-Sets `tab-width' in the used temporary buffer, as
-`org-current-text-column' expects it to be 8.
-
-If this override is not used, `org-brain-visualize' will crash on
-opening an org entry with a list."
-    :override #'org-brain-entry-data
-    (with-temp-buffer
-      (setq-local tab-width 8)
-      (insert (org-brain-text entry t))
-      (org-element-parse-buffer)))
-
-  (cl-pushnew '("b" "Brain" plain (function org-brain-goto-end)
-                "* %i%?" :empty-lines 1)
-              org-capture-templates
-              :key #'car :test #'equal)
-
-  (when (modulep! :editor evil +everywhere)
-    (set-evil-initial-state!
-      '(org-brain-visualize-mode
-        org-brain-select-map
-        org-brain-move-map
-        org-brain-polymode-map)
-      'normal)
-    (defun +org--evilify-map (map)
-      (let (keys)
-        (map-keymap (lambda (event function)
-                      (push function keys)
-                      (push (vector event) keys))
-                    map)
-        (apply #'evil-define-key* 'normal map keys)))
-
-    (+org--evilify-map org-brain-visualize-mode-map)
-    (+org--evilify-map org-brain-select-map)
-    (+org--evilify-map org-brain-move-map)
-    (after! polymode
-      (+org--evilify-map org-brain-polymode-map))))
+  (setq org-roam-capture-templates
+        '(("d" "default" plain "%?"
+           :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+           :unnarrowed t))))
 
 (after! flycheck
   (setq flycheck-global-modes '(not org-mode)))
