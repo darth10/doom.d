@@ -95,7 +95,11 @@
   (setq org-roam-capture-templates
         '(("d" "default" plain "%?"
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-           :unnarrowed t))))
+           :unnarrowed t)))
+  (map! :map org-mode-map
+        :localleader
+        :prefix "m"
+        "u" #'org-roam-ui-mode))
 
 (after! flycheck
   (setq flycheck-global-modes '(not org-mode)))
@@ -116,3 +120,25 @@
 
 (after! lispy
   (add-to-list 'lispy-eval-alist '(org-mode elisp-mode lispy--eval-elisp)))
+
+(use-package! org-roam-ui
+  :commands (org-roam-ui-mode)
+  :config
+  ;; org-roam-ui's WebSocket accepts any website and acts on its
+  ;; open/delete/create commands, so only trust org-roam-ui's own page.
+  (defun +org-roam-ui--trusted-ws-p (ws)
+    "Non-nil if WS was opened by org-roam-ui's own page."
+    (member (websocket-origin ws)
+            (list (format "http://localhost:%d" org-roam-ui-port)
+                  (format "http://127.0.0.1:%d" org-roam-ui-port))))
+  (defadvice! +org-roam-ui-reject-foreign-open-a (fn ws)
+    "Close WebSocket connections from other sites before any data is sent."
+    :around #'org-roam-ui--ws-on-open
+    (if (+org-roam-ui--trusted-ws-p ws)
+        (funcall fn ws)
+      (websocket-close ws)))
+  (defadvice! +org-roam-ui-reject-foreign-message-a (fn ws frame)
+    "Ignore commands from other sites."
+    :around #'org-roam-ui--ws-on-message
+    (when (+org-roam-ui--trusted-ws-p ws)
+      (funcall fn ws frame))))
