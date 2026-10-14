@@ -30,7 +30,7 @@
        (evil +everywhere)
        file-templates
        fold
-       format
+       (format +lsp)
        lispy
        multiple-cursors
        rotate-text
@@ -56,7 +56,7 @@
        eval
        llm
        (lookup +docsets)
-       lsp
+       (lsp +eglot)
        (magit +forge)
        make
        pass

@@ -67,5 +67,15 @@ WINDOW defaults to current window."
       (delete-window (selected-window)))))
 
 ;;;###autoload
-(defun +lsp-enable-eldoc-local ()
-  (set (make-local-variable 'lsp-eldoc-enable-hover) t))
+(defvar +eglot--pending-servers nil
+  "Eglot servers that have started but not finished initializing.")
+
+;;;###autoload
+(defun +eglot--pending-server (project)
+  "Return a still-initializing server for PROJECT that can manage this buffer."
+  (setq +eglot--pending-servers
+        (seq-filter #'jsonrpc-running-p +eglot--pending-servers))
+  (seq-find (lambda (server)
+              (and (equal (eglot--project server) project)
+                   (eglot--languageId server)))
+            +eglot--pending-servers))

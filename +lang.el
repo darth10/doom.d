@@ -52,8 +52,6 @@
           ("authorize" . ((:block 1)))
           ("featureflag" . ((:block 1)))))
 
-  (add-hook! 'clojure-ts-clojurescript-mode-hook #'+lsp-enable-eldoc-local)
-
   (defadvice! +clojure-ts-thread-first-all-a (&rest _)
     :after #'clojure-ts-thread-first-all
     (+clojure-thread-oneline))
@@ -83,7 +81,12 @@
   ;; This is still needed even though the evil-snipe package is disabled.
   (remove-hook! cider--debug-mode
     'turn-off-evil-snipe-mode
-    'turn-off-evil-snipe-override-mode))
+    'turn-off-evil-snipe-override-mode)
+
+  (add-hook! 'cider-mode-hook
+    (defun +cider-disable-eldoc-h ()
+      (when cider-mode
+        (remove-hook 'eldoc-documentation-functions #'cider-eldoc t)))))
 
 (use-package! cider-eval-sexp-fu
   :after (clojure-mode cider))
@@ -156,12 +159,15 @@
 (after! plantuml-mode
   (setq plantuml-default-exec-mode 'jar))
 
-(after! nix-mode
-  (set-formatter! 'alejandra '("alejandra" "--quiet") :modes '(nix-mode)))
+;; Nix
 
-(after! lsp-nix
-  (setq lsp-nix-nil-auto-eval-inputs nil
-        lsp-nix-nil-formatter ["alejandra"]))
+(set-formatter! 'alejandra '("alejandra" "--quiet") :modes '(nix-mode nix-ts-mode))
+
+(after! eglot
+  (setq-default eglot-workspace-configuration
+                '(:nil (:formatting (:command ["alejandra"])
+                        :nix (:flake (:autoEvalInputs :json-false
+                                      :autoArchive :json-false))))))
 
 (use-package! auctex
   :defer t

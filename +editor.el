@@ -127,11 +127,28 @@
     :config
     (vertico-mouse-mode t)))
 
-(after! lsp-mode
-  (setq lsp-eldoc-enable-hover nil
-        lsp-ui-doc-enable nil
-        lsp-ui-sideline-enable nil
-        lsp-modeline-diagnostics-enable nil))
+(defadvice! +eglot--reuse-pending-server-a (fn managed-modes project &rest args)
+  "Don't start a second LSP server while one for PROJECT is still initializing."
+  :around #'eglot--connect
+  (if-let* ((server (+eglot--pending-server project)))
+      (eglot--message "Waiting for pending server `%s'" (jsonrpc-name server))
+    (apply fn managed-modes project args)))
+
+(after! eglot
+  (setq eglot-code-action-indications '(left-fringe margin)
+        eglot-connect-timeout 120
+        eglot-extend-to-xref t)
+
+  (add-hook 'eglot-server-initialized-hook
+            (defun +eglot--track-pending-h (server)
+              (push server +eglot--pending-servers)))
+
+  ;; Inside `after!': adding to `eglot-connect-hook' before eglot loads drops
+  ;; its default.
+  (add-hook 'eglot-connect-hook
+            (defun +eglot--untrack-pending-h (server)
+              (setq +eglot--pending-servers
+                    (delq server +eglot--pending-servers)))))
 
 (use-package! mise
   :when (executable-find "mise")
