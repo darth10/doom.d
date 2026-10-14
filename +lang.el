@@ -135,6 +135,13 @@
   (map! (:map clj-refactor-map
               "/" nil)))        ; cljr-slash
 
+(use-package! jarchive
+  :after eglot
+  :config
+  (jarchive-mode)
+  (after! recentf
+    (add-to-list 'recentf-exclude jarchive--uri-regex)))
+
 (after! cider
   ;; This is still needed even though the evil-snipe package is disabled.
   (remove-hook! cider--debug-mode

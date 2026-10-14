@@ -12,6 +12,7 @@
 (package! feature-mode)
 (package! highlight-sexp)
 (package! ialign)
+(package! jarchive)
 (package! k8s-mode)
 (package! kubernetes)
 (package! magit-todos)
