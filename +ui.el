@@ -34,11 +34,20 @@
   (ultra-scroll-mode 1))
 
 (use-package! dashboard
+  :init
+  (map! :leader
+        (:prefix "o"
+         :desc "Dashboard"
+         "o" #'dashboard-open))
   :config
-  (setq dashboard-startup-banner (cons +ui-banner-image-file +ui-banner-text-file)
+  (setq dashboard-startup-banner +ui-banner-text-file
         dashboard-banner-logo-title "Welcome to Doom Emacs!"
         dashboard-items '((projects . 3)
-                          (recents  . 10)))
+                          (recents  . 10))
+        dashboard-startupify-list (cl-substitute #'+ui-dashboard-insert-banner
+                                                 'dashboard-insert-banner
+                                                 dashboard-startupify-list))
+  (add-hook 'enable-theme-functions #'+ui-dashboard-refresh-on-theme-h)
   (dashboard-setup-startup-hook))
 
 (setq doom-theme 'doom-solarized-dark
