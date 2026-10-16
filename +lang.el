@@ -1,5 +1,63 @@
 ;;; +lang.el -*- lexical-binding: t; -*-
 
+(after! js
+  (setq js-indent-level 2))
+
+(after! emmet-mode
+  (map! (:map emmet-mode-keymap
+              "<tab>" #'emmet-expand-line)))
+
+(use-package! powershell
+  :mode (("\\.ps1\\'" . powershell-mode)
+         ("\\.psm1\\'" . powershell-mode)))
+
+(after! sql
+  (add-to-list 'process-coding-system-alist '("sqlcmd" . cp850-dos))
+  (setq sql-ms-program "sqlcmd"
+        sql-ms-options nil))
+
+(use-package! gnuplot
+  :mode ("\\.gnuplot\\'" . gnuplot-mode)
+  :hook
+  (gnuplot-mode . gnuplot-inline-display-mode)
+  (gnuplot-mode . display-line-numbers-mode)
+  :config
+  (set-repl-handler! 'gnuplot-mode #'gnuplot-show-gnuplot-buffer))
+
+(after! grip-mode
+  (defadvice! +markdown-grip-load-password-a (&rest _)
+    :before #'grip-mode
+    (let* ((host "api.github.com")
+           (match (car (auth-source-search :host host))))
+      (if match
+          (let* ((secret-list (plist-get match :secret))
+                 (secret (if (functionp secret-list)
+                             (funcall secret-list)
+                           secret-list)))
+            (setq grip-github-password secret))
+        (doom-log "Password not found for %S" host)))))
+
+(after! plantuml-mode
+  (setq plantuml-default-exec-mode 'jar))
+
+(use-package! auctex
+  :defer t
+  :init
+  (setq +latex-viewers '(pdf-tools skim evince sumatrapdf zathura okular))
+  :config
+  (add-hook! 'LaTeX-mode-hook
+             #'auto-fill-mode #'prettify-symbols-mode))
+
+;;; Nix
+
+(set-formatter! 'alejandra '("alejandra" "--quiet") :modes '(nix-mode nix-ts-mode))
+
+(after! eglot
+  (setq-default eglot-workspace-configuration
+                '(:nil (:formatting (:command ["alejandra"])
+                        :nix (:flake (:autoEvalInputs :json-false
+                                      :autoArchive :json-false))))))
+
 ;;; Lisps
 
 (use-package! highlight-sexp
@@ -105,74 +163,3 @@
               "M-r" #'lispy-raise-sexp
               "M-}" #'lispy-splice-sexp-killing-backward
               "M-]" #'lispy-splice-sexp-killing-forward)))
-
-;;; JavaScript
-
-(after! js
-  (setq js-indent-level 2))
-
-;;; Web
-
-(after! emmet-mode
-  (map! (:map emmet-mode-keymap
-              "<tab>" #'emmet-expand-line)))
-
-;;; PowerShell
-
-(use-package! powershell
-  :mode (("\\.ps1\\'" . powershell-mode)
-         ("\\.psm1\\'" . powershell-mode)))
-
-;;; SQL
-
-(after! sql
-  (add-to-list 'process-coding-system-alist '("sqlcmd" . cp850-dos))
-  (setq sql-ms-program "sqlcmd"
-        sql-ms-options nil))
-
-;;; gnuplot
-
-(use-package! gnuplot
-  :mode ("\\.gnuplot\\'" . gnuplot-mode)
-  :hook
-  (gnuplot-mode . gnuplot-inline-display-mode)
-  (gnuplot-mode . display-line-numbers-mode)
-  :config
-  (set-repl-handler! 'gnuplot-mode #'gnuplot-show-gnuplot-buffer))
-
-;;; markdown
-
-(after! grip-mode
-  (defadvice! +markdown-grip-load-password-a (&rest _)
-    :before #'grip-mode
-    (let* ((host "api.github.com")
-           (match (car (auth-source-search :host host))))
-      (if match
-          (let* ((secret-list (plist-get match :secret))
-                 (secret (if (functionp secret-list)
-                             (funcall secret-list)
-                           secret-list)))
-            (setq grip-github-password secret))
-        (doom-log "Password not found for %S" host)))))
-
-
-(after! plantuml-mode
-  (setq plantuml-default-exec-mode 'jar))
-
-;; Nix
-
-(set-formatter! 'alejandra '("alejandra" "--quiet") :modes '(nix-mode nix-ts-mode))
-
-(after! eglot
-  (setq-default eglot-workspace-configuration
-                '(:nil (:formatting (:command ["alejandra"])
-                        :nix (:flake (:autoEvalInputs :json-false
-                                      :autoArchive :json-false))))))
-
-(use-package! auctex
-  :defer t
-  :init
-  (setq +latex-viewers '(pdf-tools skim evince sumatrapdf zathura okular))
-  :config
-  (add-hook! 'LaTeX-mode-hook
-             #'auto-fill-mode #'prettify-symbols-mode))
